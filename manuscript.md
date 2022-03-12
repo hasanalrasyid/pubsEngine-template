@@ -38,6 +38,8 @@ acknowledgements:
       Part of this work was supported by the German
       *Deutsche Forschungsgemeinschaft, DFG* project
       number Ts 17/2--1.
+include-headers: |
+  \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
 
 ---
 
@@ -219,7 +221,8 @@ notation:
    (depending upon the time scales) will be different for layers
    in different objects.
 
-Table: Simple table using default markdown table. \label{simpleTable}
+<!--
+Table: Simple table using default markdown table. Currently not working in two-columns environment due to [this issue](https://github.com/jgm/pandoc/issues/1023) \label{simpleTable}
 
 -----------------------
 Header1 Header2 Header3
@@ -240,6 +243,52 @@ And more      | With an escaped '\|'         ||
 [More complicated table can be done using multimarkdown in .multiTable Code Block.]
 ~~~
 
+-->
+
+\begin{table}
+\centering
+
+      \caption[]{Opacity sources. Prototype for correct table. In half-column mode.}
+\begin{tabular}{@{}cc
+    *{4}{S[table-format=6.3,output-decimal-marker={,}]}
+@{}}
+\toprule
+Lp. & Miejscowość
+& \multicolumn{2}{@{}c}{Zapotrzebowanie na wodę, \si{m^3/\day}} \\
+& & \mC{$Q_{\text{śrd}}$} & \mC{$Q_{\text{maxd}}$} \\
+\midrule
+1.    & X1 & 57,2  & 74,4  \\
+2.    & X2 & 82,5  & 107,3  \\
+3.    & X3 & 47,3  & 61,5  \\
+4.    & X4 & 24,2  & 31,5  \\
+5.    & X5 & 211,2 & 274,7  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table*}
+\centering
+
+\caption[]{Opacity sources. Prototype for correct table. In full screen mode. \label{KapSou}}
+\begin{tabular}{@{}cc
+    *{4}{S[table-format=6.3,output-decimal-marker={,}]}
+@{}}
+\toprule
+Lp. & Miejscowość
+& \multicolumn{2}{@{}c}{Zapotrzebowanie na wodę, \si{m^3/\day}}
+& \multicolumn{2}{c@{}}{Odpływ ścieków, \si{m^3/\day}} \\
+& & \mC{$Q_{\text{śrd}}$} & \mC{$Q_{\text{maxd}}$} &
+    \mC{$Q_{\text{rdś}}$} & \mC{$Q_{\text{maxd}}$} \\
+\midrule
+1.    & X1 & 57,2  & 74,4  & 54,3  & 70,7 \\
+2.    & X2 & 82,5  & 107,3 & 78,4  & 101,9 \\
+3.    & X3 & 47,3  & 61,5  & 44,9  & 58,4 \\
+4.    & X4 & 24,2  & 31,5  & 23,0  & 29,9 \\
+5.    & X5 & 211,2 & 274,7 & 200,6 & 260,9 \\
+\bottomrule
+\end{tabular}
+\end{table*}
 
 
 <!--
