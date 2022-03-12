@@ -1,6 +1,6 @@
 ---
 title: "Paperlighter Template Implementation Example"
-author: |
+author:
   - number: 1
     name: "Author One"
     correspond: true
@@ -16,7 +16,10 @@ authorSmall: "Author One et.al."
 linkDir: |
   - Figure
   - Output
-abstract: |
+appendix: |
+  - appendix/1
+  - appendix/2
+abstract:
     Using \LaTeX\{\} to write papers is concise and convenient. However, for
     writing in life, complicated \LaTeX\{\} style-files (e.g., elegantpaper)
     are difficult to access, or submission style-files (e.g., journal or
@@ -315,6 +318,7 @@ Typically, this will include thanks to colleagues who contributed to the
 ideas, and to funding agencies and corporate sponsors that provided
 financial support.
 
+<!--
 # Basic properties of protein and nucleic acids
 ## Basic principle of protein
 ### Unit structure of protein
@@ -333,6 +337,7 @@ There are 4 levels of protein organization:
   This structure is formed from several tertiary structure proteins or domains with more complex shape.
 
 ![Structure of protein](./Figures/Figure1)
+-->
 
 <!--
 \begin{figure}[h!]
@@ -342,7 +347,7 @@ There are 4 levels of protein organization:
   \label{fig:figure1}
 \end{figure}
 -->
-
+<!--
 ### Basic motif of protein
 There are two types of secondary structure for hydrophobic type:
 
@@ -353,6 +358,8 @@ There are two types of secondary structure for hydrophobic type:
   Beta sheet is also one of common motif in protein, consist of $\beta$ strands connected hydrogen bonds, forming a generally twisted and pleated sheet.
 
 ![Secondary alpha-helix and beta sheet structures](./Figures/Alpha_beta_structure_full)
+-->
+
 <!--
 \begin{figure}[h!]
   \centering
@@ -362,6 +369,7 @@ There are two types of secondary structure for hydrophobic type:
 \end{figure}
 -->
 
+<!--
 ## Structure of nucleic acid, DNA and protein
 
 ###  3 structures of DNA:
@@ -372,6 +380,7 @@ There are two types of secondary structure for hydrophobic type:
 * Z-DNA, has double helical structure which the helix winds to the left in a zigzag pattern.
 
 ![3 types of DNA conformations: A-DNA, B-DNA, and Z-DNA](./Figures/Dnaconformations)
+-->
 <!--
 \begin{figure}[h!]
   \centering
@@ -380,7 +389,7 @@ There are two types of secondary structure for hydrophobic type:
   \label{fig:dnaconformations}
 \end{figure}
 -->
-
+<!--
 # Lipid and membrane protein
   Membrane is a function of protein that divides the biological cell into inside and outside part.
   Functions of lipid bilayer are formation of boundary, permeability, and domain formation.
@@ -397,6 +406,7 @@ There are two types of secondary structure for hydrophobic type:
   Micelles and bilayers form in the polar medium by a process of hydrophobic effect.
 
 ![Self-organization of phospholipids: a spherical liposome, a micelle, and a lipid bilayer.](./Figures/phospholipid)
+-->
 <!--
   \begin{figure}[h!]
     \centering
@@ -406,7 +416,7 @@ There are two types of secondary structure for hydrophobic type:
   \end{figure}
 -->
 
-
+<!--
 # Molecular dynamics simulation
 ## Simulation (Computational science)
   Simulation is the one that connect the theory and experiment in science.
@@ -443,4 +453,4 @@ There are two types of secondary structure for hydrophobic type:
   \begin{equation}
     D=\frac{k_BT}{\varrho}
   \end{equation}
-
+-->
