@@ -219,6 +219,30 @@ notation:
    (depending upon the time scales) will be different for layers
    in different objects.
 
+Table: Simple table using default markdown table. \label{simpleTable}
+
+-----------------------
+Header1 Header2 Header3
+------- ------- -------
+item1   item2   item3
+-----------------------
+
+
+~~~{.multiTable}
+|             |          Grouping           ||
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |          *Long Cell*        ||
+Content       |   **Cell**    |         Cell |
+
+New section   |     More      |         Data |
+And more      | With an escaped '\|'         ||
+[More complicated table can be done using multimarkdown in .multiTable Code Block.]
+~~~
+
+
+
+<!--
    \begin{table}
       \caption[]{Opacity sources.}
          \label{KapSou}
@@ -239,6 +263,7 @@ notation:
          \end{array}
      $$
    \end{table}
+-->
 
    We will now write down the sign (and therefore stability)
    determining parts of the left-hand sides of the inequalities
