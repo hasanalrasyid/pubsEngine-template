@@ -13,6 +13,9 @@ author: |
 email: "xxx@myuni.ac.jp"
 titleSmall: "Paperlighter Example"
 authorSmall: "Author One et.al."
+linkDir: |
+  - Figure
+  - Output
 abstract: |
     Using \LaTeX\{\} to write papers is concise and convenient. However, for
     writing in life, complicated \LaTeX\{\} style-files (e.g., elegantpaper)
@@ -24,21 +27,15 @@ abstract: |
     template. Compared to icml2022.sty, paperlighter.sty contain fewer
     operations, reducing adjustment while keep graceful.
     \textbf{\textit{Notably, the paper's main content only describes the format of icml2022.sty. We place the content to show the actual effect of paperlighter.sty.}}
+
 ---
 
 
-%\input{content/abstract}
-
-
-%\input{content/format}
-%\input{content/others}
-\hypertarget{format-of-the-paperlighter}{%
-\section{Format of the Paperlighter}\label{format-of-the-paperlighter}}
+# Format of the Paperlighter}
 
 Format of paperlighter is defined in this section.
 
-\hypertarget{dimensions}{%
-\subsection{Dimensions}\label{dimensions}}
+## Dimensions}\label{dimensions}}
 
 The text of the paper has an overall width of
 6.75\textasciitilde{}inches, and height of 9.0\textasciitilde{}inches.
@@ -51,8 +48,7 @@ The paper body should be set in 10\textasciitilde{}point type with a
 vertical spacing of 11\textasciitilde{}points. Please use Times typeface
 throughout the text.
 
-\hypertarget{title}{%
-\subsection{Title}\label{title}}
+## Title}\label{title}}
 
 The paper title should be set in 14\textasciitilde{}point bold type and
 centered between two horizontal rules that are 1\textasciitilde{}point
@@ -60,11 +56,7 @@ thick, with 1.0\textasciitilde{}inch between the top rule and the top
 edge of the page. Capitalize the first letter of content words and put
 the rest of the title in lower case.
 
-\hypertarget{author-information-for-submission}{%
-\subsection{Author Information for
-Submission}\label{author-information-for-submission}}
-
-\label{author info}
+## Author Information for Submission
 
 Use \verb+\lighterauthor{...}+ to specify authors and
 \verb+\lighteraddress{...}+ to specify affiliations. (Read the TeX code
@@ -72,8 +64,7 @@ used to produce this document for an example usage.) The author
 information will not be printed unless \texttt{accepted} is passed as an
 argument to the style file.
 
-\hypertarget{abstract}{%
-\subsection{Abstract}\label{abstract}}
+## Abstract}\label{abstract}}
 
 The paper abstract should begin in the left column,
 0.4\textasciitilde{}inches below the final address. The heading
@@ -86,16 +77,13 @@ body. Keep your abstract brief and self-contained, limiting it to one
 paragraph and roughly 4–6 sentences. Gross violations will require
 correction at the camera-ready phase.
 
-\hypertarget{partitioning-the-text}{%
-\subsection{Partitioning the Text}\label{partitioning-the-text}}
+## Partitioning the Text
 
 You should organize your paper into sections and paragraphs to help
 readers place a structure on the material and understand its
 contributions.
 
-\hypertarget{sections-and-subsections}{%
-\subsubsection{Sections and
-Subsections}\label{sections-and-subsections}}
+### Sections and Subsections
 
 Section headings should be numbered, flush left, and set in
 11\textasciitilde{}pt bold type with the content words capitalized.
@@ -114,9 +102,7 @@ Leave 0.18\textasciitilde{}inches of space before the heading and
 
 Please use no more than three levels of headings.
 
-\hypertarget{paragraphs-and-footnotes}{%
-\subsubsection{Paragraphs and
-Footnotes}\label{paragraphs-and-footnotes}}
+### Paragraphs and Footnotes
 
 Within each section or subsection, you should further partition the
 paper into paragraphs. Do not indent the first line of a given
@@ -147,8 +133,7 @@ estimated.}
 \vskip -0.2in
 \end{figure}
 
-\hypertarget{figures}{%
-\subsection{Figures}\label{figures}}
+## Figures
 
 You may want to include figures in the paper to illustrate your approach
 and results. Such artwork should be centered, legible, and separated
@@ -171,8 +156,7 @@ the top or bottom of a column, and you may set wide figures across both
 columns (use the environment \texttt{figure*} in \LaTeX). Always place
 two-column figures at the top or bottom of the page.
 
-\hypertarget{algorithms}{%
-\subsection{Algorithms}\label{algorithms}}
+## Algorithms
 
 If you are using \LaTeX, please use the
 \texttt{algorithm\textquotesingle{}\textquotesingle{}\ and}algorithmic’’
@@ -197,8 +181,7 @@ this package. \cref{alg:example} shows an example.
 \end{algorithmic}
 \end{algorithm}
 
-\hypertarget{tables}{%
-\subsection{Tables}\label{tables}}
+## Tables
 
 You may also want to include tables that summarize material. Like
 figures, these should be centered, legible, and numbered consecutively.
@@ -242,8 +225,7 @@ topmost row. Again, you may float tables to a column’s top or bottom,
 and set wide tables across both columns. Place two-column tables at the
 top or bottom of the page.
 
-\hypertarget{theorems-and-such}{%
-\subsection{Theorems and such}\label{theorems-and-such}}
+## Theorems and such
 
 The preferred way is to number definitions, propositions, lemmas, etc.
 consecutively, within sections, as shown below.
@@ -288,8 +270,7 @@ The set $X$ is finite.
 According to some, it is only the finite case (cf. \cref{ass:xfinite}) that is interesting.
 \end{remark}
 
-\hypertarget{citations-and-references}{%
-\subsection{Citations and References}\label{citations-and-references}}
+## Citations and References
 
 If you rely on the \LaTeX\{\} bibliographic facility, use
 \texttt{natbib.sty} included in the style-file package to obtain
@@ -327,24 +308,12 @@ bibtex, please protect capital letters of names and abbreviations in
 titles, for example, use \{B\}ayesian or \{L\}ipschitz in your .bib
 file.
 
-\hypertarget{acknowledgements}{%
-\section{Acknowledgements}\label{acknowledgements}}
+# Acknowledgements
 
 Acknowledgements is an unnumbered section at the end of the paper.
 Typically, this will include thanks to colleagues who contributed to the
 ideas, and to funding agencies and corporate sponsors that provided
 financial support.
-
-%\bibliographystyle{plainnat}
-%\bibliography{ref}
-\bibliographystyle{plainnat}%
-\bibliography{manuscript}%
-
-%\newpage
-%\appendix
-%\input{content/appendix}
-
-\end{document}
 
 # Basic properties of protein and nucleic acids
 ## Basic principle of protein
