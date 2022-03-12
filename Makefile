@@ -1,1 +1,2 @@
-pubsEngine/Makefile.forDraft
+article:
+	pubsEngine manuscript article

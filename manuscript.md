@@ -62,69 +62,75 @@ acknowledgements:
 
 # Introduction
 
-   In the \emph{nucleated instability\/} (also called core
-   instability) hypothesis of giant planet
-   formation, a critical mass for static core  envelope
-   protoplanets has been found. \citet{langley00} determined
-   the critical mass of the core to be about $12 \,M_\oplus$
-   ($M_\oplus=5.975 \times 10^{27}\,\mathrm{g}$ is the Earth mass), which
-   is independent of the outer boundary
-   conditions and therefore independent of the location in the
-   solar nebula. This critical value for the core mass corresponds
-   closely to the cores of today's giant planets.
+In the \emph{nucleated instability\/} (also called core
+instability) hypothesis of giant planet
+formation, a critical mass for static core  envelope
+protoplanets has been found. \citet{langley00} determined
+the critical mass of the core to be about $12 \,M_\oplus$
+($M_\oplus=5.975 \times 10^{27}\,\mathrm{g}$ is the Earth mass), which
+is independent of the outer boundary
+conditions and therefore independent of the location in the
+solar nebula. This critical value for the core mass corresponds
+closely to the cores of today's giant planets.
 
-   Although no hydrodynamical study has been available many workers
-   conjectured that a collapse or rapid contraction will ensue
-   after accumulating the critical mass. The main motivation for
-   this article
-   is to investigate the stability of the static envelope at the
-   critical mass. With this aim the local, linear stability of static
-   radiative gas  spheres is investigated on the basis of Baker's
-   (\citeyear{mitchell80}) standard one-zone model.
+Although no hydrodynamical study has been available many workers
+conjectured that a collapse or rapid contraction will ensue
+after accumulating the critical mass. The main motivation for
+this article
+is to investigate the stability of the static envelope at the
+critical mass. With this aim the local, linear stability of static
+radiative gas  spheres is investigated on the basis of Baker's
+(\citeyear{mitchell80}) standard one-zone model.
 
-   Phenomena similar to the ones described above for giant planet
-   formation have been found in hydrodynamical models concerning
-   star formation where protostellar cores explode
-   (Tscharnuter \citeyear{kearns89}, Balluch \citeyear{MachineLearningI}),
-   whereas earlier studies found quasi-steady collapse flows. The
-   similarities in the (micro)physics, i.e., constitutive relations of
-   protostellar cores and protogiant planets serve as a further
-   motivation for this study.
+Phenomena similar to the ones described above for giant planet
+formation have been found in hydrodynamical models concerning
+star formation where protostellar cores explode
+(Tscharnuter \citeyear{kearns89}, Balluch \citeyear{MachineLearningI}),
+whereas earlier studies found quasi-steady collapse flows. The
+similarities in the (micro)physics, i.e., constitutive relations of
+protostellar cores and protogiant planets serve as a further
+motivation for this study.
 
 
 # Baker's standard one-zone model
 
-   \begin{figure*}
-   \centering
-   \caption{Adiabatic exponent $\Gamma_1$.
-               $\Gamma_1$ is plotted as a function of
-               $\lg$ internal energy $\mathrm{[erg\,g^{-1}]}$ and $\lg$
-               density $\mathrm{[g\,cm^{-3}]}$.}
-              \label{FigGam}%
-    \end{figure*}
 
-   In this section the one-zone model of \citet{DudaHart2nd},
-   originally used to study the Cephe{\"{\i}}d pulsation mechanism, will
-   be briefly reviewed. The resulting stability criteria will be
-   rewritten in terms of local state variables, local timescales and
-   constitutive relations.
 
-   \citet{DudaHart2nd} investigates the stability of thin layers in
-   self-gravitating,
-   spherical gas clouds with the following properties:
-   \begin{itemize}
-      \item hydrostatic equilibrium,
-      \item thermal equilibrium,
-      \item energy transport by grey radiation diffusion.
-   \end{itemize}
-   For the one-zone-model Baker obtains necessary conditions
-   for dynamical, secular and vibrational (or pulsational)
-   stability (Eqs.\ (34a,\,b,\,c) in Baker \citeyear{DudaHart2nd}). Using Baker's
-   notation:
+<!-- we need figure* for make it full screen, so it must be in latex code as follows
+-->
+
+\begin{figure*}
+\centering
+\includegraphics{Figure/icml_numpapers.eps}
+\caption{Adiabatic exponent $\Gamma_1$.
+            $\Gamma_1$ is plotted as a function of
+            $\lg$ internal energy $\mathrm{[erg\,g^{-1}]}$ and $\lg$
+            density $\mathrm{[g\,cm^{-3}]}$.}
+           \label{FigGam}%
+ \end{figure*}
+
+In this section the one-zone model of \citet{DudaHart2nd},
+originally used to study the Cephe\text{\"{\i}}d pulsation mechanism, will
+be briefly reviewed. The resulting stability criteria will be
+rewritten in terms of local state variables, local timescales and
+constitutive relations.
+
+\citet{DudaHart2nd} investigates the stability of thin layers in
+self-gravitating,
+spherical gas clouds with the following properties:
+
+* hydrostatic equilibrium,
+* thermal equilibrium,
+* energy transport by grey radiation diffusion.
+
+For the one-zone-model Baker obtains necessary conditions
+for dynamical, secular and vibrational (or pulsational)
+stability (Eqs.\ (34a,\,b,\,c) in Baker \citeyear{DudaHart2nd}). Using Baker's
+notation:
 
 \noindent
    and with the definitions of the \emph{local cooling time\/}
-   (see Fig.~\ref{FigGam})
+   (see Fig. \ref{FigGam})
    \begin{equation}
       \tau_{\mathrm{co}} = \frac{E_{\mathrm{th}}}{L_{r0}} \,,
    \end{equation}
@@ -222,7 +228,7 @@ acknowledgements:
    from a simple equation of state, given for example, as a function
    of density and
    temperature. Once the microphysics, i.e.\ the thermodynamics
-   and opacities (see Table~\ref{KapSou}), are specified (in practice
+   and opacities (see Table \ref{KapSou}), are specified (in practice
    by specifying a chemical composition) the one-zone stability can
    be inferred if the thermodynamic state is specified.
    The zone -- or in
@@ -302,10 +308,16 @@ acknowledgements:
    thermodynamical state of the layer. Therefore the above relations
    define the one-zone-stability equations of state
    $S_{\mathrm{dyn}},\,S_{\mathrm{sec}}$
-   and $S_{\mathrm{vib}}$. See Fig.~\ref{FigVibStab} for a picture of
+   and $S_{\mathrm{vib}}$. See Fig. \ref{FigVibStab} for a picture of
    $S_{\mathrm{vib}}$. Regions of secular instability are
-   listed in Table~1.
+   listed in Table 1.
 
+<!-- calculate height and width of picture manually in inch, using evince -> Properties
+create label for \ref{FigVibStab} using #FigVibStab
+-->
+![Vibrational stability equation of state $S_{\mathrm{vib}}(\lg e, \lg \rho)$. $>0$ means vibrational stability.](Figure/icml_numpapers.eps){#FigVibStab width=3.43in height=2.71in}
+
+<!--
    \begin{figure}
    \centering
       \caption{Vibrational stability equation of state
@@ -314,6 +326,7 @@ acknowledgements:
               }
          \label{FigVibStab}
    \end{figure}
+-->
 
 # Conclusions
 
