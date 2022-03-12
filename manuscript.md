@@ -15,6 +15,9 @@ author:
 email: "xxx@myuni.ac.jp"
 titleshort: "Paperlighter Example"
 authorshort: "Author One et.al."
+processDate:
+  received: "March 11, 2022"
+  accepted: "April 11, 2022"
 linkDir:
   - Figure
   - Output
