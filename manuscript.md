@@ -6,10 +6,12 @@ author:
     correspond: true
     affiliation: "My City University"
     address: "Orenomachi, Orenoshi, Orenoken, Japan"
+    email: "one@myuni.ac.jp"
   - number: 2
     name: "Author Two"
     affiliation: "My Other City University"
     address: "Hokanomachi, Orenoshi, Orenoken, Japan"
+    email: "two@myuni.ac.jp"
 email: "xxx@myuni.ac.jp"
 titleshort: "Paperlighter Example"
 authorshort: "Author One et.al."
@@ -19,302 +21,321 @@ linkDir:
 appendix:
   - appendix/1
   - appendix/2
-abstract:
-    Using \LaTeX{} to write papers is concise and convenient. However, for
-    writing in life, complicated \LaTeX{} style-files (e.g., elegantpaper)
-    are difficult to access, or submission style-files (e.g., journal or
-    conference) are not free indeed. To tackle these problems and satisfy an
-    elegant and straightforward scientific writing,
-    \textbf{paperlighter.sty}, a one-column style-file, is designed. This
-    document is edited from icml2022.sty and provides a basic paper
-    template. Compared to icml2022.sty, paperlighter.sty contain fewer
-    operations, reducing adjustment while keep graceful.
-    \textbf{\textit{Notably, the paper's main content only describes the format of icml2022.sty. We place the content to show the actual effect of paperlighter.sty.}}
+abstractTex:
+  \abstract{To investigate the physical nature of the `nuc\-leated instability' of
+  proto giant planets, the stability of layers
+  in static, radiative gas spheres is analysed on the basis of Baker's
+  standard one-zone model.}
+  {To investigate the physical nature of the `nuc\-leated instability' of
+  proto giant planets, the stability of layers
+  in static, radiative gas spheres is analysed on the basis of Baker's
+  standard one-zone model.}
+  {It is shown that stability depends only upon the equations of state, the opacities and the local
+  thermodynamic state in the layer. Stability and instability can
+  therefore be expressed in the form of stability equations of state
+  which are universal for a given composition.}
+  {The stability equations of state are
+  calculated for solar composition and are displayed in the domain
+  $-14 \leq \lg \rho / \mathrm{[g\, cm^{-3}]} \leq 0 $,
+  $ 8.8 \leq \lg e / \mathrm{[erg\, g^{-1}]} \leq 17.7$. These displays
+  may be
+  used to determine the one-zone stability of layers in stellar
+  or planetary structure models by directly reading off the value of
+  the stability equations for the thermodynamic state of these layers,
+  specified
+  by state quantities as density $\rho$, temperature $T$ or
+  specific internal energy $e$.
+  Regions of instability in the $(\rho,e)$-plane are described
+  and related to the underlying microphysical processes.}
+  {Vibrational instability is found to be a common phenomenon
+  at temperatures lower than the second He ionisation
+  zone. The $\kappa$-mechanism is widespread under `cool'
+  conditions.}
+  {}
+keywords: giant planet formation -- $\kappa$-mechanism -- stability of gas spheres
+acknowledgements:
+      Part of this work was supported by the German
+      \emph{Deut\-sche For\-schungs\-ge\-mein\-schaft, DFG\/} project
+      number Ts~17/2--1.
 
 ---
 
+# Introduction
 
-# Format of the Paperlighter
+   In the \emph{nucleated instability\/} (also called core
+   instability) hypothesis of giant planet
+   formation, a critical mass for static core  envelope
+   protoplanets has been found. \citet{langley00} determined
+   the critical mass of the core to be about $12 \,M_\oplus$
+   ($M_\oplus=5.975 \times 10^{27}\,\mathrm{g}$ is the Earth mass), which
+   is independent of the outer boundary
+   conditions and therefore independent of the location in the
+   solar nebula. This critical value for the core mass corresponds
+   closely to the cores of today's giant planets.
 
-Format of paperlighter is defined in this section.
+   Although no hydrodynamical study has been available many workers
+   conjectured that a collapse or rapid contraction will ensue
+   after accumulating the critical mass. The main motivation for
+   this article
+   is to investigate the stability of the static envelope at the
+   critical mass. With this aim the local, linear stability of static
+   radiative gas  spheres is investigated on the basis of Baker's
+   (\citeyear{mitchell80}) standard one-zone model.
 
-## Dimensions
+   Phenomena similar to the ones described above for giant planet
+   formation have been found in hydrodynamical models concerning
+   star formation where protostellar cores explode
+   (Tscharnuter \citeyear{kearns89}, Balluch \citeyear{MachineLearningI}),
+   whereas earlier studies found quasi-steady collapse flows. The
+   similarities in the (micro)physics, i.e., constitutive relations of
+   protostellar cores and protogiant planets serve as a further
+   motivation for this study.
 
-The text of the paper has an overall width of
-6.75\textasciitilde{}inches, and height of 9.0\textasciitilde{}inches.
-The left margin should be 0.75\textasciitilde{}inches and the top margin
-1.0\textasciitilde{}inch (2.54\textasciitilde{}cm). The right and bottom
-margins will depend on whether you print on US letter or A4 paper, but
-all final versions must be produced for US letter size.
 
-The paper body should be set in 10\textasciitilde{}point type with a
-vertical spacing of 11\textasciitilde{}points. Please use Times typeface
-throughout the text.
+# Baker's standard one-zone model
 
-## Title
+   \begin{figure*}
+   \centering
+   \caption{Adiabatic exponent $\Gamma_1$.
+               $\Gamma_1$ is plotted as a function of
+               $\lg$ internal energy $\mathrm{[erg\,g^{-1}]}$ and $\lg$
+               density $\mathrm{[g\,cm^{-3}]}$.}
+              \label{FigGam}%
+    \end{figure*}
 
-The paper title should be set in 14\textasciitilde{}point bold type and
-centered between two horizontal rules that are 1\textasciitilde{}point
-thick, with 1.0\textasciitilde{}inch between the top rule and the top
-edge of the page. Capitalize the first letter of content words and put
-the rest of the title in lower case.
+   In this section the one-zone model of \citet{DudaHart2nd},
+   originally used to study the Cephe{\"{\i}}d pulsation mechanism, will
+   be briefly reviewed. The resulting stability criteria will be
+   rewritten in terms of local state variables, local timescales and
+   constitutive relations.
 
-## Author Information for Submission
+   \citet{DudaHart2nd} investigates the stability of thin layers in
+   self-gravitating,
+   spherical gas clouds with the following properties:
+   \begin{itemize}
+      \item hydrostatic equilibrium,
+      \item thermal equilibrium,
+      \item energy transport by grey radiation diffusion.
+   \end{itemize}
+   For the one-zone-model Baker obtains necessary conditions
+   for dynamical, secular and vibrational (or pulsational)
+   stability (Eqs.\ (34a,\,b,\,c) in Baker \citeyear{DudaHart2nd}). Using Baker's
+   notation:
 
-Use \verb+\lighterauthor{...}+ to specify authors and
-\verb+\lighteraddress{...}+ to specify affiliations. (Read the TeX code
-used to produce this document for an example usage.) The author
-information will not be printed unless \texttt{accepted} is passed as an
-argument to the style file.
+\noindent
+   and with the definitions of the \emph{local cooling time\/}
+   (see Fig.~\ref{FigGam})
+   \begin{equation}
+      \tau_{\mathrm{co}} = \frac{E_{\mathrm{th}}}{L_{r0}} \,,
+   \end{equation}
+   and the \emph{local free-fall time}
+   \begin{equation}
+      \tau_{\mathrm{ff}} =
+         \sqrt{ \frac{3 \pi}{32 G} \frac{4\pi r_0^3}{3 M_{\mathrm{r}}}
+}\,,
+   \end{equation}
+   Baker's $K$ and $\sigma_0$ have the following form:
+   \begin{eqnarray}
+      \sigma_0 & = & \frac{\pi}{\sqrt{8}}
+                     \frac{1}{ \tau_{\mathrm{ff}}} \\
+      K        & = & \frac{\sqrt{32}}{\pi} \frac{1}{\delta}
+                        \frac{ \tau_{\mathrm{ff}} }
+                             { \tau_{\mathrm{co}} }\,;
+   \end{eqnarray}
+   where $E_{\mathrm{th}} \approx m (P_0/{\rho_0})$ has been used and
+   \begin{equation}
+   \begin{array}{l}
+      \delta = - \left(
+                    \frac{ \partial \ln \rho }{ \partial \ln T }
+                 \right)_P \\
+      e=mc^2
+   \end{array}
+   \end{equation}
+   is a thermodynamical quantity which is of order $1$ and equal to $1$
+   for nonreacting mixtures of classical perfect gases. The physical
+   meaning of $\sigma_0$ and $K$ is clearly visible in the equations
+   above. $\sigma_0$ represents a frequency of the order one per
+   free-fall time. $K$ is proportional to the ratio of the free-fall
+   time and the cooling time. Substituting into Baker's criteria, using
+   thermodynamic identities and definitions of thermodynamic quantities,
+   \begin{displaymath}
+      \Gamma_1      = \left( \frac{ \partial \ln P}{ \partial\ln \rho}
+                           \right)_{S}    \, , \;
+      \chi^{}_\rho  = \left( \frac{ \partial \ln P}{ \partial\ln \rho}
+                           \right)_{T}    \, , \;
+      \kappa^{}_{P} = \left( \frac{ \partial \ln \kappa}{ \partial\ln P}
+                           \right)_{T}
+   \end{displaymath}
+   \begin{displaymath}
+      \nabla_{\mathrm{ad}} = \left( \frac{ \partial \ln T}
+                             { \partial\ln P} \right)_{S} \, , \;
+      \chi^{}_T       = \left( \frac{ \partial \ln P}
+                             { \partial\ln T} \right)_{\rho} \, , \;
+      \kappa^{}_{T}   = \left( \frac{ \partial \ln \kappa}
+                             { \partial\ln T} \right)_{T}
+   \end{displaymath}
+   one obtains, after some pages of algebra, the conditions for
+   \emph{stability\/} given
+   below:
+   \begin{eqnarray}
+      \frac{\pi^2}{8} \frac{1}{\tau_{\mathrm{ff}}^2}
+                ( 3 \Gamma_1 - 4 )
+         & > & 0 \label{ZSDynSta} \\
+      \frac{\pi^2}{\tau_{\mathrm{co}}
+                   \tau_{\mathrm{ff}}^2}
+                   \Gamma_1 \nabla_{\mathrm{ad}}
+                   \left[ \frac{ 1- 3/4 \chi^{}_\rho }{ \chi^{}_T }
+                          ( \kappa^{}_T - 4 )
+                        + \kappa^{}_P + 1
+                   \right]
+        & > & 0 \label{ZSSecSta} \\
+     \frac{\pi^2}{4} \frac{3}{\tau_{ \mathrm{co} }
+                              \tau_{ \mathrm{ff} }^2
+                             }
+         \Gamma_1^2 \, \nabla_{\mathrm{ad}} \left[
+                                   4 \nabla_{\mathrm{ad}}
+                                   - ( \nabla_{\mathrm{ad}} \kappa^{}_T
+                                     + \kappa^{}_P
+                                     )
+                                   - \frac{4}{3 \Gamma_1}
+                                \right]
+        & > & 0   \label{ZSVibSta}
+   \end{eqnarray}
 
-## Abstract
+   For a physical discussion of the stability criteria see \citet{DudaHart2nd} or \citet{anonymous}.
 
-The paper abstract should begin in the left column,
-0.4\textasciitilde{}inches below the final address. The heading
-`Abstract’ should be centered, bold, and in 11\textasciitilde{}point
-type. The abstract body should use 10\textasciitilde{}point type, with a
-vertical spacing of 11\textasciitilde{}points, and should be indented
-0.25\textasciitilde{}inches more than normal on left-hand and right-hand
-margins. Insert 0.4\textasciitilde{}inches of blank space after the
-body. Keep your abstract brief and self-contained, limiting it to one
-paragraph and roughly 4–6 sentences. Gross violations will require
-correction at the camera-ready phase.
+   We observe that these criteria for dynamical, secular and
+   vibrational stability, respectively, can be factorized into
+   \begin{enumerate}
+      \item a factor containing local timescales only,
+      \item a factor containing only constitutive relations and
+         their derivatives.
+   \end{enumerate}
+   The first factors, depending on only timescales, are positive
+   by definition. The signs of the left hand sides of the
+   inequalities~(\ref{ZSDynSta}), (\ref{ZSSecSta}) and (\ref{ZSVibSta})
+   therefore depend exclusively on the second factors containing
+   the constitutive relations. Since they depend only
+   on state variables, the stability criteria themselves are \emph{
+   functions of the thermodynamic state in the local zone}. The
+   one-zone stability can therefore be determined
+   from a simple equation of state, given for example, as a function
+   of density and
+   temperature. Once the microphysics, i.e.\ the thermodynamics
+   and opacities (see Table~\ref{KapSou}), are specified (in practice
+   by specifying a chemical composition) the one-zone stability can
+   be inferred if the thermodynamic state is specified.
+   The zone -- or in
+   other words the layer -- will be stable or unstable in
+   whatever object it is imbedded as long as it satisfies the
+   one-zone-model assumptions. Only the specific growth rates
+   (depending upon the time scales) will be different for layers
+   in different objects.
 
-## Partitioning the Text
+   \begin{table}
+      \caption[]{Opacity sources.}
+         \label{KapSou}
+     $$
+         \begin{array}{p{0.5\linewidth}l}
+            \hline
+            \noalign{\smallskip}
+            Source      &  T / {[\mathrm{K}]} \\
+            \noalign{\smallskip}
+            \hline
+            \noalign{\smallskip}
+            Yorke 1979, Yorke 1980a & \leq 1700^{\mathrm{a}}     \\
 
-You should organize your paper into sections and paragraphs to help
-readers place a structure on the material and understand its
-contributions.
+            Kr\"ugel 1971           & 1700 \leq T \leq 5000 \\
+            Cox \& Stewart 1969     & 5000 \leq             \\
+            \noalign{\smallskip}
+            \hline
+         \end{array}
+     $$
+   \end{table}
 
-### Sections and Subsections
+   We will now write down the sign (and therefore stability)
+   determining parts of the left-hand sides of the inequalities
+   (\ref{ZSDynSta}), (\ref{ZSSecSta}) and (\ref{ZSVibSta}) and thereby
+   obtain \emph{stability equations of state}.
 
-Section headings should be numbered, flush left, and set in
-11\textasciitilde{}pt bold type with the content words capitalized.
-Leave 0.25\textasciitilde{}inches of space before the heading and
-0.15\textasciitilde{}inches after the heading.
+   The sign determining part of inequality~(\ref{ZSDynSta}) is
+   $3\Gamma_1 - 4$ and it reduces to the
+   criterion for dynamical stability
+   \begin{equation}
+     \Gamma_1 > \frac{4}{3}\,\cdot
+   \end{equation}
+   Stability of the thermodynamical equilibrium demands
+   \begin{equation}
+      \chi^{}_\rho > 0, \;\;  c_v > 0\, ,
+   \end{equation}
+   and
+   \begin{equation}
+      \chi^{}_T > 0
+   \end{equation}
+   holds for a wide range of physical situations.
+   With
+   \begin{eqnarray}
+      \Gamma_3 - 1 = \frac{P}{\rho T} \frac{\chi^{}_T}{c_v}&>&0\\
+      \Gamma_1     = \chi_\rho^{} + \chi_T^{} (\Gamma_3 -1)&>&0\\
+      \nabla_{\mathrm{ad}}  = \frac{\Gamma_3 - 1}{\Gamma_1}         &>&0
+   \end{eqnarray}
+   we find the sign determining terms in inequalities~(\ref{ZSSecSta})
+   and (\ref{ZSVibSta}) respectively and obtain the following form
+   of the criteria for dynamical, secular and vibrational
+   \emph{stability}, respectively:
+   \begin{eqnarray}
+      3 \Gamma_1 - 4 =: S_{\mathrm{dyn}}      > & 0 & \label{DynSta}  \\
+      \frac{ 1- 3/4 \chi^{}_\rho }{ \chi^{}_T } ( \kappa^{}_T - 4 )
+         + \kappa^{}_P + 1 =: S_{\mathrm{sec}} > & 0 & \label{SecSta} \\
+      4 \nabla_{\mathrm{ad}} - (\nabla_{\mathrm{ad}} \kappa^{}_T
+                             + \kappa^{}_P)
+                             - \frac{4}{3 \Gamma_1} =: S_{\mathrm{vib}}
+                                      > & 0\,.& \label{VibSta}
+   \end{eqnarray}
+   The constitutive relations are to be evaluated for the
+   unperturbed thermodynamic state (say $(\rho_0, T_0)$) of the zone.
+   We see that the one-zone stability of the layer depends only on
+   the constitutive relations $\Gamma_1$,
+   $\nabla_{\mathrm{ad}}$, $\chi_T^{},\,\chi_\rho^{}$,
+   $\kappa_P^{},\,\kappa_T^{}$.
+   These depend only on the unperturbed
+   thermodynamical state of the layer. Therefore the above relations
+   define the one-zone-stability equations of state
+   $S_{\mathrm{dyn}},\,S_{\mathrm{sec}}$
+   and $S_{\mathrm{vib}}$. See Fig.~\ref{FigVibStab} for a picture of
+   $S_{\mathrm{vib}}$. Regions of secular instability are
+   listed in Table~1.
 
-Similarly, subsection headings should be numbered, flush left, and set
-in 10\textasciitilde{}pt bold type with the content words capitalized.
-Leave 0.2\textasciitilde{}inches of space before the heading and
-0.13\textasciitilde{}inches afterward.
+   \begin{figure}
+   \centering
+      \caption{Vibrational stability equation of state
+               $S_{\mathrm{vib}}(\lg e, \lg \rho)$.
+               $>0$ means vibrational stability.
+              }
+         \label{FigVibStab}
+   \end{figure}
 
-Finally, subsubsection headings should be numbered, flush left, and set
-in 10\textasciitilde{}pt small caps with the content words capitalized.
-Leave 0.18\textasciitilde{}inches of space before the heading and
-0.1\textasciitilde{}inches after the heading.
+# Conclusions
 
-Please use no more than three levels of headings.
+   \begin{enumerate}
+      \item The conditions for the stability of static, radiative
+         layers in gas spheres, as described by Baker's (\citeyear{DudaHart2nd})
+         standard one-zone model, can be expressed as stability
+         equations of state. These stability equations of state depend
+         only on the local thermodynamic state of the layer.
+      \item If the constitutive relations -- equations of state and
+         Rosseland mean opacities -- are specified, the stability
+         equations of state can be evaluated without specifying
+         properties of the layer.
+      \item For solar composition gas the $\kappa$-mechanism is
+         working in the regions of the ice and dust features
+         in the opacities, the $\mathrm{H}_2$ dissociation and the
+         combined H, first He ionization zone, as
+         indicated by vibrational instability. These regions
+         of instability are much larger in extent and degree of
+         instability than the second He ionization zone
+         that drives the Cephe{\"\i}d pulsations.
+   \end{enumerate}
 
-### Paragraphs and Footnotes
 
-Within each section or subsection, you should further partition the
-paper into paragraphs. Do not indent the first line of a given
-paragraph, but insert a blank line between succeeding ones.
-
-You can use footnotes\footnote{Footnotes
-should be complete sentences.} to provide readers with additional
-information about a topic without interrupting the flow of the paper.
-Indicate footnotes with a number in the text where the point is most
-relevant. Place the footnote in 9\textasciitilde{}point type at the
-bottom of the column in which it appears. Precede the first footnote in
-a column with a horizontal rule of
-0.8\textasciitilde{}inches.\footnote{Multiple footnotes can
-appear in each column, in the same order as they appear in the text,
-but spread them across columns and pages if possible.}
-
-\begin{figure}[ht]
-\vskip 0.2in
-\begin{center}
-\centerline{\includegraphics[width=\columnwidth]{Figure/icml_numpapers.eps}}
-\caption{Historical locations and number of accepted papers for International
-Machine Learning Conferences (ICML 1993 -- ICML 2008) and International
-Workshops on Machine Learning (ML 1988 -- ML 1992). At the time this figure was
-produced, the number of accepted papers for ICML 2008 was unknown and instead
-estimated.}
-\label{icml-historical}
-\end{center}
-\vskip -0.2in
-\end{figure}
-
-## Figures
-
-You may want to include figures in the paper to illustrate your approach
-and results. Such artwork should be centered, legible, and separated
-from the text. Lines should be dark and at least
-0.5\textasciitilde{}points thick for purposes of reproduction, and text
-should not appear on a gray background.
-
-Label all distinct components of each figure. If the figure takes the
-form of a graph, then give a name for each axis and include a legend
-that briefly describes each curve. Do not include a title inside the
-figure; instead, the caption should serve this function.
-
-Number figures sequentially, placing the figure number and caption
-\emph{after} the graphics, with at least 0.1\textasciitilde{}inches of
-space before the caption and 0.1\textasciitilde{}inches after it, as in
-\cref{icml-historical}. The figure caption should be set in
-9\textasciitilde{}point type and centered unless it runs two or more
-lines, in which case it should be flush left. You may float figures to
-the top or bottom of a column, and you may set wide figures across both
-columns (use the environment \texttt{figure*} in \LaTeX). Always place
-two-column figures at the top or bottom of the page.
-
-## Algorithms
-
-If you are using \LaTeX, please use the
-\texttt{algorithm\textquotesingle{}\textquotesingle{}\ and}algorithmic’’
-environments to format pseudocode. These require the corresponding
-stylefiles, algorithm.sty and algorithmic.sty, which are supplied with
-this package. \cref{alg:example} shows an example.
-
-\begin{algorithm}[tb]
-   \caption{Bubble Sort}
-   \label{alg:example}
-\begin{algorithmic}
-   \STATE {\bfseries Input:} data $x_i$, size $m$
-   \REPEAT
-   \STATE Initialize $noChange = true$.
-   \FOR{$i=1$ {\bfseries to} $m-1$}
-   \IF{$x_i > x_{i+1}$}
-   \STATE Swap $x_i$ and $x_{i+1}$
-   \STATE $noChange = false$
-   \ENDIF
-   \ENDFOR
-   \UNTIL{$noChange$ is $true$}
-\end{algorithmic}
-\end{algorithm}
-
-## Tables
-
-You may also want to include tables that summarize material. Like
-figures, these should be centered, legible, and numbered consecutively.
-However, place the title \emph{above} the table with at least
-0.1\textasciitilde{}inches of space before the title and the same after
-it, as in \cref{sample-table}. The table title should be set in
-9\textasciitilde{}point type and centered unless it runs two or more
-lines, in which case it should be flush left.
-
-\begin{table}[t]
-\caption{Classification accuracies for naive Bayes and flexible
-Bayes on various data sets.}
-\label{sample-table}
-\vskip 0.15in
-\begin{center}
-\begin{small}
-\begin{sc}
-\begin{tabular}{lcccr}
-\toprule
-Data set & Naive & Flexible & Better? \\
-\midrule
-Breast    & 95.9$\pm$ 0.2& 96.7$\pm$ 0.2& $\surd$ \\
-Cleveland & 83.3$\pm$ 0.6& 80.0$\pm$ 0.6& $\times$\\
-Glass2    & 61.9$\pm$ 1.4& 83.8$\pm$ 0.7& $\surd$ \\
-Credit    & 74.8$\pm$ 0.5& 78.3$\pm$ 0.6&         \\
-Horse     & 73.3$\pm$ 0.9& 69.7$\pm$ 1.0& $\times$\\
-Meta      & 67.1$\pm$ 0.6& 76.5$\pm$ 0.5& $\surd$ \\
-Pima      & 75.1$\pm$ 0.6& 73.9$\pm$ 0.5&         \\
-Vehicle   & 44.9$\pm$ 0.6& 61.5$\pm$ 0.4& $\surd$ \\
-\bottomrule
-\end{tabular}
-\end{sc}
-\end{small}
-\end{center}
-\vskip -0.1in
-\end{table}
-
-Tables contain textual material, whereas figures contain graphical
-material. Specify the contents of each row and column in the table’s
-topmost row. Again, you may float tables to a column’s top or bottom,
-and set wide tables across both columns. Place two-column tables at the
-top or bottom of the page.
-
-## Theorems and such
-
-The preferred way is to number definitions, propositions, lemmas, etc.
-consecutively, within sections, as shown below.
-
-\begin{definition}
-\label{def:inj}
-A function $f:X \to Y$ is injective if for any $x,y\in X$ different, $f(x)\ne f(y)$.
-\end{definition}
-
-Using \cref{def:inj} we immediate get the following result:
-
-\begin{proposition}
-If $f$ is injective mapping a set $X$ to another set $Y$,
-the cardinality of $Y$ is at least as large as that of $X$
-\end{proposition}
-\begin{proof}
-Left as an exercise to the reader.
-\end{proof}
-
-\cref{lem:usefullemma} stated next will prove to be useful.
-
-\begin{lemma}
-\label{lem:usefullemma}
-For any $f:X \to Y$ and $g:Y\to Z$ injective functions, $f \circ g$ is injective.
-\end{lemma}
-\begin{theorem}
-\label{thm:bigtheorem}
-If $f:X\to Y$ is bijective, the cardinality of $X$ and $Y$ are the same.
-\end{theorem}
-
-An easy corollary of \cref{thm:bigtheorem} is the following:
-
-\begin{corollary}
-If $f:X\to Y$ is bijective,
-the cardinality of $X$ is at least as large as that of $Y$.
-\end{corollary}
-\begin{assumption}
-The set $X$ is finite.
-\label{ass:xfinite}
-\end{assumption}
-\begin{remark}
-According to some, it is only the finite case (cf. \cref{ass:xfinite}) that is interesting.
-\end{remark}
-
-## Citations and References
-
-If you rely on the \LaTeX\{\} bibliographic facility, use
-\texttt{natbib.sty} included in the style-file package to obtain
-reference.
-
-Citations within the text should include the authors’ last names and
-year. If the authors’ names are included in the sentence, place only the
-year in parentheses, for example when referencing Arthur Samuel’s
-pioneering work \yrcite{Samuel59}. Otherwise place the entire reference
-in parentheses with the authors and year separated by a comma
-\cite{Samuel59}. List multiple references separated by semicolons
-\cite{kearns89,Samuel59,mitchell80}. Use the `et\textasciitilde{}al.’
-construct only for citations with three or more authors or after listing
-all authors to a publication in an earlier reference
-\cite{MachineLearningI}.
-
-Use an unnumbered first-level section heading for the references, and
-use a hanging indent style, with the first line of the reference flush
-against the left margin and subsequent lines indented by 10 points. The
-references at the end of this document give examples for journal
-articles \cite{Samuel59}, conference publications \cite{langley00}, book
-chapters \cite{Newell81}, books \cite{DudaHart2nd}, edited volumes
-\cite{MachineLearningI}, technical reports \cite{mitchell80}, and
-dissertations \cite{kearns89}.
-
-Alphabetize references by the surnames of the first authors, with single
-author entries preceding multiple author entries. Order references for
-the same authors by year of publication, with the earliest first. Make
-sure that each reference includes all relevant information (e.g., page
-numbers).
-
-Please put some effort into making references complete, presentable, and
-consistent, e.g.~use the actual current name of authors. If using
-bibtex, please protect capital letters of names and abbreviations in
-titles, for example, use \{B\}ayesian or \{L\}ipschitz in your .bib
-file.
-
-# Acknowledgements
-
-Acknowledgements is an unnumbered section at the end of the paper.
-Typically, this will include thanks to colleagues who contributed to the
-ideas, and to funding agencies and corporate sponsors that provided
-financial support.
 
