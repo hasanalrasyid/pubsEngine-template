@@ -74,10 +74,7 @@ similarities in the (micro)physics, i.e., constitutive relations of
 protostellar cores and protogiant planets serve as a further
 motivation for this study.
 
-
 # Baker's standard one-zone model
-
-
 
 <!-- we need figure* for make it full screen, so it must be in latex code as follows
 -->
@@ -102,6 +99,14 @@ constitutive relations.
 self-gravitating,
 spherical gas clouds with the following properties:
 
+~~~
+* hydrostatic equilibrium,
+* thermal equilibrium,
+* energy transport by grey radiation diffusion.
+~~~
+
+non-numbered list can be written as above, and shown as:
+
 * hydrostatic equilibrium,
 * thermal equilibrium,
 * energy transport by grey radiation diffusion.
@@ -109,12 +114,11 @@ spherical gas clouds with the following properties:
 For equations, we can use several environment:
 
 ~~~
-\begin{equation}
+$$ $$ is equal with \begin{equation}
 \begin{eqnarray}
 \begin{array}
 \begin{displaymath}
 \begin{align}
-
 ~~~
 
 This is an example:
@@ -132,6 +136,16 @@ This is an example:
 \nabla \cdot  \vec{B} &= 0    \nonumber \\
 \nabla \times \vec{E} &= -\frac{\vec{B}}{t}
 \end{align}
+
+And this is another example for inline equation, such as: $$y = 5\cdot x^2$$
+You can see that inline equation have automatically numbered.
+Independent paragraph equation is not numbered, as below.
+
+$$
+\nabla \cdot  \vec{W} = \sigma W \nonumber
+$$
+
+The block should be as an independent paragraph (blank line above and under the block).
 
 For the one-zone-model Baker obtains necessary conditions
 for dynamical, secular and vibrational (or pulsational)
@@ -412,25 +426,23 @@ create label for \ref{FigVibStab} using #FigVibStab
 
 # Conclusions
 
-   \begin{enumerate}
-      \item The conditions for the stability of static, radiative
-         layers in gas spheres, as described by Baker's (\citeyear{DudaHart2nd})
-         standard one-zone model, can be expressed as stability
-         equations of state. These stability equations of state depend
-         only on the local thermodynamic state of the layer.
-      \item If the constitutive relations -- equations of state and
-         Rosseland mean opacities -- are specified, the stability
-         equations of state can be evaluated without specifying
-         properties of the layer.
-      \item For solar composition gas the $\kappa$-mechanism is
-         working in the regions of the ice and dust features
-         in the opacities, the $\mathrm{H}_2$ dissociation and the
-         combined H, first He ionization zone, as
-         indicated by vibrational instability. These regions
-         of instability are much larger in extent and degree of
-         instability than the second He ionization zone
-         that drives the Cephe\text{\"\i}d pulsations.
-   \end{enumerate}
+1. The conditions for the stability of static, radiative
+   layers in gas spheres, as described by Baker's (\citeyear{DudaHart2nd})
+   standard one-zone model, can be expressed as stability
+   equations of state. These stability equations of state depend
+   only on the local thermodynamic state of the layer.
+2. If the constitutive relations -- equations of state and
+   Rosseland mean opacities -- are specified, the stability
+   equations of state can be evaluated without specifying
+   properties of the layer.
+3. For solar composition gas the $\kappa$-mechanism is
+   working in the regions of the ice and dust features
+   in the opacities, the $\mathrm{H}_2$ dissociation and the
+   combined H, first He ionization zone, as
+   indicated by vibrational instability. These regions
+   of instability are much larger in extent and degree of
+   instability than the second He ionization zone
+   that drives the Cephe\text{\"\i}d pulsations.
 
 
 
