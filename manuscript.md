@@ -89,7 +89,7 @@ motivation for this study.
             $\Gamma_1$ is plotted as a function of
             $\lg$ internal energy $\mathrm{[erg\,g^{-1}]}$ and $\lg$
             density $\mathrm{[g\,cm^{-3}]}$.}
-           \label{FigGam}%
+           \label{fig:FigGam}%
  \end{figure*}
 
 In this section the one-zone model of \citet{DudaHart2nd},
@@ -113,7 +113,7 @@ notation:
 
 \noindent
    and with the definitions of the \emph{local cooling time\/}
-   (see [@fig:FigGam] Fig. \ref{FigGam})
+   (see == [@fig:FigGam] == Fig. \ref{fig:FigGam})
    \begin{equation}
       \tau_{\mathrm{co}} = \frac{E_{\mathrm{th}}}{L_{r0}} \,,
    \end{equation}
@@ -221,15 +221,18 @@ notation:
    (depending upon the time scales) will be different for layers
    in different objects.
 
+
 <!--
+|             |          Grouping           ||
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |          *Long Cell*        ||
+Content       |   **Cell**    |         Cell |
+New section   |     More      |         Data |
+And more      | With an escaped '\|'         ||
+
 Table: Simple table using default markdown table. Currently not working in two-columns environment due to [this issue](https://github.com/jgm/pandoc/issues/1023) \label{simpleTable}
-
------------------------
-Header1 Header2 Header3
-------- ------- -------
-item1   item2   item3
------------------------
-
+-->
 
 ~~~{.multiTable}
 |             |          Grouping           ||
@@ -237,14 +240,12 @@ First Header  | Second Header | Third Header |
  ------------ | :-----------: | -----------: |
 Content       |          *Long Cell*        ||
 Content       |   **Cell**    |         Cell |
-
 New section   |     More      |         Data |
 And more      | With an escaped '\|'         ||
-[More complicated table can be done using multimarkdown in .multiTable Code Block.]
+[More complicated table can be done using multimarkdown in .multiTable Code Block. You have to use this format for all table as default.]
 ~~~
 
--->
-
+<!--
 \begin{table}
 \centering
 
@@ -265,7 +266,7 @@ Lp. & Miejscowość
 \bottomrule
 \end{tabular}
 \end{table}
-
+-->
 
 \begin{table*}
 \centering
