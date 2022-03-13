@@ -286,28 +286,7 @@ And more      | With an escaped '\|'        ||
 [More complicated table can be done using multimarkdown in .multiTable Code Block. You have to use this format for all table as default.]
 ~~~
 
-<!--
-\begin{table}
-\centering
-
-      \caption[]{Opacity sources. Prototype for correct table. In half-column mode.}
-\begin{tabular}{@{}cc
-    *{4}{S[table-format=6.3,output-decimal-marker={,}]}
-@{}}
-\toprule
-Lp. & Miejscowość
-& \multicolumn{2}{@{}c}{Zapotrzebowanie na wodę, \si{m^3/\day}} \\
-& & \mC{$Q_{\text{śrd}}$} & \mC{$Q_{\text{maxd}}$} \\
-\midrule
-1.    & X1 & 57,2  & 74,4  \\
-2.    & X2 & 82,5  & 107,3  \\
-3.    & X3 & 47,3  & 61,5  \\
-4.    & X4 & 24,2  & 31,5  \\
-5.    & X5 & 211,2 & 274,7  \\
-\bottomrule
-\end{tabular}
-\end{table}
--->
+For the moment, we need to use `\begin{table*}` for full screen table as follows Table \ref{KapSou}.
 
 \begin{table*}
 \centering
@@ -332,29 +311,6 @@ Lp. & Miejscowość
 \end{tabular}
 \end{table*}
 
-
-<!--
-   \begin{table}
-      \caption[]{Opacity sources.}
-         \label{KapSou}
-     $$
-         \begin{array}{p{0.5\linewidth}l}
-            \hline
-            \noalign{\smallskip}
-            Source      &  T / {[\mathrm{K}]} \\
-            \noalign{\smallskip}
-            \hline
-            \noalign{\smallskip}
-            Yorke 1979, Yorke 1980a & \leq 1700^{\mathrm{a}}     \\
-
-            Kr\"ugel 1971           & 1700 \leq T \leq 5000 \\
-            Cox \& Stewart 1969     & 5000 \leq             \\
-            \noalign{\smallskip}
-            \hline
-         \end{array}
-     $$
-   \end{table}
--->
 
    We will now write down the sign (and therefore stability)
    determining parts of the left-hand sides of the inequalities
