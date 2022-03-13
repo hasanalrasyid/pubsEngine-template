@@ -113,7 +113,7 @@ notation:
 
 \noindent
    and with the definitions of the \emph{local cooling time\/}
-   (see Fig. \ref{FigGam})
+   (see [@fig:FigGam] Fig. \ref{FigGam})
    \begin{equation}
       \tau_{\mathrm{co}} = \frac{E_{\mathrm{th}}}{L_{r0}} \,,
    \end{equation}
@@ -363,14 +363,14 @@ Lp. & Miejscowość
    thermodynamical state of the layer. Therefore the above relations
    define the one-zone-stability equations of state
    $S_{\mathrm{dyn}},\,S_{\mathrm{sec}}$
-   and $S_{\mathrm{vib}}$. See Fig. \ref{FigVibStab} for a picture of
+   and $S_{\mathrm{vib}}$. See == [@fig:FigVibStab] == Fig. \ref{fig:FigVibStab} for a picture of
    $S_{\mathrm{vib}}$. Regions of secular instability are
    listed in Table 1.
 
 <!-- calculate height and width of picture manually in inch, using evince -> Properties
 create label for \ref{FigVibStab} using #FigVibStab
 -->
-![Vibrational stability equation of state $S_{\mathrm{vib}}(\lg e, \lg \rho)$. $>0$ means vibrational stability.](Figure/icml_numpapers.eps){#FigVibStab width=3.43in height=2.71in}
+![Vibrational stability equation of state $S_{\mathrm{vib}}(\lg e, \lg \rho)$. $>0$ means vibrational stability.](Figure/icml_numpapers.eps){#fig:FigVibStab width=3.43in height=2.71in}
 
 <!--
    \begin{figure}
