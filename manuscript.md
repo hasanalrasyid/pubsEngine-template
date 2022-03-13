@@ -45,7 +45,7 @@ include-headers: |
 
 # Introduction
 
-In the \emph{nucleated instability\/} (also called core
+In the *nucleated instability* (also called core
 instability) hypothesis of giant planet
 formation, a critical mass for static core  envelope
 protoplanets has been found. \citet{langley00} determined
@@ -106,18 +106,45 @@ spherical gas clouds with the following properties:
 * thermal equilibrium,
 * energy transport by grey radiation diffusion.
 
+For equations, we can use several environment:
+
+~~~
+\begin{equation}
+\begin{eqnarray}
+\begin{array}
+\begin{displaymath}
+\begin{align}
+
+~~~
+
+This is an example:
+
+~~~
+\begin{align}
+\nabla \cdot  \vec{E} &= \rho \nonumber \\
+\nabla \cdot  \vec{B} &= 0    \nonumber \\
+\nabla \times \vec{E} &= -\frac{\vec{B}}{t}
+\end{align}
+~~~
+
+\begin{align}
+\nabla \cdot  \vec{E} &= \rho \nonumber \\
+\nabla \cdot  \vec{B} &= 0    \nonumber \\
+\nabla \times \vec{E} &= -\frac{\vec{B}}{t}
+\end{align}
+
 For the one-zone-model Baker obtains necessary conditions
 for dynamical, secular and vibrational (or pulsational)
-stability (Eqs.\ (34a,\,b,\,c) in Baker \citeyear{DudaHart2nd}). Using Baker's
+stability (Eqs. (34a,b,c) in Baker \citeyear{DudaHart2nd}). Using Baker's
 notation:
 
 \noindent
-   and with the definitions of the \emph{local cooling time\/}
+   and with the definitions of the *local cooling time*
    (see == [@fig:FigGam] == Fig. \ref{fig:FigGam})
    \begin{equation}
       \tau_{\mathrm{co}} = \frac{E_{\mathrm{th}}}{L_{r0}} \,,
    \end{equation}
-   and the \emph{local free-fall time}
+   and the *local free-fall time*
    \begin{equation}
       \tau_{\mathrm{ff}} =
          \sqrt{ \frac{3 \pi}{32 G} \frac{4\pi r_0^3}{3 M_{\mathrm{r}}}
@@ -164,7 +191,7 @@ notation:
                              { \partial\ln T} \right)_{T}
    \end{displaymath}
    one obtains, after some pages of algebra, the conditions for
-   \emph{stability\/} given
+   *stability* given
    below:
    \begin{eqnarray}
       \frac{\pi^2}{8} \frac{1}{\tau_{\mathrm{ff}}^2}
@@ -195,31 +222,31 @@ notation:
 
    We observe that these criteria for dynamical, secular and
    vibrational stability, respectively, can be factorized into
-   \begin{enumerate}
-      \item a factor containing local timescales only,
-      \item a factor containing only constitutive relations and
-         their derivatives.
-   \end{enumerate}
-   The first factors, depending on only timescales, are positive
-   by definition. The signs of the left hand sides of the
-   inequalities (\ref{ZSDynSta}), (\ref{ZSSecSta}) and (\ref{ZSVibSta})
-   therefore depend exclusively on the second factors containing
-   the constitutive relations. Since they depend only
-   on state variables, the stability criteria themselves are \emph{
-   functions of the thermodynamic state in the local zone}. The
-   one-zone stability can therefore be determined
-   from a simple equation of state, given for example, as a function
-   of density and
-   temperature. Once the microphysics, i.e.\ the thermodynamics
-   and opacities (see Table \ref{KapSou}), are specified (in practice
-   by specifying a chemical composition) the one-zone stability can
-   be inferred if the thermodynamic state is specified.
-   The zone -- or in
-   other words the layer -- will be stable or unstable in
-   whatever object it is imbedded as long as it satisfies the
-   one-zone-model assumptions. Only the specific growth rates
-   (depending upon the time scales) will be different for layers
-   in different objects.
+
+1. a factor containing local timescales only,
+2. a factor containing only constitutive relations and
+   their derivatives.
+3. To make a numered list, make sure that:
+    1. it stands on its own paragraph (blank line above and below the list),
+    2. the number starts at first column on each line.
+
+The first factors, depending on only timescales, are positive
+by definition. The signs of the left hand sides of the
+inequalities (\ref{ZSDynSta}), (\ref{ZSSecSta}) and (\ref{ZSVibSta})
+therefore depend exclusively on the second factors containing
+the constitutive relations. Since they depend only
+on state variables, the stability criteria themselves are *functions of the thermodynamic state in the local zone*. The
+one-zone stability can therefore be determined
+from a simple equation of state, given for example, as a function
+of density and temperature. Once the microphysics, i.e. the thermodynamics
+and opacities (see Table \ref{KapSou}), are specified (in practice
+by specifying a chemical composition) the one-zone stability can
+be inferred if the thermodynamic state is specified.
+The zone -- or in other words the layer -- will be stable or unstable in
+whatever object it is imbedded as long as it satisfies the
+one-zone-model assumptions. Only the specific growth rates
+(depending upon the time scales) will be different for layers
+in different objects.
 
 
 <!--
@@ -238,10 +265,10 @@ Table: Simple table using default markdown table. Currently not working in two-c
 |             |          Grouping           ||
 First Header  | Second Header | Third Header |
  ------------ | :-----------: | -----------: |
-Content       |          *Long Cell*        ||
-Content       |   **Cell**    |         Cell |
+Content       |          *Long Cell*          ||
+Content       |   **Cell**        |         Cell |
 New section   |     More      |         Data |
-And more      | With an escaped '\|'         ||
+And more      | With an escaped '\|'        ||
 [More complicated table can be done using multimarkdown in .multiTable Code Block. You have to use this format for all table as default.]
 ~~~
 
@@ -318,11 +345,10 @@ Lp. & Miejscowość
    We will now write down the sign (and therefore stability)
    determining parts of the left-hand sides of the inequalities
    (\ref{ZSDynSta}), (\ref{ZSSecSta}) and (\ref{ZSVibSta}) and thereby
-   obtain \emph{stability equations of state}.
+   obtain *stability equations of state*.
 
    The sign determining part of inequality (\ref{ZSDynSta}) is
-   $3\Gamma_1 - 4$ and it reduces to the
-   criterion for dynamical stability
+   $3\Gamma_1 - 4$ and it reduces to the criterion for dynamical stability
    \begin{equation}
      \Gamma_1 > \frac{4}{3}\,\cdot
    \end{equation}
@@ -344,7 +370,7 @@ Lp. & Miejscowość
    we find the sign determining terms in inequalities (\ref{ZSSecSta})
    and (\ref{ZSVibSta}) respectively and obtain the following form
    of the criteria for dynamical, secular and vibrational
-   \emph{stability}, respectively:
+   *stability*, respectively:
    \begin{eqnarray}
       3 \Gamma_1 - 4 =: S_{\mathrm{dyn}}      > & 0 & \label{DynSta}  \\
       \frac{ 1- 3/4 \chi^{}_\rho }{ \chi^{}_T } ( \kappa^{}_T - 4 )
@@ -403,7 +429,7 @@ create label for \ref{FigVibStab} using #FigVibStab
          indicated by vibrational instability. These regions
          of instability are much larger in extent and degree of
          instability than the second He ionization zone
-         that drives the Cephe{\"\i}d pulsations.
+         that drives the Cephe\text{\"\i}d pulsations.
    \end{enumerate}
 
 
