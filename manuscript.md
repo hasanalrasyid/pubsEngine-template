@@ -105,11 +105,84 @@ To include backticks inside the text, use multiple bacticks.
 ``this is `the text` multiple``
 ~~~
 
+## CodeBlocks
+Multiple verbatim lines in Markdown can be expressed as a CodeBlock.
+This particular block is considered as special, due to its popular use in verbatim representation of source-code in the manuscript.
+Technically, a CodeBlock is a range of lines that surrounded by triple tilde `~~~`, for example:
+
+```
+~~~
+main :: IO ()
+main = putStrLn "we are one"
+~~~
+```
+
+will produce:
+
+~~~
+main :: IO ()
+main = putStrLn "we are one"
+~~~
+
+## Mathematical Equations
+By default, we may use `$$` environment for mathematical formula.
+Nonetheless, actually, we can use any \latex{} scenario, such as:
+
+~~~
+$$ $$ is equal with \begin{equation}
+\begin{eqnarray}
+\begin{array}
+\begin{displaymath}
+\begin{align}
+~~~
+
+This is an example:
+
+~~~
+\begin{align}
+\nabla \cdot  \vec{E} &= \rho \nonumber \\
+\nabla \cdot  \vec{B} &= 0    \nonumber \\
+\nabla \times \vec{E} &= -\frac{\vec{B}}{t}
+\end{align}
+~~~
+
+\begin{align}
+\nabla \cdot  \vec{E} &= \rho \nonumber \\
+\nabla \cdot  \vec{B} &= 0    \nonumber \\
+\nabla \times \vec{E} &= -\frac{\vec{B}}{t}
+\end{align}
+
+Equations as independent paragraph equation is not numbered, as below.
+
+$$
+\nabla \cdot  \vec{W} = \sigma W \nonumber
+$$
+
+And this is another example for inline equation, such as: $$y = 5\cdot x^2$$
+You can see that inline equation have automatically numbered.
+
+## Tables
+Table creation will be described in another section (Enhancement by pubsEngine).
+
+## Images
+~~~
+![the caption](Figure/icml_numpapers.eps)
+{#fig:FigVibStab width=3.43in height=2.71in}
+~~~
+
+will produce Figure \ref{fig:FigVibStab}.
+Make sure that you calculated by yourself the appropriate width and height for the image to fit in a column.
+Full width image and automatic sized image for single-column will be described at another section (Enhancement by pubsEngine).
+
+![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab width=3.43in height=2.71in}
+
 ## Lists
 We can have either ordered or unordered list
 
 ### Ordered List
 For ordered list, we just use numbers.
+The block should be as an independent paragraph (blank line above and under the block).
+
 
 ~~~
 1. first in line
@@ -140,20 +213,6 @@ will produce
   should multiline
 - and the third
 
-## Tables
-
-Table creation will be described in another section (Enhancement by pubsEngine).
-
-## Images
-
-~~~
-![the caption](Figure/icml_numpapers.eps)
-{#fig:FigVibStab width=3.43in height=2.71in}
-~~~
-
-will produce Figure \ref{fig:FigVibStab}. Make sure that you calculated by yourself the appropriate width and height for the image to fit in a column. Full width image will be described at another section (Enhancement by pubsEngine).
-
-![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab width=3.43in height=2.71in}
 
 ## Links
 
@@ -174,6 +233,9 @@ produces email link:
 <myemail@myurl.org>
 
 # Enhancement by pubsEngine
+
+The enhancements provided by pubsEngine spans on various aspects.
+Most parts of this are expressed in terms of CodeBlocks inside the Markdown text.
 
 
 
@@ -213,42 +275,6 @@ non-numbered list can be written as above, and shown as:
 * hydrostatic equilibrium,
 * thermal equilibrium,
 * energy transport by grey radiation diffusion.
-
-For equations, we can use several environment:
-
-~~~
-$$ $$ is equal with \begin{equation}
-\begin{eqnarray}
-\begin{array}
-\begin{displaymath}
-\begin{align}
-~~~
-
-This is an example:
-
-~~~
-\begin{align}
-\nabla \cdot  \vec{E} &= \rho \nonumber \\
-\nabla \cdot  \vec{B} &= 0    \nonumber \\
-\nabla \times \vec{E} &= -\frac{\vec{B}}{t}
-\end{align}
-~~~
-
-\begin{align}
-\nabla \cdot  \vec{E} &= \rho \nonumber \\
-\nabla \cdot  \vec{B} &= 0    \nonumber \\
-\nabla \times \vec{E} &= -\frac{\vec{B}}{t}
-\end{align}
-
-And this is another example for inline equation, such as: $$y = 5\cdot x^2$$
-You can see that inline equation have automatically numbered.
-Independent paragraph equation is not numbered, as below.
-
-$$
-\nabla \cdot  \vec{W} = \sigma W \nonumber
-$$
-
-The block should be as an independent paragraph (blank line above and under the block).
 
 For the one-zone-model Baker obtains necessary conditions
 for dynamical, secular and vibrational (or pulsational)
