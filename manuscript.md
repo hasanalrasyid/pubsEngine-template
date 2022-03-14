@@ -118,21 +118,22 @@ will produce
 3. and the third
 
 ## Unordered List
-For unordered list, we use \verb{*}.
+For unordered list, use \verb{-.
+We also can use \v{}
 
 ~~~
-* first in line
-* second
+- first in line
+- second
   should multiline
-* and the third
+- and the third
 ~~~
 
 will produce
 
-* first in line
-* second
+- first in line
+- second
   should multiline
-* and the third
+- and the third
 
 
 # Baker's standard one-zone model
