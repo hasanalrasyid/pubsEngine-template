@@ -143,7 +143,7 @@ will produce
 {#fig:FigVibStab width=3.43in height=2.71in}
 ~~~
 
-will produce
+will produce Figure \ref{fig:FigVibStab}.
 
 ![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab width=3.43in height=2.71in}
 
