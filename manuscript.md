@@ -99,6 +99,7 @@ blank line stands as a paragraph separator. No indentation for the first line (i
 
 ## Verbatim
 Verbatim should use backticks \v{`text`}, Ex. ``this is `the text` `` this is `the text`.
+To include backticks inside the text, use multiple bacticks like ```this ``is `text` out`` ```
 
 ## Lists
 We can have either ordered or unordered list
