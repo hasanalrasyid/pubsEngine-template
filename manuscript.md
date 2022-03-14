@@ -140,6 +140,9 @@ will produce
   should multiline
 - and the third
 
+## Tables
+
+Table creation will be described in another section (Enhancement by pubsEngine).
 
 ## Images
 
@@ -169,6 +172,10 @@ produces: We use [Duck Duck Go](https://duckduckgo.com).
 produces email link:
 
 <myemail@myurl.org>
+
+# Enhancement by pubsEngine
+
+
 
 # Baker's standard one-zone model
 
