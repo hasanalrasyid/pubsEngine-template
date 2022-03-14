@@ -81,9 +81,9 @@ Markdown is a very simplified text markup language.
 This section would shows several common syntax of Markdown.
 More detailed syntax can be accessed in the Markdown cheatsheet.
 
-## Headings \verb{\#}
+## Headings
 
-We use \verb{#}. on various levels, headings should be shown as a line that prefixed by \verb{#}. (Ex. \verb{# The First Level Heading}). Please include space after \verb{#}.
+We use \verb<#> . on various levels, headings should be shown as a line that prefixed by \verb{#}. (Ex. \verb{# The First Level Heading}). Please include space after \verb{#}.
 ## Paragraph
 blank line stands as a paragraph separator. No indentation for the first line (it only required in multilined lists to show that the next line is part of the item if it is non-blank and indented).
 ## Italic
