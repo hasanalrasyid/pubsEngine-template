@@ -301,8 +301,21 @@ Lp. & Miejscowość
 -->
 
 
+## Include .md Files
 
+We can create a rather decent categorical separation of our documents by dividing the .md files and gather them using includes.
 
+```
+~~~include
+include/addition1.md
+~~~
+```
+
+~~~include
+include/addition1.md
+~~~
+
+Above paragraph came was included from `include/addition1.md`.
 
 # Baker's standard one-zone model
 
