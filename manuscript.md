@@ -97,24 +97,8 @@ blank line stands as a paragraph separator. No indentation for the first line (i
 ##  Bold and Italic
 \v{***} Ex. \v{this text is ***bold and italic***} this text is ***bold and italic***
 
-## Blockquotes
-All lines in Blockquotes should started with \v{> } Ex.
-~~~
-> This is block quoted
->
-> after empty line
->> and multiple
-> ok
-~~~
-
-will produce:
-
-
-> This is block quoted
->
-> after empty line
->> and multiple
-> ok
+## Verbatim
+Inline verbatim should use \latex command of \v{\v}, Ex. \v{this is \v{the text}} this is \v{the text}.
 
 ## Lists
 We can have either ordered or unordered list
@@ -136,10 +120,12 @@ will produce
 ## Unordered List
 For unordered list, we use \verb{*}.
 
+~~~
 * first in line
 * second
   should multiline
 * and the third
+~~~
 
 will produce
 
