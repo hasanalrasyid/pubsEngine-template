@@ -247,7 +247,7 @@ We can create tables using the following template:
 
 ```
 ~~~{.multiTable}
-|             |          Grouping           ||
+|              |          Grouping           ||
 |First Header  | Second Header | Third Header |
 | ------------ | :-----------: | -----------: |
 |Content       |          *Long Cell*        ||
@@ -259,11 +259,11 @@ We can create tables using the following template:
 ```
 
 ~~~{.multiTable}
-|             |          Grouping           ||
+|              |          Grouping           ||
 |First Header  | Second Header | Third Header |
 | ------------ | :-----------: | -----------: |
-|Content       |          *Long Cell*          ||
-|Content       |   **Cell**        |         Cell |
+|Content       |          *Long Cell*        ||
+|Content       |   **Cell**    |         Cell |
 |New section   |     More      |         Data |
 |And more      | With an escaped '\|'        ||
 [More complicated table can be done using multimarkdown in .multiTable Code Block. You have to use this format for all table as default.]
