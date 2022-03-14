@@ -334,22 +334,6 @@ let x = circle 10
 ~~~
 
 ## Subprocess delegation
-We can delegate the compilation of our CodeBlock to other application.
-As an example, the creation of table \ref{tbl:delegate}, can be delegated to `multimarkdown` using following syntax:
-
-```
-~~~{.delegate .multimarkdown}
-|              |          Grouping           ||
-|First Header  | Second Header | Third Header |
-| ------------ | :-----------: | -----------: |
-|Content       |          *Long Cell*        ||
-|Content       |   **Cell**    |         Cell |
-|
-|New section   |     More      |         Data |
-|And more      | With an escaped '\|'        ||
-[Prototype table]
-~~~
-```
 
 ~~~{.delegate .multimarkdown #tbl:delegate}
 |              |          Grouping           ||
@@ -362,6 +346,23 @@ As an example, the creation of table \ref{tbl:delegate}, can be delegated to `mu
 |And more      | With an escaped '\|'        ||
 [Prototype table]
 ~~~
+
+We can delegate the compilation of our CodeBlock to other application.
+As an example, the creation of table \ref{tbl:delegate}, can be delegated to `multimarkdown` using following syntax. Please notice the use of `#tbl:delegate` for assignment of label that can be refered in the text using `\ref{tbl:delegate}`.
+
+```
+~~~{.delegate .multimarkdown #tbl:delegate}
+|              |          Grouping           ||
+|First Header  | Second Header | Third Header |
+| ------------ | :-----------: | -----------: |
+|Content       |          *Long Cell*        ||
+|Content       |   **Cell**    |         Cell |
+|
+|New section   |     More      |         Data |
+|And more      | With an escaped '\|'        ||
+[Prototype table]
+~~~
+```
 
 
 
