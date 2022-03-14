@@ -136,6 +136,17 @@ will produce
 - and the third
 
 
+## Images
+
+~~~
+![the caption](Figure/icml_numpapers.eps)
+{#fig:FigVibStab width=3.43in height=2.71in}
+~~~
+
+will produce
+
+![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab width=3.43in height=2.71in}
+
 # Baker's standard one-zone model
 
 <!-- we need figure* for make it full screen, so it must be in latex code as follows
