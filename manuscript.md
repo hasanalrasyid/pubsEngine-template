@@ -454,7 +454,7 @@ Feynman diagram can be generated using the following syntax.
 
 ## Mermaid diagrams
 
-Inclusion of [Mermaid](https://github.com/Alxandr/pandoc-mermaid) diagrams can be done by the following syntax:
+Inclusion of [Mermaid](https://github.com/hasanalrasyid/pandoc-mermaid) diagrams can be done by the following syntax:
 
 ```
 ~~~{.mermaid caption="inilah new mermaid"}
