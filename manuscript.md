@@ -317,6 +317,24 @@ include/addition1.md
 
 Above paragraph was included from `include/addition1.md`.
 
+## Incorporating Diagram
+
+We can include a diagram script, following an Embedded domain-specific Language from Haskell [`diagrams`](https://hackage.haskell.org/package/diagrams). We can see the implementation of following CodeBlock as Figure \ref{fig:dia1}.
+
+```
+~~~{#fig:dia1 .diagram}
+let x = circle 10
+ in x
+~~~
+```
+
+~~~{#fig:dia1 .diagram}
+let x = circle 10
+ in x
+~~~
+
+##
+
 # Baker's standard one-zone model
 
 <!-- we need figure* for make it full screen, so it must be in latex code as follows
