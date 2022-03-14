@@ -333,7 +333,9 @@ let x = circle 10
  in x
 ~~~
 
-##
+## Subprocess delegation
+We can delegate the compilation of our CodeBlock to other application.
+As an example, the above table creation,
 
 # Baker's standard one-zone model
 
