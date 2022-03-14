@@ -85,6 +85,26 @@ More detailed syntax can be accessed in the Markdown cheatsheet.
 2.  Paragraph: blank line stands as a paragraph separator. No indentation for the first line (it only required in multilined lists to show that the next line is part of the item if it is non-blank and indented).
 3.  Italic: \verb{*} Ex. \verb{this text is *italic*} :  this text is *italic*
 4.  Bold: \verb{**} Ex. \verb{this text is **bold**} : this text is **bold**
+5.  Bold and Italic: \verb{***} Ex. \verb{this text is ***bold and italic***} this text is ***bold and italic***
+6. Blockquotes: \verb{> } Ex.
+
+~~~
+> This is block quoted
+>
+> after empty line
+>> and multiple
+> ok
+~~~
+
+will produce:
+
+
+> This is block quoted
+>
+> after empty line
+>> and multiple
+> ok
+
 
 
 
