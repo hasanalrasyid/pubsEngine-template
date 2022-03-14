@@ -124,6 +124,8 @@ main :: IO ()
 main = putStrLn "we are one"
 ~~~
 
+The abuse of CodeBlocks for another purpose will be discussed in another section (Enhancement by pubsEngine).
+
 ## Mathematical Equations
 By default, we may use `$$` environment for mathematical formula.
 Nonetheless, actually, we can use any \latex{} scenario, such as:
@@ -235,7 +237,9 @@ produces email link:
 # Enhancement by pubsEngine
 
 The enhancements provided by pubsEngine spans on various aspects.
-Most parts of this are expressed in terms of CodeBlocks inside the Markdown text.
+Most parts of this are expressed in terms of CodeBlocks.
+
+
 
 
 
