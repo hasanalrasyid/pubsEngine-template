@@ -40,6 +40,7 @@ acknowledgements:
 include-headers: |
   \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
   \newcommand\latex{\LaTeX\xspace }
+  \newcommand\v[1]{\verb-#1-}
 
 ---
 
@@ -83,7 +84,7 @@ More detailed syntax can be accessed in the Markdown cheatsheet.
 
 ## Headings
 
-We use \verb<#> . on various levels, headings should be shown as a line that prefixed by \verb{#}. (Ex. \verb{# The First Level Heading}). Please include space after \verb{#}.
+We use \v{#} . on various levels, headings should be shown as a line that prefixed by \verb{#}. (Ex. \verb{# The First Level Heading}). Please include space after \verb{#}.
 ## Paragraph
 blank line stands as a paragraph separator. No indentation for the first line (it only required in multilined lists to show that the next line is part of the item if it is non-blank and indented).
 ## Italic
