@@ -269,7 +269,12 @@ We can create tables using the following template:
 [More complicated table can be done using multimarkdown in .multiTable Code Block. You have to use this format for all table as default.]
 ~~~
 
-For the moment, we need to use `\begin{table*}` for full screen table as follows Table \ref{KapSou}.
+Currently, we cannot create full width two-columns table automatically using above default syntax.
+For the moment, we should use a complete \latex{} syntax to fulfill this.
+The detailed syntax for this purpose will be shown in the Appendix.
+
+<!--
+We use `\begin{table*}` for full screen table as follows Table \ref{KapSou}.
 
 \begin{table*}
 \centering
@@ -293,7 +298,7 @@ Lp. & Miejscowość
 \bottomrule
 \end{tabular}
 \end{table*}
-
+-->
 
 
 
