@@ -239,6 +239,50 @@ produces email link:
 The enhancements provided by pubsEngine spans on various aspects.
 Most parts of this are expressed in terms of CodeBlocks.
 
+## Table
+
+pubsEngine provides its table capability outside the defaults available in Pandoc.
+Under the table, pubsEngine will use MultiMarkdown to process its table.
+We can create tables using the following template:
+%
+%
+%~~~{.multiTable}
+%|             |          Grouping           ||
+%First Header  | Second Header | Third Header |
+% ------------ | :-----------: | -----------: |
+%Content       |          *Long Cell*          ||
+%Content       |   **Cell**        |         Cell |
+%New section   |     More      |         Data |
+%And more      | With an escaped '\|'        ||
+%[More complicated table can be done using multimarkdown in .multiTable Code Block. You have to use this format for all table as default.]
+%~~~
+%
+%For the moment, we need to use `\begin{table*}` for full screen table as follows Table \ref{KapSou}.
+%
+%\begin{table*}
+%\centering
+%
+%\caption[]{Opacity sources. Prototype for correct table. In full screen mode. \label{KapSou}}
+%\begin{tabular}{@{}cc
+%    *{4}{S[table-format=6.3,output-decimal-marker={,}]}
+%@{}}
+%\toprule
+%Lp. & Miejscowość
+%& \multicolumn{2}{@{}c}{Zapotrzebowanie na wodę, \si{m^3/\day}}
+%& \multicolumn{2}{c@{}}{Odpływ ścieków, \si{m^3/\day}} \\
+%& & \mC{$Q_{\text{śrd}}$} & \mC{$Q_{\text{maxd}}$} &
+%    \mC{$Q_{\text{rdś}}$} & \mC{$Q_{\text{maxd}}$} \\
+%\midrule
+%1.    & X1 & 57,2  & 74,4  & 54,3  & 70,7 \\
+%2.    & X2 & 82,5  & 107,3 & 78,4  & 101,9 \\
+%3.    & X3 & 47,3  & 61,5  & 44,9  & 58,4 \\
+%4.    & X4 & 24,2  & 31,5  & 23,0  & 29,9 \\
+%5.    & X5 & 211,2 & 274,7 & 200,6 & 260,9 \\
+%\bottomrule
+%\end{tabular}
+%\end{table*}
+%
+
 
 
 
@@ -407,43 +451,6 @@ And more      | With an escaped '\|'         ||
 
 Table: Simple table using default markdown table. Currently not working in two-columns environment due to [this issue](https://github.com/jgm/pandoc/issues/1023) \label{simpleTable}
 -->
-
-~~~{.multiTable}
-|             |          Grouping           ||
-First Header  | Second Header | Third Header |
- ------------ | :-----------: | -----------: |
-Content       |          *Long Cell*          ||
-Content       |   **Cell**        |         Cell |
-New section   |     More      |         Data |
-And more      | With an escaped '\|'        ||
-[More complicated table can be done using multimarkdown in .multiTable Code Block. You have to use this format for all table as default.]
-~~~
-
-For the moment, we need to use `\begin{table*}` for full screen table as follows Table \ref{KapSou}.
-
-\begin{table*}
-\centering
-
-\caption[]{Opacity sources. Prototype for correct table. In full screen mode. \label{KapSou}}
-\begin{tabular}{@{}cc
-    *{4}{S[table-format=6.3,output-decimal-marker={,}]}
-@{}}
-\toprule
-Lp. & Miejscowość
-& \multicolumn{2}{@{}c}{Zapotrzebowanie na wodę, \si{m^3/\day}}
-& \multicolumn{2}{c@{}}{Odpływ ścieków, \si{m^3/\day}} \\
-& & \mC{$Q_{\text{śrd}}$} & \mC{$Q_{\text{maxd}}$} &
-    \mC{$Q_{\text{rdś}}$} & \mC{$Q_{\text{maxd}}$} \\
-\midrule
-1.    & X1 & 57,2  & 74,4  & 54,3  & 70,7 \\
-2.    & X2 & 82,5  & 107,3 & 78,4  & 101,9 \\
-3.    & X3 & 47,3  & 61,5  & 44,9  & 58,4 \\
-4.    & X4 & 24,2  & 31,5  & 23,0  & 29,9 \\
-5.    & X5 & 211,2 & 274,7 & 200,6 & 260,9 \\
-\bottomrule
-\end{tabular}
-\end{table*}
-
 
    We will now write down the sign (and therefore stability)
    determining parts of the left-hand sides of the inequalities
