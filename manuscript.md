@@ -37,10 +37,11 @@ acknowledgements:
       Part of this work was supported by the German
       *Deutsche Forschungsgemeinschaft, DFG* project
       number Ts 17/2--1.
-include-headers: |
+header-includes: |
+  \usepackage{chemfig}
   \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
   \newcommand\latex{\LaTeX\xspace }
-  \newcommand\v[1]{\verb-#1-}
+#\newcommand\v[1]{\verb-#1-}
 
 ---
 
@@ -83,7 +84,7 @@ This section would shows several common syntax of Markdown.
 More detailed syntax can be accessed in the Markdown cheatsheet.
 
 ## Headings
-We use \v{#} on various levels. Headings should be shown as a line that prefixed by \v{#}. (Ex. \v{# The First Level Heading}). Please include space after \v{#}.
+We use `#` on various levels. Headings should be shown as a line that prefixed by `#`. (Ex. `# The First Level Heading`). Please include space after `#`.
 
 ## Paragraph
 blank line stands as a paragraph separator. No indentation for the first line (it only required in multilined lists to show that the next line is part of the item if it is non-blank and indented).
@@ -322,11 +323,65 @@ Above paragraph was included from `include/addition1.md`.
 We can include a diagram script, following an Embedded domain-specific Language from Haskell [`diagrams`](https://hackage.haskell.org/package/diagrams). We can see the implementation of following CodeBlock as Figure \ref{fig:dia1}.
 
 ```
-~~~{#fig:dia1 .diagram}
+~~~{#fig:dia1 .diagram width=100 caption="dia"}
 let x = circle 10
  in x
 ~~~
 ```
+
+
+~~~{.diagram width=300 caption="complex diagram" width=100}
+type D2 = Diagram PGF
+
+main = onlineMain example
+
+mytext :: OnlineTex D2
+mytext = scale 2 . box 8 orange <$> hboxOnline (sizedVBox 18 txt)
+  where
+    txt = "The sum of the squares of the lengths of the legs equals the square "
+       ++ "of the length of the hypotenuse:"
+       ++ "$$ a^2 + b^2 = c^2 .$$"
+
+rightTriangle
+  = fromVertices [origin, mkP2 4 0, mkP2 4 3]
+      # closeTrail
+      # strokeTrail
+      # centerXY
+      # scale 12
+      # fc dodgerblue
+      # label (hboxPoint "\\chemfig{R-C-[::-60]O-[::-60]C-[::-60]R}") (V2 4 6)
+      # label (hboxPoint "\\chemfig{*5(-=--=)}") (V2 1 1)
+
+labeledTriangle :: OnlineTex D2
+labeledTriangle = scale 5 <$> do
+  a <- hboxOnline "$a$"
+  b <- hboxOnline "$b$"
+  c <- hboxOnline "$c$"
+
+  pure $ rightTriangle
+           # label a unit_X
+           # label b unit_Y
+           # label c (V2 4 3)
+
+example = frame 10 <$> liftA2 (|-|) labeledTriangle mytext
+
+a |-| b = a ||| strutX 25 ||| b
+
+box padding colour content
+  = centerXY content
+ <> roundedRect w h 2
+      # fc colour
+  where
+    V2 w h = (+padding) <$> size content
+
+sizedVBox w x = "\\hsize=" ++ show w ++ "em\\vbox{\\noindent " ++ x ++ "}"
+
+label l v a = besideWithGap 3 (perp v) a (centerXY l)
+
+besideWithGap g v a b = beside v a b'
+  where
+    b' = beside v (strut (g *^ signorm v)) b
+~~~
 
 ~~~{#fig:dia1 .diagram}
 let x = circle 10
@@ -364,7 +419,79 @@ As an example, the creation of table \ref{tbl:delegate}, can be delegated to `mu
 ~~~
 ```
 
+## Feynman diagram
 
+Feynman diagram can be generated using the following syntax.
+```
+~~~{.feynmp caption="test feynman diagram"}
+  \begin{equation}
+    \begin{gathered}
+      \begin{fmfgraph*}(65,50) %size 65,50
+        \fmfleft{i1,i2}
+        \fmfright{o1,o2}
+        \fmf{fermion}{i1,v1,o1}
+        \fmf{fermion}{i2,v2,o2}
+        \fmf{photon}{v1,v2}
+      \end{fmfgraph*}
+    \end{gathered}=-i\lambda
+  \end{equation}
+~~~
+```
+
+~~~{.feynmp caption="test feynman diagram"}
+  \begin{equation}
+    \begin{gathered}
+      \begin{fmfgraph*}(65,50) %size 65,50
+        \fmfleft{i1,i2}
+        \fmfright{o1,o2}
+        \fmf{fermion}{i1,v1,o1}
+        \fmf{fermion}{i2,v2,o2}
+        \fmf{photon}{v1,v2}
+      \end{fmfgraph*}
+    \end{gathered}=-i\lambda
+  \end{equation}
+~~~
+
+## Mermaid diagrams
+
+Inclusion of [Mermaid](https://github.com/Alxandr/pandoc-mermaid) diagrams can be done by the following syntax:
+
+```
+~~~{.mermaid caption="inilah new mermaid"}
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->John: Hello John, how are you?
+    loop Healthcheck
+        John->John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>prevail...
+    John-->Alice: Great!
+    John->Bob: How about you?
+    Bob-->John: Jolly good!
+~~~
+```
+
+~~~{.mermaid caption="inilah new mermaid"}
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->John: Hello John, how are you?
+    loop Healthcheck
+        John->John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>prevail...
+    John-->Alice: Great!
+    John->Bob: How about you?
+    Bob-->John: Jolly good!
+~~~
+
+
+## Presentation and Poster (Beamer)
+
+There are two CodeBlocks that can be used for beamer.
+For a TextBlock, we can use `~~~{.textblock w=150pt pos=(140pt,160pt)}`.
+We can include notes for beamer by `~~~{note}` CodeBlocks.
 
 # Baker's standard one-zone model
 
@@ -618,6 +745,4 @@ create label for \ref{FigVibStab} using #FigVibStab
    of instability are much larger in extent and degree of
    instability than the second He ionization zone
    that drives the Cephe\text{\"\i}d pulsations.
-
-
 
