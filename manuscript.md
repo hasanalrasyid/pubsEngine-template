@@ -98,7 +98,7 @@ blank line stands as a paragraph separator. No indentation for the first line (i
 \v{***} Ex. \v{this text is ***bold and italic***} this text is ***bold and italic***
 
 ## Verbatim
-Verbatim should use backticks \v{`text`}, Ex. \v{this is \v{the text}} this is `the text`.
+Verbatim should use backticks \v{`text`}, Ex. ``this is `the text` `` this is `the text`.
 
 ## Lists
 We can have either ordered or unordered list
