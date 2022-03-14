@@ -315,7 +315,7 @@ include/addition1.md
 include/addition1.md
 ~~~
 
-Above paragraph came was included from `include/addition1.md`.
+Above paragraph was included from `include/addition1.md`.
 
 # Baker's standard one-zone model
 
