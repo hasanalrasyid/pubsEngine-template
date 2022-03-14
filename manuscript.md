@@ -25,14 +25,13 @@ appendix:
   - appendix/1
   - appendix/2
 abstractTex:
-  \abstract{To investigate the physical nature of the `nuc\-leated instability' of
+  \abstract{To investigate the physical nature of the 'nuc\-leated instability' of
   proto giant planets, the stability of layers in static, radiative gas spheres is analysed on the basis of Baker's standard one-zone model.}
-  {To investigate the physical nature of the `nuc\-leated instability' of
+  {To investigate the physical nature of the 'nuc\-leated instability' of
   proto giant planets, the stability of layers in static, radiative gas spheres is analysed on the basis of Baker's standard one-zone model.}
   {It is shown that stability depends only upon the equations of state, the opacities and the local thermodynamic state in the layer. Stability and instability can therefore be expressed in the form of stability equations of state which are universal for a given composition.}
   {The stability equations of state are calculated for solar composition and are displayed in the domain $-14 \leq \lg \rho / \mathrm{[g\, cm^{-3}]} \leq 0 $, $ 8.8 \leq \lg e / \mathrm{[erg\, g^{-1}]} \leq 17.7$. These displays may be used to determine the one-zone stability of layers in stellar or planetary structure models by directly reading off the value of the stability equations for the thermodynamic state of these layers, specified  by state quantities as density $\rho$, temperature $T$ or specific internal energy $e$. Regions of instability in the $(\rho,e)$-plane are described and related to the underlying microphysical processes.}
-  {Vibrational instability is found to be a common phenomenon at temperatures lower than the second He ionisation zone. The $\kappa$-mechanism is widespread under `cool' conditions.}
-  {}
+  {Vibrational instability is found to be a common phenomenon at temperatures lower than the second He ionisation zone. The $\kappa$-mechanism is widespread under 'cool' conditions.}
 keywords: giant planet formation -- $\kappa$-mechanism -- stability of gas spheres
 acknowledgements:
       Part of this work was supported by the German
@@ -40,12 +39,13 @@ acknowledgements:
       number Ts 17/2--1.
 include-headers: |
   \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
+  \newcommand\latex{\LaTeX\xspace }
 
 ---
 
 # Introduction
 
-In the *nucleated instability* (also called core
+In the 'nucleated instability' (also called core
 instability) hypothesis of giant planet
 formation, a critical mass for static core  envelope
 protoplanets has been found. \citet{langley00} determined
@@ -73,6 +73,17 @@ whereas earlier studies found quasi-steady collapse flows. The
 similarities in the (micro)physics, i.e., constitutive relations of
 protostellar cores and protogiant planets serve as a further
 motivation for this study.
+
+# Markdown
+
+pubsEngine use Markdown text-file as an input to be processed into \latex document.
+Markdown is a very simplified text markup language.
+This section would shows several common syntax of Markdown.
+More detailed syntax can be accessed in the Markdown cheatsheet.
+
+1.  Headings : on various levels, headings should be shown as a line that prefixed by \verb{#}. (Ex. \verb{# The First Level Heading}). Please include space after \verb{#}.
+2.
+
 
 # Baker's standard one-zone model
 
