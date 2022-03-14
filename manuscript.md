@@ -335,7 +335,7 @@ let x = circle 10
 
 ## Subprocess delegation
 We can delegate the compilation of our CodeBlock to other application.
-As an example, the above table creation, can be delegated to `multimarkdown` using following syntax:
+As an example, the creation of table \ref{tbl:delegate}, can be delegated to `multimarkdown` using following syntax:
 
 ```
 ~~~{.delegate .multimarkdown}
@@ -351,7 +351,7 @@ As an example, the above table creation, can be delegated to `multimarkdown` usi
 ~~~
 ```
 
-~~~{.delegate .multimarkdown}
+~~~{.delegate .multimarkdown #tbl:delegate}
 |              |          Grouping           ||
 |First Header  | Second Header | Third Header |
 | ------------ | :-----------: | -----------: |
