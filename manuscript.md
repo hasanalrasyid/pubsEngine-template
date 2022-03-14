@@ -118,8 +118,8 @@ will produce
 3. and the third
 
 ## Unordered List
-For unordered list, use \verb{-.
-We also can use \v{}
+For unordered list, use dash sign (`-`).
+We also can use asterisk and plus signs ( `* +`)
 
 ~~~
 - first in line
