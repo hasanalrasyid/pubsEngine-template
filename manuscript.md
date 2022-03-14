@@ -155,10 +155,10 @@ will produce Figure \ref{fig:FigVibStab}. Make sure that you calculated by yours
 ## Links
 
 ~~~
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+We use [Duck Duck Go](https://duckduckgo.com).
 ~~~
 
-produces: My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+produces: We use [Duck Duck Go](https://duckduckgo.com).
 
 
 # Baker's standard one-zone model
