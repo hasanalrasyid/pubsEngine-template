@@ -148,9 +148,18 @@ will produce
 {#fig:FigVibStab width=3.43in height=2.71in}
 ~~~
 
-will produce Figure \ref{fig:FigVibStab}.
+will produce Figure \ref{fig:FigVibStab}. Make sure that you calculated by yourself the appropriate width and height for the image to fit in a column. Full width image will be described at another section (Enhancement by pubsEngine).
 
 ![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab width=3.43in height=2.71in}
+
+## Links
+
+~~~
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+~~~
+
+produces: My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+
 
 # Baker's standard one-zone model
 
