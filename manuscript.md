@@ -83,17 +83,22 @@ This section would shows several common syntax of Markdown.
 More detailed syntax can be accessed in the Markdown cheatsheet.
 
 ## Headings
-We use \v{#} on various levels. Headings should be shown as a line that prefixed by \v{#}. (Ex. \v{# The First Level Heading}). Please include space after \verb{#}.
+We use \v{#} on various levels. Headings should be shown as a line that prefixed by \v{#}. (Ex. \v{# The First Level Heading}). Please include space after \v{#}.
+
 ## Paragraph
 blank line stands as a paragraph separator. No indentation for the first line (it only required in multilined lists to show that the next line is part of the item if it is non-blank and indented).
+
 ## Italic
-\verb{*} Ex. \verb{this text is *italic*} :  this text is *italic*
+\v{*} Ex. \v{this text is *italic*} :  this text is *italic*
+
 ## Bold
-\verb{**} Ex. \verb{this text is **bold**} : this text is **bold**
+\v{**} Ex. \v{this text is **bold**} : this text is **bold**
+
 ##  Bold and Italic
-\verb{***} Ex. \verb{this text is ***bold and italic***} this text is ***bold and italic***
+\v{***} Ex. \v{this text is ***bold and italic***} this text is ***bold and italic***
+
 ## Blockquotes
-\verb{> } Ex.
+All lines in Blockquotes should started with \v{> } Ex.
 ~~~
 > This is block quoted
 >
