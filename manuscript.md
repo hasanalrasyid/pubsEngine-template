@@ -160,6 +160,15 @@ We use [Duck Duck Go](https://duckduckgo.com).
 
 produces: We use [Duck Duck Go](https://duckduckgo.com).
 
+## Email link
+
+~~~
+<myemail@myurl.org>
+~~~
+
+produces email link:
+
+<myemail@myurl.org>
 
 # Baker's standard one-zone model
 
