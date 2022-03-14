@@ -81,13 +81,18 @@ Markdown is a very simplified text markup language.
 This section would shows several common syntax of Markdown.
 More detailed syntax can be accessed in the Markdown cheatsheet.
 
-1.  Headings : \verb{# }.on various levels, headings should be shown as a line that prefixed by \verb{#}. (Ex. \verb{# The First Level Heading}). Please include space after \verb{#}.
-2.  Paragraph: blank line stands as a paragraph separator. No indentation for the first line (it only required in multilined lists to show that the next line is part of the item if it is non-blank and indented).
-3.  Italic: \verb{*} Ex. \verb{this text is *italic*} :  this text is *italic*
-4.  Bold: \verb{**} Ex. \verb{this text is **bold**} : this text is **bold**
-5.  Bold and Italic: \verb{***} Ex. \verb{this text is ***bold and italic***} this text is ***bold and italic***
-6. Blockquotes: \verb{> } Ex.
-
+## Headings
+\verb{# }.on various levels, headings should be shown as a line that prefixed by \verb{#}. (Ex. \verb{# The First Level Heading}). Please include space after \verb{#}.
+## Paragraph
+blank line stands as a paragraph separator. No indentation for the first line (it only required in multilined lists to show that the next line is part of the item if it is non-blank and indented).
+## Italic
+\verb{*} Ex. \verb{this text is *italic*} :  this text is *italic*
+## Bold
+\verb{**} Ex. \verb{this text is **bold**} : this text is **bold**
+##  Bold and Italic
+\verb{***} Ex. \verb{this text is ***bold and italic***} this text is ***bold and italic***
+## Blockquotes
+\verb{> } Ex.
 ~~~
 > This is block quoted
 >
@@ -105,7 +110,37 @@ will produce:
 >> and multiple
 > ok
 
+## Lists
+We can have either ordered or unordered list
 
+### Ordered List
+For ordered list, we just use numbers.
+
+~~~
+1. first in line
+2. second
+3. and the third
+~~~
+will produce
+
+1. first in line
+2. second
+3. and the third
+
+## Unordered List
+For unordered list, we use \verb{*}.
+
+* first in line
+* second
+  should multiline
+* and the third
+
+will produce
+
+* first in line
+* second
+  should multiline
+* and the third
 
 
 # Baker's standard one-zone model
