@@ -128,7 +128,7 @@ The abuse of CodeBlocks for another purpose will be discussed in another section
 
 ## Mathematical Equations
 By default, we may use `$$` environment for mathematical formula.
-Nonetheless, actually, we can use any \latex{} scenario, such as:
+Nonetheless, actually, we can use any \latex scenario, such as:
 
 ~~~
 $$ $$ is equal with \begin{equation}
@@ -270,7 +270,7 @@ We can create tables using the following template:
 ~~~
 
 Currently, we cannot create full width two-columns table automatically using above default syntax.
-For the moment, we should use a complete \latex{} syntax to fulfill this.
+For the moment, we should use a complete \latex syntax to fulfill this.
 The detailed syntax for this purpose will be shown in the Appendix.
 
 <!--
