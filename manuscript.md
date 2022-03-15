@@ -244,10 +244,10 @@ Most parts of this are expressed in terms of CodeBlocks.
 
 pubsEngine provides its table capability outside the defaults available in Pandoc.
 Under the table, pubsEngine will use MultiMarkdown to process its table.
-We can create tables using the following template:
+We can create Table \ref{tbl:multi} using the following template:
 
 ```
-~~~{.multiTable}
+~~~{.multiTable #tbl:multi}
 |              |          Grouping           ||
 |First Header  | Second Header | Third Header |
 | ------------ | :-----------: | -----------: |
@@ -259,7 +259,7 @@ We can create tables using the following template:
 ~~~
 ```
 
-~~~{.multiTable}
+~~~{.multiTable #tbl:multi}
 |              |          Grouping           ||
 |First Header  | Second Header | Third Header |
 | ------------ | :-----------: | -----------: |
@@ -318,9 +318,10 @@ include/addition1.md
 
 Above paragraph was included from `include/addition1.md`.
 
-## Incorporating Diagram
+## Diagram
 
-We can include a diagram script, following an Embedded domain-specific Language from Haskell [`diagrams`](https://hackage.haskell.org/package/diagrams). We can see the implementation of following CodeBlock as Figure \ref{fig:dia1}.
+We can include a diagram script, following an Embedded domain-specific Language from Haskell package [`diagrams`](https://hackage.haskell.org/package/diagrams).
+The implementation of following CodeBlock can be seen at Figure \ref{fig:dia1}.
 
 ```
 ~~~{#fig:dia1 .diagram width=100 caption="dia"}
@@ -329,7 +330,7 @@ let x = circle 10
 ~~~
 ```
 
-
+<!--
 ~~~{.diagram width=300 caption="complex diagram" width=100}
 type D2 = Diagram PGF
 
@@ -382,6 +383,8 @@ besideWithGap g v a b = beside v a b'
   where
     b' = beside v (strut (g *^ signorm v)) b
 ~~~
+
+-->
 
 ~~~{#fig:dia1 .diagram}
 let x = circle 10
@@ -454,10 +457,29 @@ Feynman diagram can be generated using the following syntax.
 
 ## Mermaid diagrams
 
-Inclusion of [Mermaid](https://github.com/hasanalrasyid/pandoc-mermaid) diagrams can be done by the following syntax:
+Inclusion of [Mermaid](https://github.com/hasanalrasyid/pandoc-mermaid) diagrams at Figure \ref{fig:mermaid} can be done by the following syntax:
 
 ```
-~~~{.mermaid caption="inilah new mermaid"}
+~~~{.mermaid #fig:mermaid caption="new mermaid"
+file="Figure/mermaidExample"
+width=320 height=240}
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->John: Hello John, how are you?
+    loop Healthcheck
+        John->John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>
+      prevail...
+    John-->Alice: Great!
+    John->Bob: How about you?
+    Bob-->John: Jolly good!
+~~~
+```
+
+~~~{.mermaid #fig:mermaid caption="new mermaid" file="Figure/mermaidExample" width=320 height=240}
+
 sequenceDiagram
     participant Alice
     participant Bob
@@ -470,22 +492,15 @@ sequenceDiagram
     John->Bob: How about you?
     Bob-->John: Jolly good!
 ~~~
-```
 
-~~~{.mermaid caption="inilah new mermaid"}
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->John: Hello John, how are you?
-    loop Healthcheck
-        John->John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail...
-    John-->Alice: Great!
-    John->Bob: How about you?
-    Bob-->John: Jolly good!
+Please make sure that Mermaid executables have already installed in `$PATH`.
+pubsEngine need to call executable named `mermaid`.
+Common ways to install Mermaid is:
+
 ~~~
-
+npm install @mermaid-js/mermaid-cli
+ln -sf  ~/node_modules/.bin/mmdc ~/.local/bin/mermaid
+~~~
 
 ## Presentation and Poster (Beamer)
 
