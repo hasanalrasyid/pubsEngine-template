@@ -25,6 +25,7 @@ appendix:
   - appendix/1
   - appendix/2
 abstractTex:
+  #\abstract{Context}{Aim}{Method}{Result}Conclusion}
   \abstract{To investigate the physical nature of the 'nuc\-leated instability' of
   proto giant planets, the stability of layers in static, radiative gas spheres is analysed on the basis of Baker's standard one-zone model.}
   {To investigate the physical nature of the 'nuc\-leated instability' of
@@ -330,7 +331,6 @@ let x = circle 10
 ~~~
 ```
 
-<!--
 ~~~{.diagram width=300 caption="complex diagram" width=100}
 type D2 = Diagram PGF
 
@@ -384,12 +384,13 @@ besideWithGap g v a b = beside v a b'
     b' = beside v (strut (g *^ signorm v)) b
 ~~~
 
--->
 
+<!--
 ~~~{#fig:dia1 .diagram}
 let x = circle 10
  in x
 ~~~
+-->
 
 ## Subprocess delegation
 
