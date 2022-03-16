@@ -1,7 +1,10 @@
 ---
-title: "Paperlighter Template Implementation Example"
+shorttitle: "pubsEngine"
+shortauthor: "Author One, et al."
+title: "pubsEngine: Manuscript Engine"
 author:
   - number: 1
+    orcid: "0000-0002-0786-7307"
     name: "Author One"
     correspond: true
     affiliation: "My City University"
@@ -12,7 +15,22 @@ author:
     affiliation: "My Other City University"
     address: "Hokanomachi, Orenoshi, Orenoken, Japan"
     email: "two@myuni.ac.jp"
-email: "xxx@myuni.ac.jp"
+collaborator:
+  theme: "AAS Journal Data Editors"
+  person:
+    - number: 1
+      orcid: "0000-0002-0786-7307"
+      name: "Author One"
+      correspond: true
+      affiliation: "My City University"
+      address: "Orenomachi, Orenoshi, Orenoken, Japan"
+      email: "one@myuni.ac.jp"
+    - number: 2
+      name: "Author Two"
+      affiliation: "My Other City University"
+      address: "Hokanomachi, Orenoshi, Orenoken, Japan"
+      email: "two@myuni.ac.jp"
+  email: "xxx@myuni.ac.jp"
 titleshort: "Paperlighter Example"
 authorshort: "Author One et.al."
 processDate:
@@ -34,6 +52,8 @@ abstractTex:
   {The stability equations of state are calculated for solar composition and are displayed in the domain $-14 \leq \lg \rho / \mathrm{[g\, cm^{-3}]} \leq 0 $, $ 8.8 \leq \lg e / \mathrm{[erg\, g^{-1}]} \leq 17.7$. These displays may be used to determine the one-zone stability of layers in stellar or planetary structure models by directly reading off the value of the stability equations for the thermodynamic state of these layers, specified  by state quantities as density $\rho$, temperature $T$ or specific internal energy $e$. Regions of instability in the $(\rho,e)$-plane are described and related to the underlying microphysical processes.}
   {Vibrational instability is found to be a common phenomenon at temperatures lower than the second He ionisation zone. The $\kappa$-mechanism is widespread under 'cool' conditions.}
 keywords: giant planet formation -- $\kappa$-mechanism -- stability of gas spheres
+facilities: "HST(STIS)"
+
 acknowledgements:
       Part of this work was supported by the German
       *Deutsche Forschungsgemeinschaft, DFG* project
@@ -42,7 +62,6 @@ header-includes: |
   \usepackage{chemfig}
   \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
   \newcommand\latex{\LaTeX\xspace }
-#\newcommand\v[1]{\verb-#1-}
 
 ---
 
