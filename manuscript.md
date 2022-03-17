@@ -52,8 +52,13 @@ linkDir:
   - Figure
   - Output
 appendix:
-  - appendix/1
-  - appendix/2
+  - include/appendix1
+  - include/appendix2
+  - include/appendix3
+  - include/appendix4
+  - include/appendix5
+graphicpaths:
+  - Figure
 abstract: |
   This example manuscript is intended to serve as a tutorial and template for
   authors to use when writing their own AAS Journal articles. The manuscript
@@ -86,16 +91,22 @@ keywords:
  - Ultraviolet astronomy(1736)
  - History of astronomy(1868)
  - Interdisciplinary astronomy(804)
-facilities: "HST(STIS)"
-
+facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
 acknowledgements:
-      Part of this work was supported by the German
-      *Deutsche Forschungsgemeinschaft, DFG* project
-      number Ts 17/2--1.
+  We thank all the people that have made this AASTeX what it is today.  This
+  includes but not limited to Bob Hanisch, Chris Biemesderfer, Lee Brotzman,
+  Pierre Landau, Arthur Ogawa, Maxim Markevitch, Alexey Vikhlinin and Amy
+  Hendrickson. Also special thanks to David Hogg and Daniel Foreman-Mackey
+  for the new "modern" style design. Considerable help was provided via bug
+  reports and hacks from numerous people including Patricio Cubillos, Alex
+  Drlica-Wagner, Sean Lake, Michele Bannister, Peter Williams, and Jonathan
+  Gagne.
 header-includes: |
   \usepackage{chemfig}
   \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
-  \newcommand\latex{\LaTeX\xspace }
+  \newcommand{\vdag}{(v)^\dagger}
+  \newcommand\aastex{AAS\TeX}
+  \newcommand\latex{\LaTeX\xspace}
 
 ---
 
@@ -889,8 +900,8 @@ encapsulated postscript (EPS) or portable document format (PDF) files,
     \begin{enumerate}
       \item ORCID support for preprints,
       \item improved author, affiliation and collaboration mark up,
-      \item reintroduced the old AASTeX v5.2 {\tt\string\received}, {\tt\string\revised}, {\tt\string\accepted}, and {\tt\string\published} commands plus added the new {\tt\string\submitjournal} command to document which AAS Journal the manuscript was submitted to, plus
-      \item new typeset style options including {\tt\string modern}.
+      \item reintroduced the old AASTeX v5.2 `\received`, `\revised`, `\accepted`, and `\published` commands plus added the new `\submitjournal` command to document which AAS Journal the manuscript was submitted to, plus
+      \item new typeset style options including ` modern`.
     \end{enumerate}
   \item{v6.2}
     \begin{enumerate}
@@ -898,20 +909,20 @@ encapsulated postscript (EPS) or portable document format (PDF) files,
       \item Titles no longer put in all caps,
       \item No page skip between the title page and article body,
       \item re-introduce RevTeX's widetext environment for long lines in two column style formats, and
-      \item upgrade to the {\tt\string\doi} command.
+      \item upgrade to the `\doi` command.
     \end{enumerate}
   \item{v6.3}
     \begin{enumerate}
-      \item New {\tt\string interactive} environment to highlight interactive figures (see Section \ref{animation}),
+      \item New ` interactive` environment to highlight interactive figures (see Section \ref{animation}),
       \item Improved collaboration commands,
-      \item New {\tt\string anonymous} style to keep the authors, affiliations and acknowledgments from showing in the compiled pdf for dual anonymous review, and
+      \item New ` anonymous` style to keep the authors, affiliations and acknowledgments from showing in the compiled pdf for dual anonymous review, and
       \item Adoptions of IAU approved syntax for nominal units, see Section \ref{nominal}.
     \end{enumerate}
   \item{v6.31}
     \begin{enumerate}
-      \item Fixes a bug in the {\tt\string anonymous} style for dual anonymous review.
-      \item Improves line numbering with the {\tt\string linenumbers} style around equations due to the amsmath and lineno package compatibility issues.
-      \item Depreciate the {\tt\string \\acknowledgment} command in favor of the {\tt\string acknowledgment} environment.
+      \item Fixes a bug in the ` anonymous` style for dual anonymous review.
+      \item Improves line numbering with the ` linenumbers` style around equations due to the amsmath and lineno package compatibility issues.
+      \item Depreciate the ` \\acknowledgment` command in favor of the ` acknowledgment` environment.
     \end{enumerate}
 \end{itemize}
 
@@ -941,41 +952,45 @@ since figures and tables, see Section \ref{sec:floats}, will span the
 entire page, reducing the need for address float sizing.
 
 To invoke a two column style similar to the what is produced in
-the published PDF copy use \\
+the published PDF copy use
 
-\noindent {\tt\string\documentclass[twocolumn]\{aastex631\}}. \\
+~~~
+\documentclass[twocolumn]{aastex631}
+~~~
 
-\noindent Note that in the two column style figures and tables will only
-span one column unless specifically ordered across both with the ``*'' flag,
-e.g. \\
+Note that in the two column style figures and tables will only
+span one column unless specifically ordered across both with the ``*`` flag,
+e.g.
 
-\noindent{\tt\string\begin\{figure*\}} ... {\tt\string\end\{figure*\}}, \\
-\noindent{\tt\string\begin\{table*\}} ... {\tt\string\end\{table*\}}, and \\
-\noindent{\tt\string\begin\{deluxetable*\}} ... {\tt\string\end\{deluxetable*\}}. \\
+~~~
+\begin{figure*}      ... \end{figure*},
+\begin{table*}       ... \end{table*},
+\begin{deluxetable*} ... \end{deluxetable*}.
+~~~
 
-\noindent This option is ignored in the onecolumn style.
+This option is ignored in the onecolumn style.
 
 Some other style options are outlined in the commented sections of this
 article.  Any combination of style options can be used.
 
 Two style options that are needed to fully use the new revision tracking
-feature, see Section \ref{sec:highlight}, are {\tt\string linenumbers} which
+feature, see Section \ref{sec:highlight}, are `linenumbers` which
 uses the lineno style file to number each article line in the left margin and
-{\tt\string trackchanges} which controls the revision and commenting highlight
+`trackchanges` which controls the revision and commenting highlight
 output.
 
-There is also a new {\tt\string modern} option that uses a Daniel
+There is also a new ` modern` option that uses a Daniel
 Foreman-Mackey and David Hogg design to produce stylish, single column
 output that has wider left and right margins. It is designed to have fewer
 words per line to improve reader retention. It also looks better on devices
 with smaller displays such as smart phones.
 
-The {\tt\string anonymous} option will prevent the author and affiliations
+The ` anonymous` option will prevent the author and affiliations
 from being shown in the compiled pdf copy. This option allows the author
 to keep this critical information in the latex file but prevent the reviewer
 from seeing it during peer review if dual anonymous review (DAR) is requested.
 Likewise, acknowledgments can also be hidden if placed in the new
-{\tt\string\begin\{acknowledgments\}} ... {\tt\string\end\{acknowledgments\}}
+`\begin{acknowledgments} ... \end{acknowledgments`
 environment. The use of this option is highly recommended for PSJ submissions.
 Advice for anonymizing your manuscript for DAR is provided at
 \url{https://journals.aas.org/manuscript-preparation/#dar}.
@@ -986,7 +1001,7 @@ Floats are non-text items that generally can not be split over a page.
 They also have captions and can be numbered for reference.  Primarily these
 are figures and tables but authors can define their own. \latex tries to
 place a float where indicated in the manuscript but will move it later if
-there is not enough room at that location, hence the term ``float''.
+there is not enough room at that location, hence the term ``float``.
 
 Authors are encouraged to embed their tables and figures within the text as
 they are mentioned.  Please do not place the figures and text at the end of
@@ -1010,30 +1025,29 @@ their floats there are some techniques that can be used.  The simplest
 solution is to placing a float earlier in the text to get the position
 right but this option will break down if the manuscript is altered.
 A better method is to force \latex to place a
-float in a general area with the use of the optional {\tt\string [placement
-specifier]} parameter for figures and tables. This parameter goes after
-{\tt\string \begin\{figure\}}, {\tt\string \begin\{table\}}, and
-{\tt\string \begin\{deluxetable\}}.  The main arguments the specifier takes
-are ``h'', ``t'', ``b'', and ``!''.  These tell \latex to place the float
+float in a general area with the use of the optional `[placement specifier]`
+parameter for figures and tables. This parameter goes after
+` \begin{figure}`, ` \begin{table}`, and
+` \begin{deluxetable}`.  The main arguments the specifier takes
+are ``h``, ``t``, ``b``, and ``!``.  These tell \latex to place the float
 \underline{h}ere (or as close as possible to this location as possible), at
 the \underline{t}op of the page, and at the \underline{b}ottom of the page.
-The last argument, ``!'', tells \latex to override its internal method of
+The last argument, `!`, tells \latex to override its internal method of
 calculating the float position.  A sequence of rules can be created by
-using multiple arguments.  For example, {\tt\string \begin\{figure\}[htb!]}
+using multiple arguments.  For example, ` \begin{figure[htb!]}`
 tells \latex to try the current location first, then the top of the page
 and finally the bottom of the page without regard to what it thinks the
 proper position should be.  Many of the tables and figures in this article
 use a placement specifier to set their positions.
 
-Note that the \latex {\tt\string tabular} environment is not a float.  Only
-when a {\tt\string tabular} is surrounded by {\tt\string\begin\{table\}} ...
-{\tt\string\end\{table\}} is it a true float and the rules and suggestions
+Note that the \latex ` tabular` environment is not a float.  Only
+when a ` tabular` is surrounded by `\begin{table} ...\end{table}` is it a true float and the rules and suggestions
 above apply.
 
 In AASTeX v6.31 all deluxetables are float tables and thus if they are
 longer than a page will spill off the bottom. Long deluxetables should
-begin with the {\tt\string\startlongtable} command. This initiates a
-longtable environment.  Authors might have to use {\tt\string\clearpage} to
+begin with the `\startlongtable` command. This initiates a
+longtable environment.  Authors might have to use `\clearpage` to
 isolate a long table or optimally place it within the surrounding text.
 
 ## Tables
@@ -1059,13 +1073,11 @@ readable tables using the online tool at
 table construction easier and the resulting display better for AAS Journal
 authors.  The items are:
 
-\begin{enumerate}
-\item Declaring math mode in specific columns,
-\item Column decimal alignment,
-\item Automatic column header numbering,
-\item Hiding columns, and
-\item Splitting wide tables into two or three parts.
-\end{enumerate}
+1. Declaring math mode in specific columns,
+2. Column decimal alignment,
+3. Automatic column header numbering,
+4. Hiding columns, and
+5. Splitting wide tables into two or three parts.
 
 Full details on how to create each type are given in the following
 sections. Additional details are available in the AASTeX
@@ -1075,9 +1087,9 @@ guidelines at \url{http://journals.aas.org/authors/aastex.html}
 
 Both the \latex tabular and \aastex deluxetable require an argument to
 define the alignment and number of columns.  The most common values are
-``c'', ``l'' and ``r'' for \underline{c}enter, \underline{l}eft, and
+``c``, ``l`` and ``r`` for \underline{c}enter, \underline{l}eft, and
 \underline{r}ight justification.  If these values are capitalized, e.g.
-``C'', ``L'', or ``R'', then that specific column will automatically be in math
+``C``, ``L``, or ``R``, then that specific column will automatically be in math
 mode meaning that \$s are not required.  Note that having embedded dollar
 signs in the table does not affect the output.
 
@@ -1085,55 +1097,55 @@ signs in the table does not affect the output.
 
 Aligning a column by the decimal point can be difficult with only center,
 left, and right justification options.  It is possible to use phantom calls
-in the data, e.g. {\tt\string\phn}, to align columns by hand but this can
+in the data, e.g. `\phn`, to align columns by hand but this can
 be tedious in long or complex tables.  To address this \aastex introduces
-the {\tt\string\decimals} command and a new column justification option,
-``D'', to align data in that column on the decimal.  In deluxetable the
-{\tt\string\decimals} command is invoked before the {\tt\string\startdata}
+the `\decimals` command and a new column justification option,
+`D`, to align data in that column on the decimal.  In deluxetable the
+`\decimals` command is invoked before the `\startdata`
 call but can be anywhere in \latex's tabular environment.
 
 Two other important thing to note when using decimal alignment is that each
 decimal column \textit{must end with a space before the ampersand}, e.g.
-``\&\&'' is not allowed.  Empty decimal columns are indicated with a decimal,
-e.g. ``.''.  Do not use deluxetable's {\tt\string\nodata} command.
+``&&`` is not allowed.  Empty decimal columns are indicated with a decimal,
+e.g. ``.``.  Do not use deluxetable's `\nodata` command.
 
-The ``D'' alignment token works by splitting the column into two parts on the
+The ``D`` alignment token works by splitting the column into two parts on the
 decimal.  While this is invisible to the user one must be aware of how it
 works so that the headers are accounted for correctly.  All decimal column
 headers need to span two columns to get the alignment correct. This can be
-done with a multicolumn call, e.g {\tt\string\multicolumn2c\{\}} or
-{\tt\string\multicolumn\{2\}\{c\}\{\}}, or use the new
-{\tt\string\twocolhead\{\}} command in deluxetable.  Since \latex is
+done with a multicolumn call, e.g `\multicolumn2c{}` or
+`\multicolumn{2}{c}{}`, or use the new
+`\twocolhead{}` command in deluxetable.  Since \latex is
 splitting these columns into two it is important to get the table width
 right so that they appear joined on the page.  You may have to run the
 \latex compiler twice to get it right.
 
 ### Automatic column header numbering
 
-The command {\tt\string\colnumbers} can be included to automatically number
+The command `\colnumbers` can be included to automatically number
 each column as the last row in the header. Per the AAS Journal table format
 standards, each column index numbers will be surrounded by parentheses. In
-a \latex tabular environment the {\tt\string\colnumbers} should be invoked
+a \latex tabular environment the `\colnumbers` should be invoked
 at the location where the author wants the numbers to appear, e.g. after
 the last line of specified table header rows. In deluxetable this command
-has to come before {\tt\string\startdata}.  {\tt\string\colnumbers} will
-not increment for columns hidden by the ``h'' command, see Section
+has to come before `\startdata`.  `\colnumbers` will
+not increment for columns hidden by the ``h`` command, see Section
 \ref{subsubsec:hide}.
 
 Note that when using decimal alignment in a table the command
-{\tt\string\decimalcolnumbers} must be used instead of
-{\tt\string\colnumbers} and {\tt\string\decimals}.
+`\decimalcolnumbers` must be used instead of
+`\colnumbers` and `\decimals`.
 
 ### Hiding columns
 
 Entire columns can be \underline{h}idden from display simply by changing
-the specified column identifier to ``h''.  In the \latex tabular environment
+the specified column identifier to ``h``.  In the \latex tabular environment
 this column identifier conceals the entire column including the header
 columns.   In \aastex's deluxetables the header row is specifically
-declared with the {\tt\string\tablehead} call and each header column is
-marked with {\tt\string\colhead} call.  In order to make a specific header
-disappear with the ``h'' column identifier in deluxetable use
-{\tt\string\nocolhead} instead to suppress that particular column header.
+declared with the `\tablehead` call and each header column is
+marked with `\colhead` call.  In order to make a specific header
+disappear with the ``h`` column identifier in deluxetable use
+`\nocolhead` instead to suppress that particular column header.
 
 Authors can use this option in many different ways.  Since column data can
 be easily suppressed authors can include extra information and hid it
@@ -1151,11 +1163,12 @@ Messier Objects and illustrates how many of these new features can be used
 together.  It has automatic column numbering, decimal alignment of the
 distances, and one concealed column.  The Common name column
 is the third in the \latex deluxetable but does not appear when the article
-is compiled. This hidden column can be shown simply by changing the ``h'' in
+is compiled. This hidden column can be shown simply by changing the ``h`` in
 the column identifier preamble to another valid value.  This table also
-uses {\tt\string\tablenum} to renumber the table because a \latex tabular
+uses `\tablenum` to renumber the table because a \latex tabular
 table was inserted before it.
 
+~~~
 \begin{deluxetable*}{cchlDlc}
 \tablenum{1}
 \tablecaption{Fun facts about the first 10 messier objects\label{tab:messier}}
@@ -1179,12 +1192,13 @@ M8 & NGC 6523 & Lagoon Nebula & Nebula with cluster & 1.25 & Sagittarius & 6.0 \
 M9 & NGC 6333 & Messier 9 & Cluster, globular & 7.91 & Ophiuchus & 8.4 \\
 M10 & NGC 6254 & Messier 10 & Cluster, globular & 4.42 & Ophiuchus & 6.4 \\
 \enddata
-\tablecomments{This table ``hides'' the third column in the \latex when compiled.
+\tablecomments{This table ``hides`` the third column in the \latex when compiled.
 The Distance is also centered on the decimals.  Note that when using decimal
-alignment you need to include the {\tt\string\decimals} command before
-{\tt\string\startdata} and all of the values in that column have to have a
+alignment you need to include the `\decimals` command before
+`startdata` and all of the values in that column have to have a
 space before the next ampersand.}
-\end{deluxetable*}
+end{deluxetable*}
+~~~
 
 ### Splitting a table into multiple horizontal components
 
@@ -1193,19 +1207,19 @@ no reason why tables can not be as wide as authors need them to be.
 However, there are some artificial limitations based on the width of a
 print page.  The old way around this limitation was to rotate into
 landscape mode and use the smallest available table font
-sizes, e.g. {\tt\string\tablewidth}, to get the table to fit.
+sizes, e.g. `\tablewidth`, to get the table to fit.
 Unfortunately, this was not always enough but now along with the hide column
 option outlined in Section \ref{subsubsec:hide} there is a new way to break
 a table into two or three components so that it flows down a page by
 invoking a new table type, splittabular or splitdeluxetable. Within these
-tables a new ``B'' column separator is introduced.  Much like the vertical
-bar option, ``$\vert$'', that produces a vertical table lines
-the new ``B'' separator indicates where to \underline{B}reak
-a table.  Up to two ``B''s may be included.
+tables a new ``B`` column separator is introduced.  Much like the vertical
+bar option, ``$\vert$``, that produces a vertical table lines
+the new ``B`` separator indicates where to \underline{B}reak
+a table.  Up to two ``B``s may be included.
 
 Table 2 % \ref{tab:deluxesplit} this freaks it out when it is used!
 shows how to split a wide deluxetable into three parts with
-the {\tt\string\splitdeluxetable} command.  The {\tt\string\colnumbers}
+the `\splitdeluxetable` command.  The `\colnumbers`
 option is on to show how the automatic column numbering carries through the
 second table component, see Section \ref{subsubsec:autonumber}.
 
@@ -1241,7 +1255,7 @@ V}} & \colhead{Si\,{\footnotesize IV}} & \colhead{C\,{\footnotesize IV}} &
 \enddata
 \tablecomments{This is an example of how to split a deluxetable. You can
 split any table with this command into two or three parts.  The location of
-the split is given by the author based on the placement of the ``B''
+the split is given by the author based on the placement of the ``B``
 indicators in the column identifier preamble.  For more information please
 look at the new \aastex instructions.}
 \end{splitdeluxetable*}
@@ -1274,23 +1288,23 @@ of \aastex.
 
 ## General figures
 
-\aastex has a {\tt\string\plotone} command to display a figure consisting
+\aastex has a `\plotone` command to display a figure consisting
 of one EPS/PDF file.  Figure \ref{fig:general} is an example which shows
 the approximate changes in the subscription costs and author publication
 charges from 1991 to 2013 in the AAS Journals.  For a general figure
-consisting of two EPS/PDF files the {\tt\string\plottwo} command can be
+consisting of two EPS/PDF files the `\plottwo` command can be
 used to position the two image files side by side.
 
-Both {\tt\string\plotone} and {\tt\string\plottwo} take a
-{\tt\string\caption} and an optional {\tt\string\figurenum} command to
+Both `\plotone` and `\plottwo` take a
+`\caption` and an optional `\figurenum` command to
 specify the figure number\footnote{It is better to not use
-{\tt\string\figurenum} and let \latex auto-increment all the figures. If you
+`\figurenum` and let \latex auto-increment all the figures. If you
 do use this command you need to mark all of them accordingly.}.  Each is
-based on the {\tt\string graphicx} package command,
-{\tt\string\includegraphics}.  Authors are welcome to use
-{\tt\string\includegraphics} along with its optional arguments that control
+based on the ` graphicx` package command,
+`\includegraphics`.  Authors are welcome to use
+`\includegraphics` along with its optional arguments that control
 the height, width, scale, and position angle of a file within the figure.
-More information on the full usage of {\tt\string\includegraphics} can be
+More information on the full usage of `\includegraphics` can be
 found at \break
 \url{https://en.wikibooks.org/wiki/LaTeX/Importing\_Graphics\#Including\_graphics}.
 
@@ -1298,27 +1312,27 @@ found at \break
 
 Including more than two EPS/PDF files in a single figure call can be tricky to
 easily format.  To make the process easier for authors \aastex v6 offers
-{\tt\string\gridline} which allows any number of individual EPS/PDF file
-calls within a single figure.  Each file cited in a {\tt\string\gridline}
-will be displayed in a row.  By adding more {\tt\string\gridline} calls an
+`\gridline` which allows any number of individual EPS/PDF file
+calls within a single figure.  Each file cited in a `\gridline`
+will be displayed in a row.  By adding more `\gridline` calls an
 author can easily construct a matrix X by Y individual files as a
 single general figure.
 
-For each {\tt\string\gridline} command a EPS/PDF file is called by one of
-four different commands.  These are {\tt\string\fig},
-{\tt\string\rightfig}, {\tt\string\leftfig}, and {\tt\string\boxedfig}.
+For each `\gridline` command a EPS/PDF file is called by one of
+four different commands.  These are `\fig`,
+`\rightfig`, `\leftfig`, and `\boxedfig`.
 The first file call specifies no image position justification while the
 next two will right and left justify the image, respectively.  The
-{\tt\string\boxedfig} is similar to {\tt\string\fig} except that a box is
+`\boxedfig` is similar to `\fig` except that a box is
 drawn around the figure file when displayed. Each of these commands takes
 three arguments.  The first is the file name.  The second is the width that
 file should be displayed at.  While any natural \latex unit is allowed, it
 is recommended that author use fractional units with the
-{\tt\string\textwidth}.  The last argument is text for a subcaption.
+`\textwidth`.  The last argument is text for a subcaption.
 
 Figure \ref{fig:pyramid} shows an inverted pyramid of individual
 figure constructed with six individual EPS files using the
-{\tt\string\gridline} option.
+`\gridline` option.
 
 \begin{figure*}
 \gridline{\fig{V2491_Cyg.pdf}{0.3\textwidth}{(a)}
@@ -1467,16 +1481,16 @@ at 01:00 UT on 2012 January 19. The video duration is 20 seconds.
 \end{figure}
 
 Animations and interactive figures (Section \ref{sec:interactive}) should
-use the {\tt\string\begin{interactive}} environment in the figure call. This
+use the `\begin{interactive}` environment in the figure call. This
 environment
 places a blue border around the figure to indicate that the figure is
 enhanced in the published HTML article. The
 command also serves to alert the publisher what files are used to generate
-the dynamic HTML content. {\tt\string\interactive} takes two arguments. The
+the dynamic HTML content. `\interactive` takes two arguments. The
 first details the type and currently only three are allowed. The types are
-{\tt\string js} for generic javascript interactive figures,
-{\tt\string animation} for inline videos, and
-{\tt\string timeseries} for interactive light curves produced
+` js` for generic javascript interactive figures,
+` animation` for inline videos, and
+` timeseries` for interactive light curves produced
 by astropy \citet{2013A&A...558A..33A}\footnote{To be release in the
 summer of 2019}. If these types are not provide the compiler will issue an
 error and quit. The second argument is the file that produces the enhanced
@@ -1499,7 +1513,7 @@ The first 3D model published by the AAS Journals using this technique was
 Figure \ref{fig:interactive} provides an interactive example which can be
 run locally to demonstrate how a simple javascript plus html interface
 allows a reader to switch between figures. The necessary files for this
-particular interactive figure are in the {\tt\string interactive.tar.gz}
+particular interactive figure are in the ` interactive.tar.gz`
 file included with this package. Unpack the file and point the browser to
 the local html file. In this case, the javascript that runs the interactive
 buttons is embedded in the html file but it could just as easily be calls
@@ -1557,12 +1571,12 @@ and helicities $(\sigma = \pm 1)$, $\hat a_i=a^\mu_i\gamma_\nu$
 and $P_\tau=\frac{1}{2}(1+\tau\gamma_5)$ is a chirality projection
 operator $(\tau = \pm1)$.  This produces a single line formula.  \latex will
 auto-number this and any subsequent equations.  If no number is desired then
-the {\tt\string equation} call should be replaced with {\tt\string displaymath}.
+the ` equation` call should be replaced with ` displaymath`.
 
-\latex can also handle a a multi-line equation.  Use {\tt\string eqnarray}
+\latex can also handle a a multi-line equation.  Use ` eqnarray`
 for more than one line and end each line with a
 \textbackslash\textbackslash.  Each line will be numbered unless the
-\textbackslash\textbackslash is preceded by a {\tt\string\nonumber}
+\textbackslash\textbackslash is preceded by a `\nonumber`
 command.  Alignment points can be added with ampersands (\&).  There should be
 two ampersands per line. In the examples they are centered on the equal
 symbol.
@@ -1590,10 +1604,12 @@ symbol.
 (\hat a)_\pm & = & a_\mu\sigma^\mu_\pm
 \end{eqnarray}
 
+<!--
 %% Putting eqnarrays or equations inside the mathletters environment groups
 %% the enclosed equations by letter. For instance, the eqnarray below, instead
 %% of being numbered, say, (4) and (5), would be numbered (4a) and (4b).
 %% LaTeX the paper and look at the output to see the results.
+-->
 
 # Revision tracking and color highlighting
 
@@ -1603,34 +1619,33 @@ have been introduced to make this easier and formalize the process.
 
 The first method is through a new set of editing mark up commands that
 specifically identify what has been changed.  These commands are
-{\tt\string\added\{<text>\}}, {\tt\string\deleted\{<text>\}}, and
-{\tt\string\replaced\{<old text>\}\{<replaced text>\}}. To activate these
-commands the {\tt\string trackchanges} option must be used in the
-{\tt\string\documentclass} call.  When compiled this will produce the
-marked text in red.  The {\tt\string\explain\{<text>\}} can be used to add
+`\added{<text>}`, `\deleted{<text>}`, and
+`\replaced{<old text>\`{<replaced text>\}}. To activate these
+commands the ` trackchanges` option must be used in the
+`\documentclass` call.  When compiled this will produce the
+marked text in red.  The `\explain{<text>}` can be used to add
 text to provide information to the reader describing the change.  Its
-output is purple italic font. To see how {\tt\string\added\{<important
-added info>\}}, {\tt\string\deleted\{<this can be deleted text>\}},
-{\tt\string\replaced\{<old data>\}\{<replaced data>\}}, and \break
-{\tt\string\explain\{<text explaining the change>\}} commands will produce
+output is purple italic font. To see how `\added{<important added info>}`, `\deleted{<this can be deleted text>}`,
+`\replaced{<old data>}{<replaced data>}` and
+`\explain{<text explaining the change>}` commands will produce
 \added{important added information}\deleted{, deleted text, and }
 \replaced{old data}{and replaced data,} toggle between versions compiled with
-and without the {\tt\string trackchanges} option.\explain{text explaining
+and without the ` \trackchanges` option.\explain{text explaining
 the change}
 
 A summary list of all these tracking commands can be produced at the end of
-the article by adding the {\tt\string\listofchanges} just before the
-{\tt\string\end\{document\}} call.  The page number for each change will be
-provided. If the {\tt\string linenumbers} option is also included in the
+the article by adding the `\listofchanges` just before the
+`\end{document}` call.  The page number for each change will be
+provided. If the ` linenumbers` option is also included in the
 documentclass call then not only will all the lines in the article be
 numbered for handy reference but the summary list will also include the
 line number for each change.
 
 The second method does not have the ability to highlight the specific
 nature of the changes but does allow the author to document changes over
-multiple revisions.  The commands are {\tt\string\edit1\{<text>\}},
-{\tt\string\edit2\{<text>\}} and {\tt\string\edit3\{<text>\}} and they
-produce {\tt\string<text>} that is highlighted in bold, bold+italic and
+multiple revisions.  The commands are `\edit1{<text>}`,
+`\edit2{<text>}` and `\edit3{<text>}` and they
+produce `<text>` that is highlighted in bold, bold+italic and
 bold+underline, respectively.  Authors should use the first command to
 \edit1{indicated which text has been changed from the first revision.}  The
 second command is to highlight \edit2{new or modified text from a second
@@ -1639,18 +1654,18 @@ revision}.  If a third revision is needed then the last command should be used
 accepted after the 3rd revision these commands make it easy to identify
 what text has been added and when.  Once the article is accepted all the
 highlight color can be turned off simply by adding the
-{\tt\string\turnoffediting} command in the preamble. Likewise, the new commands
-{\tt\string\turnoffeditone}, {\tt\string\turnoffedittwo}, and
-{\tt\string\turnoffeditthree} can be used to only turn off the
-{\tt\string\edit1\{<text>\}}, {\tt\string\edit2\{<text>\}} and
-{\tt\string\edit3\{<text>\}}, respectively.
+`\turnoffediting` command in the preamble. Likewise, the new commands
+`\turnoffeditone`, `\turnoffedittwo`, and
+`\turnoffeditthree` can be used to only turn off the
+`\edit1{<text>}`, `\edit2{<text>}` and
+`\edit3{<text>}`, respectively.
 
-Similar to marking editing changes with the {\tt\string\edit} options there
-are also the {\tt\string\authorcomments1\{<text>\}},
-{\tt\string\authorcomments2\{<text>\}} and
-{\tt\string\authorcomments3\{<text>\}} commands.  These produce the same
+Similar to marking editing changes with the `\edit` options there
+are also the `\authorcomments1{<text>}`,
+`\authorcomments2{<text>}` and
+`\authorcomments3{<text>}` commands.  These produce the same
 bold red, italic blue and underlined purple text but when the
-{\tt\string\turnoffediting} command is present the {\tt\string<text>}
+`\turnoffediting` command is present the `<text>`
 material does not appear in the manuscript.  Authors can use these commands
 to mark up text that they are not sure should appear in the final
 manuscript or as a way to communicate comments between co-authors when
@@ -1670,34 +1685,27 @@ identifier like a Digital Object Identifier (DOI).  A list of repositories
 that satisfy this criteria plus each one's pros and cons are given at \break
 \url{https://github.com/AASJournals/Tutorials/tree/master/Repositories}.
 
-In the bibliography the format for data or code follows this format: \\
+In the bibliography the format for data or code follows this format:
 
-\noindent author year, title, version, publisher, prefix:identifier\\
+\noindent author year, title, version, publisher, prefix:identifier
 
 \citet{2015ApJ...805...23C} provides a example of how the citation in the
 article references the external code at
 \doi{10.5281/zenodo.15991}.  Unfortunately, bibtex does
 not have specific bibtex entries for these types of references so the
-``@misc'' type should be used.  The Repository tutorial explains how to
-code the ``@misc'' type correctly.  The most recent aasjournal.bst file,
-available with \aastex v6, will output bibtex ``@misc'' type properly.
+``@misc`` type should be used.  The Repository tutorial explains how to
+code the ``@misc`` type correctly.  The most recent aasjournal.bst file,
+available with \aastex v6, will output bibtex ``@misc`` type properly.
 
+<!--
 %% IMPORTANT! The old "\acknowledgment" command has be depreciated. It was
 %% not robust enough to handle our new dual anonymous review requirements and
 %% thus been replaced with the acknowledgment environment. If you try to
 %% compile with \acknowledgment you will get an error print to the screen
 %% and in the compiled pdf.
-\begin{acknowledgments}
-We thank all the people that have made this AASTeX what it is today.  This
-includes but not limited to Bob Hanisch, Chris Biemesderfer, Lee Brotzman,
-Pierre Landau, Arthur Ogawa, Maxim Markevitch, Alexey Vikhlinin and Amy
-Hendrickson. Also special thanks to David Hogg and Daniel Foreman-Mackey
-for the new "modern" style design. Considerable help was provided via bug
-reports and hacks from numerous people including Patricio Cubillos, Alex
-Drlica-Wagner, Sean Lake, Michele Bannister, Peter Williams, and Jonathan
-Gagne.
-\end{acknowledgments}
+-->
 
+<!--
 %% To help institutions obtain information on the effectiveness of their
 %% telescopes the AAS Journals has created a group of keywords for telescope
 %% facilities.
@@ -1707,21 +1715,17 @@ Gagne.
 %% in the research for the paper.  Each keyword is check against the master
 %% list during copy editing.  Individual instruments can be provided in
 %% parentheses, after the keyword, but they are not verified.
+-->
 
-\vspace{5mm}
-\facilities{HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m,
-CTIO:1.5m,CXO}
-
+<!--
 %% Similar to \facility{}, there is the optional \software command to allow
 %% authors a place to specify which programs were used during the creation of
 %% the manuscript. Authors should list each code and include either a
 %% citation or url to the code inside ()s when available.
+-->
+\software{astropy \citep{2013A&A...558A..33A,2018AJ....156..123A}, Cloudy \citep{2013RMxAA..49..137F}, Source Extractor \citep{1996A&AS..117..393B}}
 
-\software{astropy \citep{2013A&A...558A..33A,2018AJ....156..123A},
-          Cloudy \citep{2013RMxAA..49..137F},
-          Source Extractor \citep{1996A&AS..117..393B}
-          }
-
+<!--
 %% Appendix material should be preceded with a single \appendix command.
 %% There should be a \section command for each appendix. Mark appendix
 %% subsections with the same markup you use in the main body of the paper.
@@ -1730,206 +1734,4 @@ CTIO:1.5m,CXO}
 %% The equation counter will reset when it encounters the \appendix
 %% command and will number appendix equations (A1), (A2), etc. The
 %% Figure and Table counter will not reset.
-
-\appendix
-
-# Appendix information
-
-Appendices can be broken into separate sections just like in the main text.
-The only difference is that each appendix section is indexed by a letter
-(A, B, C, etc.) instead of a number.  Likewise numbered equations have
-the section letter appended.  Here is an equation as an example.
-\begin{equation}
-I = \frac{1}{1 + d_{1}^{P (1 + d_{2} )}}
-\end{equation}
-Appendix tables and figures should not be numbered like equations. Instead
-they should continue the sequence from the main article body.
-
-# Author publication charges
-
-Finally some information about the AAS Journal's publication charges.
-In April 2011 the traditional way of calculating author charges based on
-the number of printed pages was changed.  The reason for the change
-was due to a recognition of the growing number of article items that could not
-be represented in print. Now author charges are determined by a number of
-digital ``quanta''.  A single quantum is 350 words, one figure, one table,
-and one enhanced digital item.  For the latter this includes machine readable
-tables, figure sets, animations, and interactive figures.  The current cost
-for the different quanta types is available at
-\url{https://journals.aas.org/article-charges-and-copyright/#author_publication_charges}.
-Authors may use the ApJL length calculator to get a {\tt rough} estimate of
-the number of word and float quanta in their manuscript. The calculator
-is located at \url{https://authortools.aas.org/ApJL/betacountwords.html}.
-
-# Rotating tables
-
-The process of rotating tables into landscape mode is slightly different in
-\aastex v6.31. Instead of the {\tt\string\rotate} command, a new environment
-has been created to handle this task. To place a single page table in a
-landscape mode start the table portion with
-{\tt\string\begin\{rotatetable\}} and end with
-{\tt\string\end\{rotatetable\}}.
-
-Tables that exceed a print page take a slightly different environment since
-both rotation and long table printing are required. In these cases start
-with {\tt\string\begin\{longrotatetable\}} and end with
-{\tt\string\end\{longrotatetable\}}. Table \ref{chartable} is an
-example of a multi-page, rotated table. The {\tt\string\movetabledown}
-command can be used to help center extremely wide, landscape tables. The
-command {\tt\string\movetabledown=1in} will move any rotated table down 1
-inch.
-
-\begin{longrotatetable}
-\begin{deluxetable*}{lllrrrrrrll}
-\tablecaption{Observable Characteristics of
-Galactic/Magellanic Cloud novae with X-ray observations\label{chartable}}
-\tablewidth{700pt}
-\tabletypesize{\scriptsize}
-\tablehead{
-\colhead{Name} & \colhead{V$_{max}$} &
-\colhead{Date} & \colhead{t$_2$} &
-\colhead{FWHM} & \colhead{E(B-V)} &
-\colhead{N$_H$} & \colhead{Period} &
-\colhead{D} & \colhead{Dust?} & \colhead{RN?} \\
-\colhead{} & \colhead{(mag)} & \colhead{(JD)} & \colhead{(d)} &
-\colhead{(km s$^{-1}$)} & \colhead{(mag)} & \colhead{(cm$^{-2}$)} &
-\colhead{(d)} & \colhead{(kpc)} & \colhead{} & \colhead{}
-}
-\startdata
-CI Aql & 8.83 (1) & 2451665.5 (1) & 32 (2) & 2300 (3) & 0.8$\pm0.2$ (4) & 1.2e+22 & 0.62 (4) & 6.25$\pm5$ (4) & N & Y \\
-{\bf CSS081007} & \nodata & 2454596.5 & \nodata & \nodata & 0.146 & 1.1e+21 & 1.77 (5) & 4.45$\pm1.95$ (6) & \nodata & \nodata \\
-GQ Mus & 7.2 (7) & 2445352.5 (7) & 18 (7) & 1000 (8) & 0.45 (9) & 3.8e+21  & 0.059375 (10) & 4.8$\pm1$ (9) & N (7) & \nodata \\
-IM Nor & 7.84 (11) & 2452289 (2) & 50 (2) & 1150 (12) & 0.8$\pm0.2$ (4) & 8e+21 & 0.102 (13) & 4.25$\pm3.4$ (4) & N & Y \\
-{\bf KT Eri} & 5.42 (14) & 2455150.17 (14) & 6.6 (14) & 3000 (15) & 0.08 (15) & 5.5e+20 & \nodata & 6.5 (15) & N & M \\
-{\bf LMC 1995} & 10.7 (16) & 2449778.5 (16) & 15$\pm2$ (17) & \nodata & 0.15 (203) & 7.8e+20  & \nodata & 50 & \nodata & \nodata \\
-LMC 2000 & 11.45 (18) & 2451737.5 (18) & 9$\pm2$ (19) & 1700 (20) & 0.15 (203) & 7.8e+20  & \nodata & 50 & \nodata & \nodata \\
-{\bf LMC 2005} & 11.5 (21) & 2453700.5 (21) & 63 (22) & 900 (23) & 0.15 (203) & 1e+21 & \nodata & 50  & M (24) & \nodata \\
-{\bf LMC 2009a} & 10.6 (25) & 2454867.5 (25) & 4$\pm1$  & 3900 (25) & 0.15 (203)  & 5.7e+20 & 1.19 (26) & 50 & N & Y \\
-{\bf SMC 2005} & 10.4 (27) & 2453588.5 (27) & \nodata & 3200 (28) & \nodata & 5e+20  & \nodata & 61 & \nodata & \nodata \\
-{\bf QY Mus} & 8.1 (29) & 2454739.90 (29) & 60:  & \nodata & 0.71 (30) & 4.2e+21  & \nodata & \nodata & M & \nodata \\
-{\bf RS Oph} & 4.5 (31) & 2453779.44 (14) & 7.9 (14) & 3930 (31) & 0.73 (32) & 2.25e+21 & 456 (33) & 1.6$\pm0.3$ (33) & N (34) & Y \\
-{\bf U Sco} & 8.05 (35) & 2455224.94 (35) & 1.2 (36) & 7600 (37) & 0.2$\pm0.1$ (4) & 1.2e+21 & 1.23056 (36) & 12$\pm2$ (4) & N & Y \\
-{\bf V1047 Cen} & 8.5 (38) & 2453614.5 (39) & 6 (40) & 840 (38) & \nodata & 1.4e+22  & \nodata & \nodata & \nodata & \nodata \\
-{\bf V1065 Cen} & 8.2 (41) & 2454123.5 (41) & 11 (42) & 2700 (43) & 0.5$\pm0.1$ (42) & 3.75e+21 & \nodata & 9.05$\pm2.8$ (42) & Y (42) & \nodata \\
-V1187 Sco & 7.4 (44) & 2453220.5 (44) & 7: (45) & 3000 (44) & 1.56 (44) & 8.0e+21 & \nodata & 4.9$\pm0.5$ (44) & N & \nodata \\
-{\bf V1188 Sco} & 8.7 (46) & 2453577.5 (46) & 7 (40) & 1730 (47) & \nodata & 5.0e+21  & \nodata & 7.5 (39) & \nodata & \nodata \\
-{\bf V1213 Cen} & 8.53 (48) & 2454959.5 (48) & 11$\pm2$ (49) & 2300 (50) & 2.07 (30) & 1.0e+22 & \nodata & \nodata & \nodata & \nodata \\
-{\bf V1280 Sco} & 3.79 (51) & 2454147.65 (14) & 21 (52) & 640 (53) & 0.36 (54) & 1.6e+21  & \nodata & 1.6$\pm0.4$ (54) & Y (54) & \nodata \\
-{\bf V1281 Sco} & 8.8 (55) & 2454152.21 (55) & 15:& 1800 (56) & 0.7 (57) & 3.2e+21 & \nodata & \nodata & N & \nodata \\
-{\bf V1309 Sco} & 7.1 (58) & 2454714.5 (58) & 23$\pm2$ (59) & 670 (60) & 1.2 (30) & 4.0e+21 & \nodata & \nodata & \nodata & \nodata \\
-{\bf V1494 Aql} & 3.8 (61) & 2451515.5 (61) & 6.6$\pm0.5$ (61) & 1200 (62) & 0.6 (63) & 3.6e+21  & 0.13467 (64) & 1.6$\pm0.1$ (63) & N & \nodata \\
-{\bf V1663 Aql} & 10.5 (65) & 2453531.5 (65) & 17 (66) & 1900 (67) & 2: (68) & 1.6e+22  & \nodata & 8.9$\pm3.6$ (69) & N & \nodata \\
-V1974 Cyg & 4.3 (70) & 2448654.5 (70) & 17 (71) & 2000 (19) & 0.36$\pm0.04$ (71) & 2.7e+21  & 0.081263 (70) & 1.8$\pm0.1$ (72) & N & \nodata \\
-{\bf V2361 Cyg} & 9.3 (73) & 2453412.5 (73) & 6 (40) & 3200 (74) & 1.2: (75) & 7.0e+21 & \nodata & \nodata & Y (40) & \nodata \\
-{\bf V2362 Cyg} & 7.8 (76) & 2453831.5 (76) & 9 (77) & 1850 (78) & 0.575$\pm0.015$ (79) & 4.4e+21  & 0.06577 (80) & 7.75$\pm3$ (77) & Y (81) & \nodata \\
-{\bf V2467 Cyg} & 6.7 (82) & 2454176.27 (82) & 7 (83) & 950 (82) & 1.5 (84) & 1.4e+22  & 0.159 (85) & 3.1$\pm0.5$ (86) & M (87) & \nodata \\
-{\bf V2468 Cyg} & 7.4 (88) & 2454534.2 (88) & 10: & 1000 (88) & 0.77 (89) & 1.0e+22  & 0.242 (90) & \nodata & N & \nodata \\
-{\bf V2491 Cyg} & 7.54 (91) & 2454567.86 (91) & 4.6 (92) & 4860 (93) & 0.43 (94) & 4.7e+21  & 0.09580: (95) & 10.5 (96) & N & M \\
-V2487 Oph & 9.5 (97) & 2450979.5 (97) & 6.3 (98) & 10000 (98) & 0.38$\pm0.08$ (98) & 2.0e+21 & \nodata & 27.5$\pm3$ (99) & N (100) & Y (101) \\
-{\bf V2540 Oph} & 8.5 (102) & 2452295.5 (102) & \nodata & \nodata & \nodata & 2.3e+21 & 0.284781 (103) & 5.2$\pm0.8$ (103) & N & \nodata \\
-V2575 Oph & 11.1 (104) & 2453778.8 (104) & 20: & 560 (104) & 1.4 (105) & 3.3e+21 & \nodata & \nodata & N (105) & \nodata \\
-{\bf V2576 Oph} & 9.2 (106) & 2453832.5 (106) & 8: & 1470 (106) & 0.25 (107) & 2.6e+21  & \nodata & \nodata & N & \nodata \\
-{\bf V2615 Oph} & 8.52 (108) & 2454187.5 (108) & 26.5 (108) & 800 (109) & 0.9 (108) & 3.1e+21  & \nodata & 3.7$\pm0.2$ (108) & Y (110) & \nodata \\
-{\bf V2670 Oph} & 9.9 (111) & 2454613.11 (111) & 15: & 600 (112) & 1.3: (113) & 2.9e+21  & \nodata & \nodata & N (114) & \nodata \\
-{\bf V2671 Oph} & 11.1 (115) & 2454617.5 (115) & 8: & 1210 (116) & 2.0 (117) & 3.3e+21  & \nodata & \nodata & M (117) & \nodata \\
-{\bf V2672 Oph} & 10.0 (118) & 2455060.02 (118) & 2.3 (119) & 8000 (118) & 1.6$\pm0.1$ (119) & 4.0e+21  & \nodata & 19$\pm2$ (119) & \nodata & M \\
-V351 Pup & 6.5 (120) & 2448617.5 (120) & 16 (121) & \nodata & 0.72$\pm0.1$ (122) & 6.2e+21 & 0.1182 (123) & 2.7$\pm0.7$ (122) & N & \nodata \\
-{\bf V382 Nor} & 8.9 (124) & 2453447.5 (124) & 12 (40) & 1850 (23) & \nodata & 1.7e+22 & \nodata & \nodata & \nodata & \nodata \\
-V382 Vel & 2.85 (125) & 2451320.5 (125) & 4.5 (126) & 2400 (126) & 0.05: (126) & 3.4e+21  & 0.146126 (127) & 1.68$\pm0.3$ (126) & N & \nodata \\
-{\bf V407 Cyg} & 6.8 (128) & 2455266.314 (128) & 5.9 (129) & 2760 (129) & 0.5$\pm0.05$ (130) & 8.8e+21 & 15595 (131) & 2.7 (131) & \nodata & Y \\
-{\bf V458 Vul} & 8.24 (132) & 2454322.39 (132) & 7 (133) & 1750 (134) & 0.6 (135) & 3.6e+21 & 0.06812255 (136) & 8.5$\pm1.8$ (133) & N (135) & \nodata \\
-{\bf V459 Vul} & 7.57 (137) & 2454461.5 (137) & 18 (138) & 910 (139) & 1.0 (140) & 5.5e+21  & \nodata & 3.65$\pm1.35$ (138) & Y (140) & \nodata \\
-V4633 Sgr & 7.8 (141) & 2450895.5 (141) & 19$\pm3$ (142) & 1700 (143) & 0.21 (142) & 1.4e+21  & 0.125576 (144) & 8.9$\pm2.5$ (142) & N & \nodata \\
-{\bf V4643 Sgr} & 8.07 (145) & 2451965.867 (145) & 4.8 (146) & 4700 (147) & 1.67 (148) & 1.4e+22 & \nodata & 3 (148) & N & \nodata \\
-{\bf V4743 Sgr} & 5.0 (149) & 2452537.5 (149) & 9 (150) & 2400 (149) & 0.25 (151) & 1.2e+21 & 0.281 (152) & 3.9$\pm0.3$ (151) & N & \nodata \\
-{\bf V4745 Sgr} & 7.41 (153) & 2452747.5 (153) & 8.6 (154) & 1600 (155) & 0.1 (154) & 9.0e+20  & 0.20782 (156) & 14$\pm5$ (154) & \nodata & \nodata \\
-{\bf V476 Sct} & 10.3 (157) & 2453643.5 (157) & 15 (158) & \nodata & 1.9 (158) & 1.2e+22  & \nodata & 4$\pm1$ (158) & M (159) & \nodata \\
-{\bf V477 Sct} & 9.8 (160) & 2453655.5 (160) & 3 (160) & 2900 (161) & 1.2: (162) & 4e+21  & \nodata & \nodata & M (163) & \nodata \\
-{\bf V5114 Sgr} & 8.38 (164) & 2453081.5 (164) & 11 (165) & 2000 (23) & \nodata & 1.5e+21  & \nodata & 7.7$\pm0.7$ (165) & N (166) & \nodata \\
-{\bf V5115 Sgr} & 7.7 (167) & 2453459.5 (167) & 7 (40) & 1300 (168) & 0.53 (169) & 2.3e+21  & \nodata & \nodata & N (169) & \nodata \\
-{\bf V5116 Sgr} & 8.15 (170) & 2453556.91 (170) & 6.5 (171) & 970 (172) & 0.25 (173) & 1.5e+21 & 0.1238 (171) & 11$\pm3$ (173) & N (174) & \nodata \\
-{\bf V5558 Sgr} & 6.53 (175) & 2454291.5 (175) & 125 (176) & 1000 (177) & 0.80 (178) & 1.6e+22  & \nodata & 1.3$\pm0.3$ (176) & N (179) & \nodata \\
-{\bf V5579 Sgr} & 5.56 (180) & 2454579.62 (180) & 7: & 1500 (23) & 1.2 (181) & 3.3e+21 & \nodata & \nodata & Y (181) & \nodata \\
-{\bf V5583 Sgr} & 7.43 (182) & 2455051.07 (182) & 5: & 2300 (182) & 0.39 (30) & 2.0e+21 & \nodata & 10.5 & \nodata & \nodata \\
-{\bf V574 Pup} & 6.93 (183) & 2453332.22 (183) & 13 (184) & 2800 (184) & 0.5$\pm0.1$  & 6.2e+21 & \nodata & 6.5$\pm1$  & M (185) & \nodata \\
-{\bf V597 Pup} & 7.0 (186) & 2454418.75 (186) & 3: & 1800 (187) & 0.3 (188) & 5.0e+21  & 0.11119 (189) & \nodata & N (188) & \nodata \\
-{\bf V598 Pup} & 3.46 (14) & 2454257.79 (14) & 9$\pm1$ (190) & \nodata & 0.16 (190) & 1.4e+21 & \nodata & 2.95$\pm0.8$ (190) & \nodata & \nodata \\
-{\bf V679 Car} & 7.55 (191) & 2454797.77 (191) & 20: & \nodata & \nodata & 1.3e+22  & \nodata & \nodata & \nodata & \nodata \\
-{\bf V723 Cas} & 7.1 (192) & 2450069.0 (192) & 263 (2) & 600 (193) & 0.5 (194) & 2.35e+21  & 0.69 (195) & 3.86$\pm0.23$ (196) & N & \nodata \\
-V838 Her & 5 (197) & 2448340.5 (197) & 2 (198) & \nodata & 0.5$\pm0.1$ (198) & 2.6e+21  & 0.2975 (199) & 3$\pm1$ (198) & Y (200) & \nodata \\
-{\bf XMMSL1 J06} & 12 (201) & 2453643.5 (202) & 8$\pm2$ (202) & \nodata & 0.15 (203) & 8.7e+20 & \nodata & 50 & \nodata & \nodata \\
-\enddata
-\end{deluxetable*}
-\end{longrotatetable}
-
-A handy "cheat sheet" that provides the necessary \latex to produce 17
-different types of tables is available at \url{http://journals.aas.org/authors/aastex/aasguide.html#table_cheat_sheet}.
-
-# IAU recommendations for nominal units
-
-The IAU 2015 resolution B3 defines nominal solar and planetary values by
-establishing conversions between solar and planetary values and SI units.
-The rational and specifications are given in \citet{2016AJ....152...41P}.
-The recommended nominal conversion constants for \latex have been
-incorporate into v6.31 to help authors follow the IAU resolution.
-
-The general commands take this form:
-
-\vskip12pt
-\begin{center}
-\begin{tabular}{@{\vrule height 14pt depth 6pt width0pt}lll}
-Command&Example&Results\\
-\verb+\nom{}+&\verb+\nom{Q}+&\nom{Q}\\
-\verb+\Eenom{}+&\verb+\Eenom{Q}+&\Eenom{Q}\\
-\verb+\Epnom{}+&\verb+\Epnom{Q}+&\Epnom{Q}\\
-\verb+\Jenom{}+&\verb+\Jenom{Q}+&\Jenom{Q}\\
-\verb+\Jpnom{}+&\verb+\Jpnom{Q}+&\Jpnom{Q}\\
-\end{tabular}
-\end{center}
-\vskip12pt
-
-which can be used for any units the author requires. Examples of
-the most common uses would be:
-
-\vskip12pt
-\begin{tabular}{@{\vrule height 14pt depth 6pt width 0pt}llllp{3in}}
-1.&\verb+\nom{(GM)}+& \nom{(GM)} &=& nominal solar mass parameter\\
-2.&\verb+\nom{R}+&\nom{R} &=& nominal solar radius\\
-3.&\verb+\nom{S}+& \nom{S}&=&  nominal total solar irradiance\\
-4.&\verb+\nom{L}+& \nom{L}  &=&nominal solar luminosity\\
-\end{tabular}
-\vskip12pt
-
-AASTeX v6.31 also contains specific commands for other commonly used
-units. These are:
-
-\vskip24pt
-\begin{tabular}{@{\vrule height 14pt depth 6pt width 0pt}llllp{3in}}
-1.&\verb+\nomSolarEffTemp+& \nomSolarEffTemp&=& nominal solar effective temperature\\
-2.&\verb+\nomTerrEqRadius+&\nomTerrEqRadius  &=& nominal terrestrial
-equatorial radius\\
-&\verb+\nomTerrPolarRadius+ &\nomTerrPolarRadius &=& nominal
-terrestrial polar radius\\
-&\verb+\nomTerrEqRadius+&\nomTerrEqRadius&& should be used if equatorial
-vs.~polar radius is not explicitly specified.\\
-3.&\verb+\nomJovianEqRadius+&\nomJovianEqRadius&=& nominal one-bar equatorial radii of
-Jupiter\\
-&\verb+\nomJovianPolarRadius+&\nomJovianPolarRadius &=& nominal polar radii of Jupiter\\
-&\verb+\nomJovianEqRadius+&\nomJovianEqRadius&& should be used if Jovian equatorial
-vs.~polar radius is not explicitly specified.\\
-4.&\verb+\nomTerrMass+ &\nomTerrMass &=& nominal terrestrial mass
-parameter\\
-&\verb+\nomJovianMass+ &\nomJovianMass &=& nominal Jovian mass parameter\\
-\end{tabular}
-\vskip12pt
-
-All of these commands work equally well in text and math mode.
-
-# Using Chinese, Japanese, and Korean characters
-
-Authors have the option to include names in Chinese, Japanese, or Korean (CJK)
-characters in addition to the English name. The names will be displayed
-in parentheses after the English name. The way to do this in AASTeX is to
-use the CJK package available at \url{https://ctan.org/pkg/cjk?lang=en}.
-Further details on how to implement this and solutions for common problems,
-please go to \url{https://journals.aas.org/nonroman/}.
+-->
