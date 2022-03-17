@@ -456,6 +456,32 @@ let x = circle 10
 ~~~
 -->
 
+## Running a subcommand
+
+Currently, subcommand only valid for Python script.
+
+```
+~~~{.script .py .md}
+#!/usr/bin/env python3
+
+echo "this is the real me"
+~~~
+```
+
+The above snipplet would give us output:
+
+~~~{.script .py .md}
+#!/usr/bin/env python3
+
+print("""
+| as | dd |
+|----|----|
+| dd | dd |
+Table: we are
+""")
+~~~
+
+
 ## Subprocess delegation
 
 ~~~{.delegate .multimarkdown #tbl:delegate}
