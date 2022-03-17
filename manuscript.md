@@ -33,6 +33,15 @@ collaborator:
   email: "xxx@myuni.ac.jp"
 titleshort: "Paperlighter Example"
 authorshort: "Author One et.al."
+#% Reintroduced the \received and \accepted commands from AASTeX v5.2
+#\received{March 1, 2021}
+#\revised{April 1, 2021}
+#\accepted{\today}
+#\submitjournal{PSJ}
+#% \watermark{text}
+#% \setwatermarkfontsize{dimension}
+#\correspondingauthor{August Muench}
+#\email{greg.schwarz@aas.org, gus.muench@aas.org}
 processDate:
   received: "March 11, 2022"
   accepted: "April 11, 2022"
@@ -42,6 +51,23 @@ linkDir:
 appendix:
   - appendix/1
   - appendix/2
+abstract: |
+  This example manuscript is intended to serve as a tutorial and template for
+  authors to use when writing their own AAS Journal articles. The manuscript
+  includes a history of \aastex\ and documents the new features in the
+  previous versions as well as the bug fixes in version 6.31. This
+  manuscript includes many figure and table examples to illustrate these new
+  features.  Information on features not explicitly mentioned in the article
+  can be viewed in the manuscript comments or more extensive online
+  documentation. Authors are welcome replace the text, tables, figures, and
+  bibliography with their own and submit the resulting manuscript to the AAS
+  Journals peer review system.  The first lesson in the tutorial is to remind
+  authors that the AAS Journals, the Astrophysical Journal (ApJ), the
+  Astrophysical Journal Letters (ApJL), the Astronomical Journal (AJ), and
+  the Planetary Science Journal (PSJ) all have a 250 word limit for the
+  abstract\footnote{Abstracts for Research Notes of the American Astronomical
+  Society (RNAAS) are limited to 150 words}.  If you exceed this length the
+  Editorial office will ask you to shorten it. This abstract has 182 words.
 abstractTex:
   #\abstract{Context}{Aim}{Method}{Result}Conclusion}
   \abstract{To investigate the physical nature of the 'nuc\-leated instability' of
@@ -781,296 +807,20 @@ create label for \ref{FigVibStab} using #FigVibStab
    instability than the second He ionization zone
    that drives the Cephe\text{\"\i}d pulsations.
 
-%% Beginning of file 'sample631.tex'
-%%
-%% Modified 2021 March
-%%
-%% This is a sample manuscript marked up using the
-%% AASTeX v6.31 LaTeX 2e macros.
-%%
-%% AASTeX is now based on Alexey Vikhlinin's emulateapj.cls 
-%% (Copyright 2000-2015).  See the classfile for details.
 
-%% AASTeX requires revtex4-1.cls and other external packages such as
-%% latexsym, graphicx, amssymb, longtable, and epsf.  Note that as of 
-%% Oct 2020, APS now uses revtex4.2e for its journals but remember that 
-%% AASTeX v6+ still uses v4.1. All of these external packages should 
-%% already be present in the modern TeX distributions but not always.
-%% For example, revtex4.1 seems to be missing in the linux version of
-%% TexLive 2020. One should be able to get all packages from www.ctan.org.
-%% In particular, revtex v4.1 can be found at 
-%% https://www.ctan.org/pkg/revtex4-1.
 
-%% The first piece of markup in an AASTeX v6.x document is the \documentclass
-%% command. LaTeX will ignore any data that comes before this command. The 
-%% documentclass can take an optional argument to modify the output style.
-%% The command below calls the preprint style which will produce a tightly 
-%% typeset, one-column, single-spaced document.  It is the default and thus
-%% does not need to be explicitly stated.
-%%
-%% using aastex version 6.3
-\documentclass[linenumbers]{aastex631}
 
-%% The default is a single spaced, 10 point font, single spaced article.
-%% There are 5 other style options available via an optional argument. They
-%% can be invoked like this:
-%%
-%% \documentclass[arguments]{aastex631}
-%% 
-%% where the layout options are:
-%%
-%%  twocolumn   : two text columns, 10 point font, single spaced article.
-%%                This is the most compact and represent the final published
-%%                derived PDF copy of the accepted manuscript from the publisher
-%%  manuscript  : one text column, 12 point font, double spaced article.
-%%  preprint    : one text column, 12 point font, single spaced article.  
-%%  preprint2   : two text columns, 12 point font, single spaced article.
-%%  modern      : a stylish, single text column, 12 point font, article with
-%% 		  wider left and right margins. This uses the Daniel
-%% 		  Foreman-Mackey and David Hogg design.
-%%  RNAAS       : Supresses an abstract. Originally for RNAAS manuscripts 
-%%                but now that abstracts are required this is obsolete for
-%%                AAS Journals. Authors might need it for other reasons. DO NOT
-%%                use \begin{abstract} and \end{abstract} with this style.
-%%
-%% Note that you can submit to the AAS Journals in any of these 6 styles.
-%%
-%% There are other optional arguments one can invoke to allow other stylistic
-%% actions. The available options are:
-%%
-%%   astrosymb    : Loads Astrosymb font and define \astrocommands. 
-%%   tighten      : Makes baselineskip slightly smaller, only works with 
-%%                  the twocolumn substyle.
-%%   times        : uses times font instead of the default
-%%   linenumbers  : turn on lineno package.
-%%   trackchanges : required to see the revision mark up and print its output
-%%   longauthor   : Do not use the more compressed footnote style (default) for 
-%%                  the author/collaboration/affiliations. Instead print all
-%%                  affiliation information after each name. Creates a much 
-%%                  longer author list but may be desirable for short 
-%%                  author papers.
-%% twocolappendix : make 2 column appendix.
-%%   anonymous    : Do not show the authors, affiliations and acknowledgments 
-%%                  for dual anonymous review.
-%%
-%% these can be used in any combination, e.g.
-%%
-%% \documentclass[twocolumn,linenumbers,trackchanges]{aastex631}
-%%
-%% AASTeX v6.* now includes \hyperref support. While we have built in specific
-%% defaults into the classfile you can manually override them with the
-%% \hypersetup command. For example,
-%%
-%% \hypersetup{linkcolor=red,citecolor=green,filecolor=cyan,urlcolor=magenta}
-%%
-%% will change the color of the internal links to red, the links to the
-%% bibliography to green, the file links to cyan, and the external links to
-%% magenta. Additional information on \hyperref options can be found here:
-%% https://www.tug.org/applications/hyperref/manual.html#x1-40003
-%%
-%% Note that in v6.3 "bookmarks" has been changed to "true" in hyperref
-%% to improve the accessibility of the compiled pdf file.
-%%
-%% If you want to create your own macros, you can do so
-%% using \newcommand. Your macros should appear before
-%% the \begin{document} command.
-%%
-\newcommand{\vdag}{(v)^\dagger}
-\newcommand\aastex{AAS\TeX}
-\newcommand\latex{La\TeX}
 
-%% Reintroduced the \received and \accepted commands from AASTeX v5.2
-%\received{March 1, 2021}
-%\revised{April 1, 2021}
-%\accepted{\today}
 
-%% Command to document which AAS Journal the manuscript was submitted to.
-%% Adds "Submitted to " the argument.
-%\submitjournal{PSJ}
 
-%% For manuscript that include authors in collaborations, AASTeX v6.31
-%% builds on the \collaboration command to allow greater freedom to 
-%% keep the traditional author+affiliation information but only show
-%% subsets. The \collaboration command now must appear AFTER the group
-%% of authors in the collaboration and it takes TWO arguments. The last
-%% is still the collaboration identifier. The text given in this
-%% argument is what will be shown in the manuscript. The first argument
-%% is the number of author above the \collaboration command to show with
-%% the collaboration text. If there are authors that are not part of any
-%% collaboration the \nocollaboration command is used. This command takes
-%% one argument which is also the number of authors above to show. A
-%% dashed line is shown to indicate no collaboration. This example manuscript
-%% shows how these commands work to display specific set of authors 
-%% on the front page.
-%%
-%% For manuscript without any need to use \collaboration the 
-%% \AuthorCollaborationLimit command from v6.2 can still be used to 
-%% show a subset of authors.
-%
-%\AuthorCollaborationLimit=2
-%
-%% will only show Schwarz & Muench on the front page of the manuscript
-%% (assuming the \collaboration and \nocollaboration commands are
-%% commented out).
-%%
-%% Note that all of the author will be shown in the published article.
-%% This feature is meant to be used prior to acceptance to make the
-%% front end of a long author article more manageable. Please do not use
-%% this functionality for manuscripts with less than 20 authors. Conversely,
-%% please do use this when the number of authors exceeds 40.
-%%
-%% Use \allauthors at the manuscript end to show the full author list.
-%% This command should only be used with \AuthorCollaborationLimit is used.
 
-%% The following command can be used to set the latex table counters.  It
-%% is needed in this document because it uses a mix of latex tabular and
-%% AASTeX deluxetables.  In general it should not be needed.
-%\setcounter{table}{1}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%% The following section outlines numerous optional output that
-%% can be displayed in the front matter or as running meta-data.
-%%
-%% If you wish, you may supply running head information, although
-%% this information may be modified by the editorial offices.
-\shorttitle{AASTeX v6.31 Sample article}
-\shortauthors{Schwarz et al.}
-%%
-%% You can add a light gray and diagonal water-mark to the first page 
-%% with this command:
-%% \watermark{text}
-%% where "text", e.g. DRAFT, is the text to appear.  If the text is 
-%% long you can control the water-mark size with:
-%% \setwatermarkfontsize{dimension}
-%% where dimension is any recognized LaTeX dimension, e.g. pt, in, etc.
-%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{./}{figures/}}
-%% This is the end of the preamble.  Indicate the beginning of the
-%% manuscript itself with \begin{document}.
 
-\begin{document}
 
-\title{Template \aastex Article with Examples: 
-v6.31\footnote{Released on March, 1st, 2021}}
-
-%% LaTeX will automatically break titles if they run longer than
-%% one line. However, you may use \\ to force a line break if
-%% you desire. In v6.31 you can include a footnote in the title.
-
-%% A significant change from earlier AASTEX versions is in the structure for 
-%% calling author and affiliations. The change was necessary to implement 
-%% auto-indexing of affiliations which prior was a manual process that could 
-%% easily be tedious in large author manuscripts.
-%%
-%% The \author command is the same as before except it now takes an optional
-%% argument which is the 16 digit ORCID. The syntax is:
-%% \author[xxxx-xxxx-xxxx-xxxx]{Author Name}
-%%
-%% This will hyperlink the author name to the author's ORCID page. Note that
-%% during compilation, LaTeX will do some limited checking of the format of
-%% the ID to make sure it is valid. If the "orcid-ID.png" image file is 
-%% present or in the LaTeX pathway, the OrcID icon will appear next to
-%% the authors name.
-%%
-%% Use \affiliation for affiliation information. The old \affil is now aliased
-%% to \affiliation. AASTeX v6.31 will automatically index these in the header.
-%% When a duplicate is found its index will be the same as its previous entry.
-%%
-%% Note that \altaffilmark and \altaffiltext have been removed and thus 
-%% can not be used to document secondary affiliations. If they are used latex
-%% will issue a specific error message and quit. Please use multiple 
-%% \affiliation calls for to document more than one affiliation.
-%%
-%% The new \altaffiliation can be used to indicate some secondary information
-%% such as fellowships. This command produces a non-numeric footnote that is
-%% set away from the numeric \affiliation footnotes.  NOTE that if an
-%% \altaffiliation command is used it must come BEFORE the \affiliation call,
-%% right after the \author command, in order to place the footnotes in
-%% the proper location.
-%%
-%% Use \email to set provide email addresses. Each \email will appear on its
-%% own line so you can put multiple email address in one \email call. A new
-%% \correspondingauthor command is available in V6.31 to identify the
-%% corresponding author of the manuscript. It is the author's responsibility
-%% to make sure this name is also in the author list.
-%%
-%% While authors can be grouped inside the same \author and \affiliation
-%% commands it is better to have a single author for each. This allows for
-%% one to exploit all the new benefits and should make book-keeping easier.
-%%
-%% If done correctly the peer review system will be able to
-%% automatically put the author and affiliation information from the manuscript
-%% and save the corresponding author the trouble of entering it by hand.
-
-%\correspondingauthor{August Muench}
-%\email{greg.schwarz@aas.org, gus.muench@aas.org}
-
-\author[0000-0002-0786-7307]{Greg J. Schwarz}
-\affiliation{American Astronomical Society \\
-1667 K Street NW, Suite 800 \\
-Washington, DC 20006, USA}
-
-\author{August Muench}
-\affiliation{American Astronomical Society \\
-1667 K Street NW, Suite 800 \\
-Washington, DC 20006, USA}
-
-\collaboration{6}{(AAS Journals Data Editors)}
-
-\author{Butler Burton}
-\affiliation{Leiden University}
-\affiliation{AAS Journals Associate Editor-in-Chief}
-
-\author{Amy Hendrickson}
-\altaffiliation{AASTeX v6+ programmer}
-\affiliation{TeXnology Inc.}
-
-\author{Julie Steffen}
-\affiliation{AAS Director of Publishing}
-\affiliation{American Astronomical Society \\
-1667 K Street NW, Suite 800 \\
-Washington, DC 20006, USA}
-
-\author{Magaret Donnelly}
-\affiliation{IOP Publishing, Washington, DC 20005}
-
-%% Note that the \and command from previous versions of AASTeX is now
-%% depreciated in this version as it is no longer necessary. AASTeX 
-%% automatically takes care of all commas and "and"s between authors names.
-
-%% AASTeX 6.31 has the new \collaboration and \nocollaboration commands to
-%% provide the collaboration status of a group of authors. These commands 
-%% can be used either before or after the list of corresponding authors. The
-%% argument for \collaboration is the collaboration identifier. Authors are
-%% encouraged to surround collaboration identifiers with ()s. The 
-%% \nocollaboration command takes no argument and exists to indicate that
-%% the nearby authors are not part of surrounding collaborations.
-
-%% Mark off the abstract in the ``abstract'' environment. 
-\begin{abstract}
-
-This example manuscript is intended to serve as a tutorial and template for
-authors to use when writing their own AAS Journal articles. The manuscript
-includes a history of \aastex\ and documents the new features in the
-previous versions as well as the bug fixes in version 6.31. This
-manuscript includes many figure and table examples to illustrate these new
-features.  Information on features not explicitly mentioned in the article
-can be viewed in the manuscript comments or more extensive online
-documentation. Authors are welcome replace the text, tables, figures, and
-bibliography with their own and submit the resulting manuscript to the AAS
-Journals peer review system.  The first lesson in the tutorial is to remind
-authors that the AAS Journals, the Astrophysical Journal (ApJ), the
-Astrophysical Journal Letters (ApJL), the Astronomical Journal (AJ), and
-the Planetary Science Journal (PSJ) all have a 250 word limit for the 
-abstract\footnote{Abstracts for Research Notes of the American Astronomical 
-Society (RNAAS) are limited to 150 words}.  If you exceed this length the
-Editorial office will ask you to shorten it. This abstract has 182 words.
 
 \end{abstract}
 
-%% Keywords should appear after the \end{abstract} command. 
+%% Keywords should appear after the \end{abstract} command.
 %% The AAS Journals now uses Unified Astronomy Thesaurus concepts:
 %% https://astrothesaurus.org
 %% You will be asked to selected these concepts during the submission process
@@ -1091,7 +841,7 @@ Editorial office will ask you to shorten it. This abstract has 182 words.
 %% We recommend that authors also use the natbib \citep
 %% and \citet commands to identify citations.  The citations are
 %% tied to the reference list via symbolic KEYs. The KEY corresponds
-%% to the KEY in the \bibitem in the reference list below. 
+%% to the KEY in the \bibitem in the reference list below.
 
 \section{Introduction} \label{sec:intro}
 
@@ -1110,7 +860,7 @@ were made by Lee Brotzman and Pierre Landau when the package was updated to
 v4.0.  AASTeX v5.0, written in 1995 by Arthur Ogawa, upgraded to \latex\ 2e
 which uses the document class in lieu of a style file.  Other improvements
 to version 5 included hypertext support, landscape deluxetables and
-improved figure support to facilitate electronic submission.  
+improved figure support to facilitate electronic submission.
 \aastex\ v5.2 was released in 2005 and introduced additional graphics
 support plus new mark up to identifier astronomical objects, datasets and
 facilities.
@@ -1131,7 +881,7 @@ out hard copies.
 Even though author publication charges are no longer based on print pages
 \footnote{see Section \ref{sec:pubcharge} in the Appendix for more details
 about how current article costs are calculated.} the emulateapj class file
-has proven to be extremely popular with AAS Journal authors.  An 
+has proven to be extremely popular with AAS Journal authors.  An
 analysis of submitted \latex\ manuscripts in 2015 revealed that $\sim$65\%
 either called emulateapj or have a commented emulateapj classfile call
 indicating it was used at some stage of the manuscript construction.
@@ -1154,7 +904,7 @@ The new features in the recent releases includes:
    \begin{enumerate}
       \item line numbering and watermarking,
       \item improved citations for third party data repositories and software,
-      \item easier construction of matrix figures consisting of multiple 
+      \item easier construction of matrix figures consisting of multiple
 encapsulated postscript (EPS) or portable document format (PDF) files,
       \item figure set mark up for large collections of similar figures,
       \item color mark up to easily enable/disable revised text highlighting,
@@ -1179,7 +929,7 @@ encapsulated postscript (EPS) or portable document format (PDF) files,
   \item{v6.3}
     \begin{enumerate}
       \item New {\tt\string interactive} environment to highlight interactive figures (see Section \ref{animation}),
-      \item Improved collaboration commands, 
+      \item Improved collaboration commands,
       \item New {\tt\string anonymous} style to keep the authors, affiliations and acknowledgments from showing in the compiled pdf for dual anonymous review, and
       \item Adoptions of IAU approved syntax for nominal units, see Section \ref{nominal}.
     \end{enumerate}
@@ -1195,7 +945,7 @@ The rest of this article provides information and examples on how to create
 your own AAS Journal manuscript with v6.31.  Special emphasis is placed on
 how to use the full potential of \aastex\ v6+.  The next section describes
 the different manuscript styles available and how they differ from past
-releases.  Section \ref{sec:floats} describes table and figure placement. 
+releases.  Section \ref{sec:floats} describes table and figure placement.
 Specific examples of tables, Section
 \ref{subsec:tables}, and figures, Section \ref{subsec:figures}, are also
 provided. A special emphasis is placed on interactive figures.
@@ -1231,12 +981,12 @@ e.g. \\
 
 \noindent This option is ignored in the onecolumn style.
 
-Some other style options are outlined in the commented sections of this 
+Some other style options are outlined in the commented sections of this
 article.  Any combination of style options can be used.
 
 Two style options that are needed to fully use the new revision tracking
-feature, see Section \ref{sec:highlight}, are {\tt\string linenumbers} which 
-uses the lineno style file to number each article line in the left margin and 
+feature, see Section \ref{sec:highlight}, are {\tt\string linenumbers} which
+uses the lineno style file to number each article line in the left margin and
 {\tt\string trackchanges} which controls the revision and commenting highlight
 output.
 
@@ -1247,13 +997,13 @@ words per line to improve reader retention. It also looks better on devices
 with smaller displays such as smart phones.
 
 The {\tt\string anonymous} option will prevent the author and affiliations
-from being shown in the compiled pdf copy. This option allows the author 
+from being shown in the compiled pdf copy. This option allows the author
 to keep this critical information in the latex file but prevent the reviewer
-from seeing it during peer review if dual anonymous review (DAR) is requested. 
-Likewise, acknowledgments can also be hidden if placed in the new 
+from seeing it during peer review if dual anonymous review (DAR) is requested.
+Likewise, acknowledgments can also be hidden if placed in the new
 {\tt\string\begin\{acknowledgments\}} ... {\tt\string\end\{acknowledgments\}}
-environment. The use of this option is highly recommended for PSJ submissions. 
-Advice for anonymizing your manuscript for DAR is provided at 
+environment. The use of this option is highly recommended for PSJ submissions.
+Advice for anonymizing your manuscript for DAR is provided at
 \url{https://journals.aas.org/manuscript-preparation/#dar}.
 
 \section{Floats} \label{sec:floats}
@@ -1319,13 +1069,13 @@ Tables can be constructed with \latex's standard table environment or the
 tables better but has a larger overhead due to the greater amount of
 defined mark up used set up and manipulate the table structure.  The choice
 of which to use is up to the author.  Examples of both environments are
-used in this manuscript. 
+used in this manuscript.
 
 Tables longer than 200 data lines and complex tables should only have a
 short example table with the full data set available in the machine
 readable format.  The machine readable table will be available in the HTML
 version of the article with just a short example in the PDF. Authors are
-required to indicate in the table comments that the data in machine 
+required to indicate in the table comments that the data in machine
 readable format in the full article.
 Authors are encouraged to create their own machine
 readable tables using the online tool at
@@ -1337,13 +1087,13 @@ authors.  The items are:
 
 \begin{enumerate}
 \item Declaring math mode in specific columns,
-\item Column decimal alignment, 
+\item Column decimal alignment,
 \item Automatic column header numbering,
 \item Hiding columns, and
 \item Splitting wide tables into two or three parts.
 \end{enumerate}
 
-Full details on how to create each type are given in the following 
+Full details on how to create each type are given in the following
 sections. Additional details are available in the AASTeX
 guidelines at \url{http://journals.aas.org/authors/aastex.html}
 
@@ -1355,7 +1105,7 @@ define the alignment and number of columns.  The most common values are
 \underline{r}ight justification.  If these values are capitalized, e.g.
 ``C'', ``L'', or ``R'', then that specific column will automatically be in math
 mode meaning that \$s are not required.  Note that having embedded dollar
-signs in the table does not affect the output. 
+signs in the table does not affect the output.
 
 \subsubsection{Decimal alignment}
 
@@ -1366,7 +1116,7 @@ be tedious in long or complex tables.  To address this \aastex\ introduces
 the {\tt\string\decimals} command and a new column justification option,
 ``D'', to align data in that column on the decimal.  In deluxetable the
 {\tt\string\decimals} command is invoked before the {\tt\string\startdata}
-call but can be anywhere in \latex's tabular environment.  
+call but can be anywhere in \latex's tabular environment.
 
 Two other important thing to note when using decimal alignment is that each
 decimal column \textit{must end with a space before the ampersand}, e.g.
@@ -1382,7 +1132,7 @@ done with a multicolumn call, e.g {\tt\string\multicolumn2c\{\}} or
 {\tt\string\twocolhead\{\}} command in deluxetable.  Since \latex\ is
 splitting these columns into two it is important to get the table width
 right so that they appear joined on the page.  You may have to run the
-\latex\ compiler twice to get it right.  
+\latex\ compiler twice to get it right.
 
 \subsubsection{Automatic column header numbering} \label{subsubsec:autonumber}
 
@@ -1394,11 +1144,11 @@ at the location where the author wants the numbers to appear, e.g. after
 the last line of specified table header rows. In deluxetable this command
 has to come before {\tt\string\startdata}.  {\tt\string\colnumbers} will
 not increment for columns hidden by the ``h'' command, see Section
-\ref{subsubsec:hide}. 
+\ref{subsubsec:hide}.
 
-Note that when using decimal alignment in a table the command 
-{\tt\string\decimalcolnumbers} must be used instead of 
-{\tt\string\colnumbers} and {\tt\string\decimals}. 
+Note that when using decimal alignment in a table the command
+{\tt\string\decimalcolnumbers} must be used instead of
+{\tt\string\colnumbers} and {\tt\string\decimals}.
 
 \subsubsection{Hiding columns} \label{subsubsec:hide}
 
@@ -1408,7 +1158,7 @@ this column identifier conceals the entire column including the header
 columns.   In \aastex's deluxetables the header row is specifically
 declared with the {\tt\string\tablehead} call and each header column is
 marked with {\tt\string\colhead} call.  In order to make a specific header
-disappear with the ``h'' column identifier in deluxetable use 
+disappear with the ``h'' column identifier in deluxetable use
 {\tt\string\nocolhead} instead to suppress that particular column header.
 
 Authors can use this option in many different ways.  Since column data can
@@ -1467,7 +1217,7 @@ space before the next ampersand.}
 Since the AAS Journals are now all electronic with no print version there is
 no reason why tables can not be as wide as authors need them to be.
 However, there are some artificial limitations based on the width of a
-print page.  The old way around this limitation was to rotate into 
+print page.  The old way around this limitation was to rotate into
 landscape mode and use the smallest available table font
 sizes, e.g. {\tt\string\tablewidth}, to get the table to fit.
 Unfortunately, this was not always enough but now along with the hide column
@@ -1475,7 +1225,7 @@ option outlined in Section \ref{subsubsec:hide} there is a new way to break
 a table into two or three components so that it flows down a page by
 invoking a new table type, splittabular or splitdeluxetable. Within these
 tables a new ``B'' column separator is introduced.  Much like the vertical
-bar option, ``$\vert$'', that produces a vertical table lines 
+bar option, ``$\vert$'', that produces a vertical table lines
 the new ``B'' separator indicates where to \underline{B}reak
 a table.  Up to two ``B''s may be included.
 
@@ -1487,7 +1237,7 @@ second table component, see Section \ref{subsubsec:autonumber}.
 
 \begin{splitdeluxetable*}{lccccBcccccBcccc}
 \tabletypesize{\scriptsize}
-\tablewidth{0pt} 
+\tablewidth{0pt}
 \tablenum{5}
 \tablecaption{Measurements of Emission Lines: two breaks \label{tab:deluxesplit}}
 \tablehead{
@@ -1503,10 +1253,10 @@ V}} & \colhead{Si\,{\footnotesize IV}} & \colhead{C\,{\footnotesize IV}} &
 \colhead{Mg\,{\footnotesize II}} & \colhead{H$\gamma$} & \colhead{H$\beta$}
 & \colhead{H$\alpha$} & \colhead{He\,{\footnotesize I}} &
 \colhead{Pa$\gamma$}
-} 
+}
 \colnumbers
-\startdata 
-{       }& BELs& -97.13 &    9117$\pm      38$&    1033$\pm      33$&$< 35$&$<     166$&     637$\pm      31$&    1951$\pm      26$&     991$\pm 30$&    3502$\pm      42$&   20285$\pm      80$&    2025$\pm     116$& 1289$\pm     107$\\ 
+\startdata
+{       }& BELs& -97.13 &    9117$\pm      38$&    1033$\pm      33$&$< 35$&$<     166$&     637$\pm      31$&    1951$\pm      26$&     991$\pm 30$&    3502$\pm      42$&   20285$\pm      80$&    2025$\pm     116$& 1289$\pm     107$\\
 {Model 1}& IELs& -4049.123 & 1974$\pm      22$&    2495$\pm      30$&$<     42$&$<     109$&     995$\pm 186$&      83$\pm      30$&      75$\pm      23$&     130$\pm      25$& 357$\pm      94$&     194$\pm      64$& 36$\pm      23$\\
 {       }& NELs& \nodata &     641$\pm       4$&     449$\pm 23$&$<      6$&$<       9$&       --            &     275$\pm      18$& 150$\pm      11$&     313$\pm      12$&     958$\pm      43$&     318$\pm 34$& 151$\pm       17$\\
 \hline
@@ -1528,7 +1278,7 @@ look at the new \aastex\ instructions.}
 %% and to override the normal way of calculating a float position
 \begin{figure}[ht!]
 \plotone{cost.pdf}
-\caption{The subscription (squares) and author publication (asterisks) 
+\caption{The subscription (squares) and author publication (asterisks)
 costs from 1991 to 2013. Subscription cost are on the left Y axis while
 the author costs are on the right Y axis. All numbers in US dollars and
 adjusted for inflation. The author charges also account for the change
@@ -1606,7 +1356,7 @@ figure constructed with six individual EPS files using the
           }
 \gridline{\fig{KT_Eri.pdf}{0.3\textwidth}{(f)}}
 \caption{Inverted pyramid figure of six individual files. The nova are
-(a) V2491 Cyg, (b) HV Cet, (c) LMC 2009, (d) RS Oph, (e) U Sco, and (f) 
+(a) V2491 Cyg, (b) HV Cet, (c) LMC 2009, (d) RS Oph, (e) U Sco, and (f)
 KT Eri. These individual figures are taken from \citet{2011ApJS..197...31S}.
 \label{fig:pyramid}}
 \end{figure*}
@@ -1615,11 +1365,11 @@ KT Eri. These individual figures are taken from \citet{2011ApJS..197...31S}.
 
 Enhanced graphics have an example figure to serve as an example for the
 reader and the full graphical item available in the published HTML article.
-This includes Figure sets, animations, and interactive figures. The 
-Astronomy Image Explorer (\url{http://www.astroexplorer.org/}) provides 
+This includes Figure sets, animations, and interactive figures. The
+Astronomy Image Explorer (\url{http://www.astroexplorer.org/}) provides
 access to all the figures published in the AAS Journals since they offered
 an electronic version which was in the mid 1990s. You can filter image
-searches by specific terms, year, journal, or type. The type filter is 
+searches by specific terms, year, journal, or type. The type filter is
 particularly useful for finding all published enhanced graphics. As of
 March 2021 there are over 4000 videos, 1300 figure sets, and 100 interactive
 figures. The next sections describe how to include these types of graphics
@@ -1703,12 +1453,12 @@ outburst of HV Cet.}
 \begin{figure}
 \plotone{KT_Eri.pdf}
 \caption{The Swift/XRT X-ray light curve for the first year after
-outburst of the suspected recurrent nova KT Eri. At a maximum count rate of 
-328 ct/s, KT Eri was the brightest nova in X-rays observed to date. All 
+outburst of the suspected recurrent nova KT Eri. At a maximum count rate of
+328 ct/s, KT Eri was the brightest nova in X-rays observed to date. All
 the component figures (6) are available in the Figure Set. Note that
 these components that are {\bf not} shown in the compiled pdf. The figure
-set consists of the same figures as shown in Figure \ref{fig:pyramid}. 
-The example figure shown for figure sets can be one component or many. 
+set consists of the same figures as shown in Figure \ref{fig:pyramid}.
+The example figure shown for figure sets can be one component or many.
 \label{fig:fig4}}
 \end{figure}
 
@@ -1734,26 +1484,26 @@ review the AAS animation guidelines in the graphics guide at
 \begin{interactive}{animation}{movie.mp4}
 \plotone{f4.pdf}
 \end{interactive}
-\caption{Figure 1 from \citet{2018ApJ...868L..33L}. AIA 171\AA (a,b), 
-AIA 131\AA (c), and AIA 304\AA images are shown. The red rectangle 
-in (a) shows the field of view of the other panels. An animation of 
-panels (b-d) is available. It covers 8 hours of observing beginning 
-at 01:00 UT on 2012 January 19. The video duration is 20 seconds. 
+\caption{Figure 1 from \citet{2018ApJ...868L..33L}. AIA 171\AA (a,b),
+AIA 131\AA (c), and AIA 304\AA images are shown. The red rectangle
+in (a) shows the field of view of the other panels. An animation of
+panels (b-d) is available. It covers 8 hours of observing beginning
+at 01:00 UT on 2012 January 19. The video duration is 20 seconds.
 \label{fig:video}}
 \end{figure}
 
-Animations and interactive figures (Section \ref{sec:interactive}) should 
-use the {\tt\string\begin{interactive}} environment in the figure call. This 
+Animations and interactive figures (Section \ref{sec:interactive}) should
+use the {\tt\string\begin{interactive}} environment in the figure call. This
 environment
-places a blue border around the figure to indicate that the figure is 
+places a blue border around the figure to indicate that the figure is
 enhanced in the published HTML article. The
 command also serves to alert the publisher what files are used to generate
 the dynamic HTML content. {\tt\string\interactive} takes two arguments. The
 first details the type and currently only three are allowed. The types are
-{\tt\string js} for generic javascript interactive figures, 
-{\tt\string animation} for inline videos, and 
+{\tt\string js} for generic javascript interactive figures,
+{\tt\string animation} for inline videos, and
 {\tt\string timeseries} for interactive light curves produced
-by astropy \citet{2013A&A...558A..33A}\footnote{To be release in the 
+by astropy \citet{2013A&A...558A..33A}\footnote{To be release in the
 summer of 2019}. If these types are not provide the compiler will issue an
 error and quit. The second argument is the file that produces the enhanced
 feature in the HTML article.
@@ -1762,7 +1512,7 @@ feature in the HTML article.
 
 Interactive figures give the reader the ability to manipulate the
 information contained in an image which can add clarity or help further the
-author's narrative.  These figures consist of two parts, a static 
+author's narrative.  These figures consist of two parts, a static
 representative figure for the manuscript and the dynamic javascript plus
 HTML framework that allows for interactive control.
 
@@ -1770,7 +1520,7 @@ An example of an interactive figure is a 3D model.
 The underlying figure is a X3D file while x3dom.js is the javascript driver
 that displays it. An author created interface is added via a html wrapper.
 The first 3D model published by the AAS Journals using this technique was
-\citet{2014ApJ...793..127V}.  
+\citet{2014ApJ...793..127V}.
 
 Figure \ref{fig:interactive} provides an interactive example which can be
 run locally to demonstrate how a simple javascript plus html interface
@@ -1802,9 +1552,9 @@ interactive version has two buttons that allows one to turn the optical and
 NIR layers. \label{fig:interactive}}
 \end{figure}
 
-Authors should consult the online tutorials at 
+Authors should consult the online tutorials at
 \url{https://journals.aas.org/graphics-guide/#interactive_figures}
-for more information on what is currently supported and links to 
+for more information on what is currently supported and links to
 tutorials and examples.
 
 \section{Displaying mathematics} \label{sec:displaymath}
@@ -1814,7 +1564,7 @@ package. \aastex\ requires this package so there is no need to
 specifically call for it in the document preamble.  Most modern \latex\
 distributions already contain this package.  If you do not have this
 package or the other required packages, revtex4-1, latexsym, graphicx,
-amssymb, longtable, and epsf, they can be obtained from 
+amssymb, longtable, and epsf, they can be obtained from
 \url{http://www.ctan.org}
 
 Mathematics can be displayed either within the text, e.g. $E = mc^2$, or
@@ -1854,7 +1604,7 @@ symbol.
 -1 &   0\\
 0 &   1
 \end{array}     \right)  , \\
-\sigma^\mu_{\pm}  & = &   ({\bf 1} ,\pm \sigma) , 
+\sigma^\mu_{\pm}  & = &   ({\bf 1} ,\pm \sigma) ,
 \end{eqnarray}
 
 \begin{eqnarray}
@@ -1863,7 +1613,7 @@ symbol.
 0 & (\hat a)_+\\
 (\hat a)_- & 0
 \end{array}\right), \nonumber \\
-(\hat a)_\pm & = & a_\mu\sigma^\mu_\pm 
+(\hat a)_\pm & = & a_\mu\sigma^\mu_\pm
 \end{eqnarray}
 
 %% Putting eqnarrays or equations inside the mathletters environment groups
@@ -1875,7 +1625,7 @@ symbol.
 
 Authors sometimes use color to highlight changes to their manuscript in
 response to editor and referee comments.  In \aastex\ new commands
-have been introduced to make this easier and formalize the process. 
+have been introduced to make this easier and formalize the process.
 
 The first method is through a new set of editing mark up commands that
 specifically identify what has been changed.  These commands are
@@ -1910,19 +1660,19 @@ produce {\tt\string<text>} that is highlighted in bold, bold+italic and
 bold+underline, respectively.  Authors should use the first command to
 \edit1{indicated which text has been changed from the first revision.}  The
 second command is to highlight \edit2{new or modified text from a second
-revision}.  If a third revision is needed then the last command should be used 
+revision}.  If a third revision is needed then the last command should be used
 \edit3{to show this changed text}.  Since over 90\% of all manuscripts are
 accepted after the 3rd revision these commands make it easy to identify
 what text has been added and when.  Once the article is accepted all the
 highlight color can be turned off simply by adding the
 {\tt\string\turnoffediting} command in the preamble. Likewise, the new commands
 {\tt\string\turnoffeditone}, {\tt\string\turnoffedittwo}, and
-{\tt\string\turnoffeditthree} can be used to only turn off the 
-{\tt\string\edit1\{<text>\}}, {\tt\string\edit2\{<text>\}} and 
+{\tt\string\turnoffeditthree} can be used to only turn off the
+{\tt\string\edit1\{<text>\}}, {\tt\string\edit2\{<text>\}} and
 {\tt\string\edit3\{<text>\}}, respectively.
 
 Similar to marking editing changes with the {\tt\string\edit} options there
-are also the {\tt\string\authorcomments1\{<text>\}}, 
+are also the {\tt\string\authorcomments1\{<text>\}},
 {\tt\string\authorcomments2\{<text>\}} and
 {\tt\string\authorcomments3\{<text>\}} commands.  These produce the same
 bold red, italic blue and underlined purple text but when the
@@ -1960,7 +1710,7 @@ available with \aastex\ v6, will output bibtex ``@misc'' type properly.
 
 %% IMPORTANT! The old "\acknowledgment" command has be depreciated. It was
 %% not robust enough to handle our new dual anonymous review requirements and
-%% thus been replaced with the acknowledgment environment. If you try to 
+%% thus been replaced with the acknowledgment environment. If you try to
 %% compile with \acknowledgment you will get an error print to the screen
 %% and in the compiled pdf.
 \begin{acknowledgments}
@@ -1974,27 +1724,27 @@ Drlica-Wagner, Sean Lake, Michele Bannister, Peter Williams, and Jonathan
 Gagne.
 \end{acknowledgments}
 
-%% To help institutions obtain information on the effectiveness of their 
-%% telescopes the AAS Journals has created a group of keywords for telescope 
+%% To help institutions obtain information on the effectiveness of their
+%% telescopes the AAS Journals has created a group of keywords for telescope
 %% facilities.
 %
 %% Following the acknowledgments section, use the following syntax and the
-%% \facility{} or \facilities{} macros to list the keywords of facilities used 
-%% in the research for the paper.  Each keyword is check against the master 
-%% list during copy editing.  Individual instruments can be provided in 
+%% \facility{} or \facilities{} macros to list the keywords of facilities used
+%% in the research for the paper.  Each keyword is check against the master
+%% list during copy editing.  Individual instruments can be provided in
 %% parentheses, after the keyword, but they are not verified.
 
 \vspace{5mm}
 \facilities{HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m,
 CTIO:1.5m,CXO}
 
-%% Similar to \facility{}, there is the optional \software command to allow 
-%% authors a place to specify which programs were used during the creation of 
+%% Similar to \facility{}, there is the optional \software command to allow
+%% authors a place to specify which programs were used during the creation of
 %% the manuscript. Authors should list each code and include either a
 %% citation or url to the code inside ()s when available.
 
-\software{astropy \citep{2013A&A...558A..33A,2018AJ....156..123A},  
-          Cloudy \citep{2013RMxAA..49..137F}, 
+\software{astropy \citep{2013A&A...558A..33A,2018AJ....156..123A},
+          Cloudy \citep{2013RMxAA..49..137F},
           Source Extractor \citep{1996A&AS..117..393B}
           }
 
@@ -2024,17 +1774,17 @@ they should continue the sequence from the main article body.
 \section{Author publication charges} \label{sec:pubcharge}
 
 Finally some information about the AAS Journal's publication charges.
-In April 2011 the traditional way of calculating author charges based on 
+In April 2011 the traditional way of calculating author charges based on
 the number of printed pages was changed.  The reason for the change
-was due to a recognition of the growing number of article items that could not 
+was due to a recognition of the growing number of article items that could not
 be represented in print. Now author charges are determined by a number of
 digital ``quanta''.  A single quantum is 350 words, one figure, one table,
 and one enhanced digital item.  For the latter this includes machine readable
 tables, figure sets, animations, and interactive figures.  The current cost
-for the different quanta types is available at 
-\url{https://journals.aas.org/article-charges-and-copyright/#author_publication_charges}. 
-Authors may use the ApJL length calculator to get a {\tt rough} estimate of 
-the number of word and float quanta in their manuscript. The calculator 
+for the different quanta types is available at
+\url{https://journals.aas.org/article-charges-and-copyright/#author_publication_charges}.
+Authors may use the ApJL length calculator to get a {\tt rough} estimate of
+the number of word and float quanta in their manuscript. The calculator
 is located at \url{https://authortools.aas.org/ApJL/betacountwords.html}.
 
 \section{Rotating tables} \label{sec:rotate}
@@ -2053,24 +1803,24 @@ with {\tt\string\begin\{longrotatetable\}} and end with
 example of a multi-page, rotated table. The {\tt\string\movetabledown}
 command can be used to help center extremely wide, landscape tables. The
 command {\tt\string\movetabledown=1in} will move any rotated table down 1
-inch. 
+inch.
 
 \begin{longrotatetable}
 \begin{deluxetable*}{lllrrrrrrll}
-\tablecaption{Observable Characteristics of 
+\tablecaption{Observable Characteristics of
 Galactic/Magellanic Cloud novae with X-ray observations\label{chartable}}
 \tablewidth{700pt}
 \tabletypesize{\scriptsize}
 \tablehead{
-\colhead{Name} & \colhead{V$_{max}$} & 
-\colhead{Date} & \colhead{t$_2$} & 
-\colhead{FWHM} & \colhead{E(B-V)} & 
-\colhead{N$_H$} & \colhead{Period} & 
-\colhead{D} & \colhead{Dust?} & \colhead{RN?} \\ 
-\colhead{} & \colhead{(mag)} & \colhead{(JD)} & \colhead{(d)} & 
+\colhead{Name} & \colhead{V$_{max}$} &
+\colhead{Date} & \colhead{t$_2$} &
+\colhead{FWHM} & \colhead{E(B-V)} &
+\colhead{N$_H$} & \colhead{Period} &
+\colhead{D} & \colhead{Dust?} & \colhead{RN?} \\
+\colhead{} & \colhead{(mag)} & \colhead{(JD)} & \colhead{(d)} &
 \colhead{(km s$^{-1}$)} & \colhead{(mag)} & \colhead{(cm$^{-2}$)} &
 \colhead{(d)} & \colhead{(kpc)} & \colhead{} & \colhead{}
-} 
+}
 \startdata
 CI Aql & 8.83 (1) & 2451665.5 (1) & 32 (2) & 2300 (3) & 0.8$\pm0.2$ (4) & 1.2e+22 & 0.62 (4) & 6.25$\pm5$ (4) & N & Y \\
 {\bf CSS081007} & \nodata & 2454596.5 & \nodata & \nodata & 0.146 & 1.1e+21 & 1.77 (5) & 4.45$\pm1.95$ (6) & \nodata & \nodata \\
@@ -2138,7 +1888,7 @@ V838 Her & 5 (197) & 2448340.5 (197) & 2 (198) & \nodata & 0.5$\pm0.1$ (198) & 2
 \end{deluxetable*}
 \end{longrotatetable}
 
-A handy "cheat sheet" that provides the necessary \latex\ to produce 17 
+A handy "cheat sheet" that provides the necessary \latex\ to produce 17
 different types of tables is available at \url{http://journals.aas.org/authors/aastex/aasguide.html#table_cheat_sheet}.
 
 \section{IAU recommendations for nominal units \label{nominal}}
@@ -2164,7 +1914,7 @@ Command&Example&Results\\
 \end{center}
 \vskip12pt
 
-which can be used for any units the author requires. Examples of 
+which can be used for any units the author requires. Examples of
 the most common uses would be:
 
 \vskip12pt
@@ -2176,7 +1926,7 @@ the most common uses would be:
 \end{tabular}
 \vskip12pt
 
-AASTeX v6.31 also contains specific commands for other commonly used 
+AASTeX v6.31 also contains specific commands for other commonly used
 units. These are:
 
 \vskip24pt
@@ -2203,9 +1953,9 @@ All of these commands work equally well in text and math mode.
 
 \section{Using Chinese, Japanese, and Korean characters}
 
-Authors have the option to include names in Chinese, Japanese, or Korean (CJK) 
-characters in addition to the English name. The names will be displayed 
-in parentheses after the English name. The way to do this in AASTeX is to 
+Authors have the option to include names in Chinese, Japanese, or Korean (CJK)
+characters in addition to the English name. The names will be displayed
+in parentheses after the English name. The way to do this in AASTeX is to
 use the CJK package available at \url{https://ctan.org/pkg/cjk?lang=en}.
 Further details on how to implement this and solutions for common problems,
 please go to \url{https://journals.aas.org/nonroman/}.
