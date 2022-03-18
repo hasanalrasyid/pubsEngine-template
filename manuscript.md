@@ -492,6 +492,7 @@ Table: this is output of a python script
 
 On the otherhand, `.img` will produce an image in the document.
 This scenario expects the script will run an IO and must create an image file inside directory `_build/auto` by the filename designated by `file`.
+This responsibility is purely on the shoulder of the author.
 The image at Figure \ref{fig:py} can be produced using:
 
 ```
