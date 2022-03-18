@@ -491,18 +491,18 @@ Table: this is output of a python script
 ~~~
 
 On the otherhand, `.img` will produce an image in the document.
-This scenario expects the script will run an IO and must create an image file inside directory `_build/auto` by the filename designated by `out`.
+This scenario expects the script will run an IO and must create an image file inside directory `_build/auto` by the filename designated by `file`.
 The image at Figure \ref{fig:py} can be produced using:
 
 ```
-~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300 out=pyImage}
+~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300 file=pyImage}
 #!/usr/bin/env python3
 
 print("image new image")
 ~~~
 ```
 
-~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300 out=pyImage}
+~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300 file=pyImage}
 #!/usr/bin/env python3
 
 print("image new image")
@@ -525,7 +525,7 @@ We can choose the representation of this block inside the pdf output by providin
 When there is no `description`, then this `lib` CodeBlock will be considered as a *hidden library*, it will be still included inside every script, but it will be never mentioned inside the pdf result.
 
 
-~~~{.script .py .lib name="libPy1"}
+~~~{.script .py .lib file="libPy1"}
 #!/usr/bin/env python3
 
 def f(x):
@@ -608,7 +608,7 @@ Inclusion of [Mermaid](https://github.com/hasanalrasyid/pandoc-mermaid) diagrams
 
 ```
 ~~~{.mermaid #fig:mermaid caption="new mermaid"
-file="Figure/mermaidExample"
+file="mermaidExample"
 width=320 height=240}
 sequenceDiagram
     participant Alice
