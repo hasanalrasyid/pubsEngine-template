@@ -460,6 +460,41 @@ let x = circle 10
 
 Currently, subcommand only valid for Python script.
 There are two possible class available for this subcommand.
+
+To make this document can stands on its own and to remove repetitive codes, we can also include a python library inside `_build/lib` directory.
+All script above, will include all files mentioned inside `_build/lib`.
+Furthermore, the `_build/lib` will be populated by CodeBlock with `.lib` class.
+This is an example of the block:
+
+```
+~~~{.script .py .lib #fig:py}
+#!/usr/bin/env python3
+
+print("this is new block")
+~~~
+```
+
+We can choose the representation of this block inside the pdf output by providing `description` variable.
+When there is no `description`, then this `lib` CodeBlock will be considered as a *hidden library*, it will be still included inside every script, but it will be never mentioned inside the pdf result.
+
+
+~~~{.script .py .lib file="libPy1"}
+#!/usr/bin/env python3
+
+def sysrun(t,debug:bool=False):
+    s = " ".join(t)
+    res = subprocess.getoutput(s)
+    if(debug):
+        print(s)
+        print(res)
+    return res
+
+description="""
+This is the description of this library that will be inserted into the pdf output.
+We can use any valid markdown syntax.
+"""
+~~~
+
 `.md` would output a text document that would be translated to a markdown by pubsEngine.
 In this scenario, the script should output a valid markdown document to the stdout.
 We are expecting the usage of `.md` to produce some sort of table, or a dynamic paragraph.
@@ -497,47 +532,17 @@ The image at Figure \ref{fig:py} can be produced using:
 
 ```
 ~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300 file=pyImage}
-#!/usr/bin/env python3
+import subprocess
 
-print("image new image")
+subprocess.getoutput("wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -o _build/auto/pyImage.png")
 ~~~
 ```
 
 ~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300 file=pyImage}
-#!/usr/bin/env python3
+import subprocess
 
-print("image new image")
+subprocess.getoutput("wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png")
 ~~~
-
-To make this document can stands on its own and to remove repetitive codes, we can also include a python library inside `_build/lib` directory.
-All script above, will include all files mentioned inside `_build/lib`.
-Furthermore, the `_build/lib` will be populated by CodeBlock with `.lib` class.
-This is an example of the block:
-
-```
-~~~{.script .py .lib #fig:py}
-#!/usr/bin/env python3
-
-print("this is new block")
-~~~
-```
-
-We can choose the representation of this block inside the pdf output by providing `description` variable.
-When there is no `description`, then this `lib` CodeBlock will be considered as a *hidden library*, it will be still included inside every script, but it will be never mentioned inside the pdf result.
-
-
-~~~{.script .py .lib file="libPy1"}
-#!/usr/bin/env python3
-
-def f(x):
-  return x*x + 2*x + 3
-
-description="""
-This is the description of this library that will be inserted into the pdf output.
-We can use any valid markdown syntax.
-"""
-~~~
-
 
 ## Subprocess delegation
 
