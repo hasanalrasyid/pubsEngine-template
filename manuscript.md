@@ -625,7 +625,7 @@ sequenceDiagram
 ~~~
 ```
 
-~~~{.mermaid #fig:mermaid caption="new mermaid" file="Figure/mermaidExample" width=320 height=240}
+~~~{.mermaid #fig:mermaid caption="new mermaid" file="mermaidExample" width=320 height=240}
 
 sequenceDiagram
     participant Alice
