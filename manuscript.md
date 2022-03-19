@@ -531,12 +531,15 @@ This responsibility is purely on the shoulder of the author.
 The image at Figure \ref{fig:py} can be produced using:
 
 ```
-~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300 file=pyImage}
+~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300
+file=pyImage}
 #import subprocess
-#subprocess.getoutput("wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png")
+#subprocess.getoutput("wget 'https://upload.wikimedia.org/wikipedia/commons
+/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png")
 
 # we can call a function from included library above
-sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png"])
+sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c
+/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png"])
 ~~~
 ```
 
