@@ -332,7 +332,7 @@ We can create Table \ref{tbl:multi} using the following template:
 |Content       |   **Cell**    |         Cell |
 |New section   |     More      |         Data |
 |And more      | With an escaped '\|'        ||
-[More complicated table can be done using multimarkdown in .multiTable Code Block. You have to use this format for all table as default.]
+[More complicated table can be done using MultiMarkdown in `.multiTable` CodeBlock. You have to use this format for all table as default.]
 ~~~
 
 Currently, we cannot create full width two-columns table automatically using above default syntax.
@@ -461,9 +461,9 @@ let x = circle 10
 Currently, subcommand only valid for Python script.
 There are two possible class available for this subcommand.
 
-To make this document can stands on its own and to remove repetitive codes, we can also include a python library inside `_build/lib` directory.
-All script above, will include all files mentioned inside `_build/lib`.
-Furthermore, the `_build/lib` will be populated by CodeBlock with `.lib` class.
+To make this document can stands on its own and to remove repetitive codes, we can also include a python library inside `_build/temp/lib` directory.
+All script above, will include all files mentioned inside `_build/temp/lib`.
+Furthermore, the `_build/temp/lib` will be populated by CodeBlock with `.lib` class.
 This is an example of the block:
 
 ```
@@ -539,8 +539,17 @@ sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c
 ~~~
 ```
 
-~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300 file=pyImage}
+~~~{.script .py .img #fig:py caption="this is a new image from python script" width=400 height=300 file=pyImage}
 sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png"])
+~~~
+
+The same rules apply to `.img .md .lib` of SHELL (`.sh`).
+Under the hood, pubsEngine will run the script under `zsh`.
+The library will be saved in `_build/temp/lib/sh`.
+The picture at Figure \ref{fig:shImage} came from a `.sh` script.
+
+~~~{.script .sh .img #fig:shImage caption="image from SHELL script (zsh)" width=400 height=300 file=shImage}
+wget "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bismillah_Calligraphy_37.svg/1200px-Bismillah_Calligraphy_37.svg.png" -O _build/auto/shImage.png
 ~~~
 
 ## Subprocess delegation
