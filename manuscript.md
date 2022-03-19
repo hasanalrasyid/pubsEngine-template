@@ -396,8 +396,8 @@ let x = circle 10
 ```
 
 ~~~{#fig:dia1 .diagram width=100 caption="from Diagrams"}
-let x = circle 100
- in x
+let t = circle 100
+ in t
 ~~~
 
 ## Running a subcommand
