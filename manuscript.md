@@ -501,8 +501,6 @@ We are expecting the usage of `.md` to produce some sort of table, or a dynamic 
 
 ```
 ~~~{.script .py .md #tbl:py caption="this is a table script"}
-#!/usr/bin/env python3
-
 print("""
 | as | dd |
 |----|----|
@@ -515,8 +513,6 @@ Table: this is output of a python script
 The above snipplet would give us output:
 
 ~~~{.script .py .md #tbl:py caption="this is a table script"}
-#!/usr/bin/env python3
-
 print("""
 | as | dd |
 |----|----|
