@@ -479,7 +479,7 @@ When there is no `description`, then this `lib` CodeBlock will be considered as 
 
 
 ~~~{.script .py .lib file="libPy1"}
-#!/usr/bin/env python3
+import subprocess
 
 def sysrun(t,debug:bool=False):
     s = " ".join(t)
@@ -491,7 +491,7 @@ def sysrun(t,debug:bool=False):
 
 description="""
 This is the description of this library that will be inserted into the pdf output.
-We can use any valid markdown syntax.
+We can use any **valid markdown syntax**.
 """
 ~~~
 
@@ -532,16 +532,16 @@ The image at Figure \ref{fig:py} can be produced using:
 
 ```
 ~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300 file=pyImage}
-import subprocess
+#import subprocess
+#subprocess.getoutput("wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png")
 
-subprocess.getoutput("wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -o _build/auto/pyImage.png")
+# we can call a function from included library above
+sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png"])
 ~~~
 ```
 
 ~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300 file=pyImage}
-import subprocess
-
-subprocess.getoutput("wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png")
+sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png"])
 ~~~
 
 ## Subprocess delegation
