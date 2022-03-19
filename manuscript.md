@@ -387,15 +387,16 @@ Above paragraph was included from `include/addition1.md`.
 
 We can include a diagram script, following an Embedded domain-specific Language from Haskell package [`diagrams`](https://hackage.haskell.org/package/diagrams).
 The implementation of following CodeBlock can be seen at Figure \ref{fig:dia1}.
+Please be aware that the `width` will be considered as a multiplier from `\textwidth`.
 
 ```
-~~~{#fig:dia1 .diagram width=100 caption="dia"}
+~~~{#fig:dia1 .diagram width=0.8 caption="dia"}
 let x = circle 10
  in x
 ~~~
 ```
 
-~~~{#fig:dia1 .diagram width=100 caption="from Diagrams"}
+~~~{#fig:dia1 .diagram width=0.8 caption="from Diagrams"}
 let t = circle 100
  in t
 ~~~
