@@ -240,9 +240,9 @@ Table creation will be described in another section (Enhancement by pubsEngine).
 
 will produce Figure \ref{fig:FigVibStab}.
 Make sure that you calculated by yourself the appropriate width and height for the image to fit in a column.
-Full width image and automatic sized image for single-column will be described at another section (Enhancement by pubsEngine).
+Full width image and automatic sized image for single-column will be described at another section (Enhancement by pubsEngine). Please be aware that `size` is considered as a multiplier of the `\linewidth`.
 
-![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab width=3.43in height=2.71in}
+![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab size=0.8}
 
 ## Lists
 We can have either ordered or unordered list
@@ -383,20 +383,20 @@ include/addition1.md
 
 Above paragraph was included from `include/addition1.md`.
 
-## Diagram
+## Diagrams
 
 We can include a diagram script, following an Embedded domain-specific Language from Haskell package [`diagrams`](https://hackage.haskell.org/package/diagrams).
 The implementation of following CodeBlock can be seen at Figure \ref{fig:dia1}.
-Please be aware that the `width` will be considered as a multiplier from `\textwidth`.
+Please be aware that the `size` will be considered as a multiplier from `\linewidth`.
 
 ```
-~~~{#fig:dia1 .diagram width=0.8 caption="dia"}
+~~~{#fig:dia1 .diagram size=0.8 caption="dia"}
 let x = circle 10
  in x
 ~~~
 ```
 
-~~~{#fig:dia1 .diagram width=0.8 caption="from Diagrams"}
+~~~{#fig:dia1 .diagram size=0.8 caption="from Diagrams"}
 let t = circle 100
  in t
 ~~~
