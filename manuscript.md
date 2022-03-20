@@ -48,7 +48,7 @@ authorshort: "Author One et.al."
 processDate:
   received: "March 11, 2022"
   accepted: "April 11, 2022"
-linkDir:
+imageDir:
   - Figure
   - Output
 appendix:
@@ -242,7 +242,7 @@ will produce Figure \ref{fig:FigVibStab}.
 Make sure that you calculated by yourself the appropriate width and height for the image to fit in a column.
 Full width image and automatic sized image for single-column will be described at another section (Enhancement by pubsEngine). Please be aware that `size` is considered as a multiplier of the `\linewidth`.
 
-![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab size=0.8}
+![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab size=0.5}
 
 ## Lists
 We can have either ordered or unordered list
