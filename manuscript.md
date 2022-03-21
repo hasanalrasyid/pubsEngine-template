@@ -567,6 +567,15 @@ Feynman diagram can be generated using the following syntax.
 
 ## Mermaid diagrams
 
+
+Please make sure that Mermaid executables have already installed in `$PATH`.
+pubsEngine need to call executable named `mermaid`.
+Common ways to install Mermaid is:
+
+~~~
+npm install @mermaid-js/mermaid-cli
+ln -sf  ~/node_modules/.bin/mmdc ~/.local/bin/mermaid
+~~~
 Inclusion of [Mermaid](https://github.com/hasanalrasyid/pandoc-mermaid) diagrams at Figure \ref{fig:mermaid} can be done by the following syntax:
 
 ```
@@ -603,15 +612,6 @@ sequenceDiagram
     John-->Alice: Great!
     John->Bob: How about you?
     Bob-->John: Jolly good!
-~~~
-
-Please make sure that Mermaid executables have already installed in `$PATH`.
-pubsEngine need to call executable named `mermaid`.
-Common ways to install Mermaid is:
-
-~~~
-npm install @mermaid-js/mermaid-cli
-ln -sf  ~/node_modules/.bin/mmdc ~/.local/bin/mermaid
 ~~~
 
 ## Presentation and Poster (Beamer)
