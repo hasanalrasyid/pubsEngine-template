@@ -501,6 +501,8 @@ The picture at Figure \ref{fig:shImage} came from a `.sh` script.
 wget "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bismillah_Calligraphy_37.svg/1200px-Bismillah_Calligraphy_37.svg.png" -O _build/auto/shImage.png
 ~~~
 
+pubsEngine also implemented this mechanism on GNUplot scripts using `.gnuplot`.
+
 ## Subprocess delegation
 
 ~~~{.delegate .multimarkdown #tbl:delegate}
