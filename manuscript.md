@@ -420,7 +420,13 @@ print("this is new block")
 ```
 
 We can choose the representation of this block inside the pdf output by providing `description` variable.
-When there is no `description`, then this `lib` CodeBlock will be considered as a *hidden library*, it will be still included inside every script, but it will be never mentioned inside the pdf result.
+When there is no `description`, then this `lib` CodeBlock will be considered as a *hidden library*.
+It will be included inside every script, but there will never be any indication shown inside the pdf result.
+Please be aware that any code below `description` line will be neglected by the parser.
+We expect the description should be enough for single paragraph.
+This would remove the requirement for multiline description of a markdown code.
+More verbose treatment can be done by adding `.show` class indicator.
+With this indication, the script will be shown as a CodeBlock, and followed by the description.
 
 
 ~~~{.script .py .lib file="libPy1"}
@@ -567,8 +573,7 @@ Inclusion of [Mermaid](https://github.com/hasanalrasyid/pandoc-mermaid) diagrams
 
 ```
 ~~~{.mermaid #fig:mermaid caption="new mermaid"
-file="mermaidExample"
-width=320 height=240}
+file=mermaidExample size=0.8}
 sequenceDiagram
     participant Alice
     participant Bob
@@ -584,7 +589,10 @@ sequenceDiagram
 ~~~
 ```
 
-~~~{.mermaid #fig:mermaid caption="new mermaid" file="mermaidExample" width=320 height=240}
+Please be sure that the size is a relative size compared with `\linewidth`.
+The size will always be in a constant aspect ratio of `800x600`.
+
+~~~{.mermaid #fig:mermaid caption="new mermaid" file="mermaidExample" size=0.8}
 
 sequenceDiagram
     participant Alice
