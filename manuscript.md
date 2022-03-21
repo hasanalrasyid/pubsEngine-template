@@ -495,13 +495,13 @@ sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismill
 The same rules apply to `.img .md .lib` of SHELL (`.sh`).
 Under the hood, pubsEngine will run the script under `zsh`.
 The library will be saved in `_build/temp/lib/sh`.
-The picture at Figure \ref{fig:shImage} came from a `.sh` script.
+The picture at Figure \ref{fig:shImage} came from `.sh` script.
 
 ~~~{.script .sh .img #fig:shImage caption="image from SHELL script (zsh)" width=400 height=300 file=shImage}
 wget "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bismillah_Calligraphy_37.svg/1200px-Bismillah_Calligraphy_37.svg.png" -O _build/auto/shImage.png
 ~~~
 
-pubsEngine also implemented this mechanism on GNUplot scripts using `.gnuplot`.
+pubsEngine also implemented this mechanism on GNUplot scripts using `.gnuplot` class.
 
 ## Subprocess delegation
 
@@ -518,7 +518,8 @@ pubsEngine also implemented this mechanism on GNUplot scripts using `.gnuplot`.
 ~~~
 
 We can delegate the compilation of our CodeBlock to other application.
-As an example, the creation of table \ref{tbl:delegate}, can be delegated to `multimarkdown` using following syntax. Please notice the use of `#tbl:delegate` for assignment of label that can be refered in the text using `\ref{tbl:delegate}`.
+As an example, the creation of table \ref{tbl:delegate}, can be delegated to `multimarkdown` using following syntax.
+Please notice the use of `#tbl:delegate` for assignment of label that can be refered in the text using `\ref{tbl:delegate}`.
 
 ```
 ~~~{.delegate .multimarkdown #tbl:delegate}
