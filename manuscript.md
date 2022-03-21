@@ -427,9 +427,10 @@ We expect the description should be enough for single paragraph.
 This would remove the requirement for multiline description of a markdown code.
 More verbose treatment can be done by adding `.show` class indicator.
 With this indication, the script will be shown as a CodeBlock, and followed by the description.
+The following CodeBlock was produced using the headings of `~~~{.script .py .lib .show file="libPy1"}`.
 
 
-~~~{.script .py .lib file="libPy1"}
+~~~{.script .py .lib .show file="libPy1"}
 import subprocess
 
 def sysrun(t,debug:bool=False):
@@ -440,13 +441,10 @@ def sysrun(t,debug:bool=False):
         print(res)
     return res
 
-description="""
-This is the description of this library that will be inserted into the pdf output.
-We can use any **valid markdown syntax**.
-"""
+description="This is the description of the additional `libPy1` library that will be inserted into the pdf output. Any **valid markdown syntax** can be used. The `import` statement to `libPy1` will be prepended by pubsEngine, thus removed the necessity of explicit import in any scripts below."
 ~~~
 
-`.md` would output a text document that would be translated to a markdown by pubsEngine.
+The class command `.md` will output a text document that translated to a markdown by pubsEngine.
 In this scenario, the script should output a valid markdown document to the stdout.
 We are expecting the usage of `.md` to produce some sort of table, or a dynamic paragraph.
 
