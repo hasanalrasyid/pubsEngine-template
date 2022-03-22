@@ -492,6 +492,20 @@ sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c
 sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png"])
 ~~~
 
+Instead of writing it into the body of the CodeBlock, we can put the script in another file, call it in the main manuscript and put the caption as the CodeBlock text.
+The implementation of this mechanism is shown in Figure \ref{fig:pySrc}.
+
+```
+~~~{.script .py .img #fig:pySrc size=0.6 src=script/pyScript1.py file=pyImageS}
+This image came from pyScript1.py that called using `src`.
+~~~
+```
+
+~~~{.script .py .img #fig:pySrc size=0.6 src=script/pyScript1.py file=pyImageS}
+This image came from pyScript1.py that called using `src`.
+~~~
+
+
 The same rules apply to `.img .md .lib` of SHELL (`.sh`).
 Under the hood, pubsEngine will run the script under `zsh`.
 The library will be saved in `_build/temp/lib/sh`.
