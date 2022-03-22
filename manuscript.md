@@ -102,11 +102,13 @@ acknowledgements:
   Drlica-Wagner, Sean Lake, Michele Bannister, Peter Williams, and Jonathan
   Gagne.
 header-includes: |
+  \usepackage{hologo}
+  \usepackage{xspace}
   \usepackage{chemfig}
   \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
   \newcommand{\vdag}{(v)^\dagger}
   \newcommand\aastex{AAS\TeX}
-  \newcommand\latex{\LaTeX\xspace}
+  \newcommand\latex{\hologo{LaTeX}{}\xspace}
 
 ---
 
@@ -234,8 +236,7 @@ Table creation will be described in another section (Enhancement by pubsEngine).
 
 ## Images
 ~~~
-![the caption](Figure/icml_numpapers.eps)
-{#fig:FigVibStab width=3.43in height=2.71in}
+![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab size=0.5}
 ~~~
 
 will produce Figure \ref{fig:FigVibStab}.
