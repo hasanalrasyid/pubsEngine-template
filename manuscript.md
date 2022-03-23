@@ -91,6 +91,7 @@ keywords:
  - Ultraviolet astronomy(1736)
  - History of astronomy(1868)
  - Interdisciplinary astronomy(804)
+software: "astropy \\citep{2013A&A...558A..33A,2018AJ....156..123A}, Cloudy \\citep{2013RMxAA..49..137F}, Source Extractor \\citep{1996A&AS..117..393B}"
 facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
 acknowledgements:
   We thank all the people that have made this AASTeX what it is today.  This
@@ -371,15 +372,16 @@ Lp. & Miejscowość
 ## Include .md Files
 
 We can create a rather decent categorical separation of our documents by dividing the .md files and gather them using includes.
+Extension of `.md` should be omitted, for it will be appended by pubsEngine.
 
 ```
 ~~~include
-include/addition1.md
+include/addition1
 ~~~
 ```
 
 ~~~include
-include/addition1.md
+include/addition1
 ~~~
 
 Above paragraph was included from `include/addition1.md`.
@@ -1787,8 +1789,8 @@ available with \aastex v6, will output bibtex ``@misc`` type properly.
 %% authors a place to specify which programs were used during the creation of
 %% the manuscript. Authors should list each code and include either a
 %% citation or url to the code inside ()s when available.
--->
 \software{astropy \citep{2013A&A...558A..33A,2018AJ....156..123A}, Cloudy \citep{2013RMxAA..49..137F}, Source Extractor \citep{1996A&AS..117..393B}}
+-->
 
 <!--
 %% Appendix material should be preceded with a single \appendix command.
