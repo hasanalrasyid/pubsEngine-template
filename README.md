@@ -1,6 +1,6 @@
 # pubsEngine-template
 
-This repository is a Proof of Works (POW) for `pubsEngine`.
+This repository is a Proof of Works (POW) for [`pubsEngine`](https://github.com/hasanalrasyid/pubsengine).
 It also stands as a scaffolding for a manuscript project.
 
 # Usage
