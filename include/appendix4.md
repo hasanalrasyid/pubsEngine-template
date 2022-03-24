@@ -8,53 +8,8 @@ incorporate into v6.31 to help authors follow the IAU resolution.
 
 The general commands take this form:
 
-\vskip12pt
-\begin{center}
-\begin{tabular}{@{\vrule height 14pt depth 6pt width0pt}lll}
-Command&Example&Results\\
-\verb+\nom{}+&\verb+\nom{Q}+&\nom{Q}\\
-\verb+\Eenom{}+&\verb+\Eenom{Q}+&\Eenom{Q}\\
-\verb+\Epnom{}+&\verb+\Epnom{Q}+&\Epnom{Q}\\
-\verb+\Jenom{}+&\verb+\Jenom{Q}+&\Jenom{Q}\\
-\verb+\Jpnom{}+&\verb+\Jpnom{Q}+&\Jpnom{Q}\\
-\end{tabular}
-\end{center}
-\vskip12pt
-
-which can be used for any units the author requires. Examples of
-the most common uses would be:
-
-\vskip12pt
-\begin{tabular}{@{\vrule height 14pt depth 6pt width 0pt}llllp{3in}}
-1.&\verb+\nom{(GM)}+& \nom{(GM)} &=& nominal solar mass parameter\\
-2.&\verb+\nom{R}+&\nom{R} &=& nominal solar radius\\
-3.&\verb+\nom{S}+& \nom{S}&=&  nominal total solar irradiance\\
-4.&\verb+\nom{L}+& \nom{L}  &=&nominal solar luminosity\\
-\end{tabular}
-\vskip12pt
-
 AASTeX v6.31 also contains specific commands for other commonly used
 units. These are:
-
-\vskip24pt
-\begin{tabular}{@{\vrule height 14pt depth 6pt width 0pt}llllp{3in}}
-1.&\verb+\nomSolarEffTemp+& \nomSolarEffTemp&=& nominal solar effective temperature\\
-2.&\verb+\nomTerrEqRadius+&\nomTerrEqRadius  &=& nominal terrestrial
-equatorial radius\\
-&\verb+\nomTerrPolarRadius+ &\nomTerrPolarRadius &=& nominal
-terrestrial polar radius\\
-&\verb+\nomTerrEqRadius+&\nomTerrEqRadius&& should be used if equatorial
-vs.~polar radius is not explicitly specified.\\
-3.&\verb+\nomJovianEqRadius+&\nomJovianEqRadius&=& nominal one-bar equatorial radii of
-Jupiter\\
-&\verb+\nomJovianPolarRadius+&\nomJovianPolarRadius &=& nominal polar radii of Jupiter\\
-&\verb+\nomJovianEqRadius+&\nomJovianEqRadius&& should be used if Jovian equatorial
-vs.~polar radius is not explicitly specified.\\
-4.&\verb+\nomTerrMass+ &\nomTerrMass &=& nominal terrestrial mass
-parameter\\
-&\verb+\nomJovianMass+ &\nomJovianMass &=& nominal Jovian mass parameter\\
-\end{tabular}
-\vskip12pt
 
 All of these commands work equally well in text and math mode.
 

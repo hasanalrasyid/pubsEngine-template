@@ -10,11 +10,31 @@ author:
     affiliation: "My City University"
     address: "Orenomachi, Orenoshi, Orenoken, Japan"
     email: "one@myuni.ac.jp"
+    url: "http://thegreatme.org"
   - number: 2
     name: "Author Two"
     affiliation: "My Other City University"
     address: "Hokanomachi, Orenoshi, Orenoken, Japan"
     email: "two@myuni.ac.jp"
+thesis:
+  degree: "Doctor of Philosophy"
+  univ:
+    name: "My City University"
+    url: "http://mycity.ac.jp"
+  department:
+    name: "My Great Department"
+    url: "http://mydepartment.ac.jp"
+  group:
+    name: "My Research Group"
+    url: "http://myresearch.group.ac.jp"
+  faculty:
+    name: "My Faculty Name"
+    url: "http://myfaculty.ac.jp"
+  supervisor:
+    name: "My Best Supervisor"
+    url: "http://thegreatsupervisor.ac.jp"
+  quotation: "include/quotation"
+  dedicatory: "include/dedicatory"
 collaborator:
   theme: "AAS Journal Data Editors"
   person:
@@ -57,7 +77,7 @@ appendix:
   - include/appendix3
   - include/appendix4
   - include/appendix5
-graphicpaths:
+graphicspath:
   - Figure
 abstract: |
   This example manuscript is intended to serve as a tutorial and template for
@@ -106,6 +126,8 @@ header-includes: |
   \usepackage{hologo}
   \usepackage{xspace}
   \usepackage{chemfig}
+  \usepackage{amsmath}
+  \usepackage{graphicx}
   \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
   \newcommand{\vdag}{(v)^\dagger}
   \newcommand\aastex{AAS\TeX}
@@ -967,7 +989,6 @@ encapsulated postscript (EPS) or portable document format (PDF) files,
     \begin{enumerate}
       \item ORCID support for preprints,
       \item improved author, affiliation and collaboration mark up,
-      \item reintroduced the old AASTeX v5.2 `\received`, `\revised`, `\accepted`, and `\published` commands plus added the new `\submitjournal` command to document which AAS Journal the manuscript was submitted to, plus
       \item new typeset style options including ` modern`.
     \end{enumerate}
   \item{v6.2}
@@ -976,7 +997,6 @@ encapsulated postscript (EPS) or portable document format (PDF) files,
       \item Titles no longer put in all caps,
       \item No page skip between the title page and article body,
       \item re-introduce RevTeX's widetext environment for long lines in two column style formats, and
-      \item upgrade to the `\doi` command.
     \end{enumerate}
   \item{v6.3}
     \begin{enumerate}
@@ -1290,49 +1310,10 @@ the `\splitdeluxetable` command.  The `\colnumbers`
 option is on to show how the automatic column numbering carries through the
 second table component, see Section \ref{subsubsec:autonumber}.
 
-\begin{splitdeluxetable*}{lccccBcccccBcccc}
-\tabletypesize{\scriptsize}
-\tablewidth{0pt}
-\tablenum{5}
-\tablecaption{Measurements of Emission Lines: two breaks \label{tab:deluxesplit}}
-\tablehead{
-\colhead{Model} & \colhead{Component}& \colhead{Shift} & \colhead{FWHM} &
-\multicolumn{10}{c}{Flux} \\
-\colhead{} & \colhead{} & \colhead{($\rm
-km~s^{-1}$)}& \colhead{($\rm km~s^{-1}$)} & \multicolumn{10}{c}{($\rm
-10^{-17}~erg~s^{-1}~cm^{-2}$)} \\
-\cline{5-14}
-\colhead{} & \colhead{} &
-\colhead{} & \colhead{} & \colhead{Ly$\alpha$} & \colhead{N\,{\footnotesize
-V}} & \colhead{Si\,{\footnotesize IV}} & \colhead{C\,{\footnotesize IV}} &
-\colhead{Mg\,{\footnotesize II}} & \colhead{H$\gamma$} & \colhead{H$\beta$}
-& \colhead{H$\alpha$} & \colhead{He\,{\footnotesize I}} &
-\colhead{Pa$\gamma$}
-}
-\colnumbers
-\startdata
-{       }& BELs& -97.13 &    9117$\pm      38$&    1033$\pm      33$&$< 35$&$<     166$&     637$\pm      31$&    1951$\pm      26$&     991$\pm 30$&    3502$\pm      42$&   20285$\pm      80$&    2025$\pm     116$& 1289$\pm     107$\\
-{Model 1}& IELs& -4049.123 & 1974$\pm      22$&    2495$\pm      30$&$<     42$&$<     109$&     995$\pm 186$&      83$\pm      30$&      75$\pm      23$&     130$\pm      25$& 357$\pm      94$&     194$\pm      64$& 36$\pm      23$\\
-{       }& NELs& \nodata &     641$\pm       4$&     449$\pm 23$&$<      6$&$<       9$&       --            &     275$\pm      18$& 150$\pm      11$&     313$\pm      12$&     958$\pm      43$&     318$\pm 34$& 151$\pm       17$\\
-\hline
-{       }& BELs& -85 &    8991$\pm      41$& 988$\pm      29$&$<     24$&$<     173$&     623$\pm      28$&    1945$\pm 29$&     989$\pm      27$&    3498$\pm      37$&   20288$\pm      73$& 2047$\pm     143$& 1376$\pm     167$\\
-{Model 2}& IELs& -51000 &    2025$\pm      26$& 2494$\pm      32$&$<     37$&$<     124$&    1005$\pm     190$&      72$\pm 28$&      72$\pm      21$&     113$\pm      18$&     271$\pm      85$& 205$\pm      72$& 34$\pm      21$\\
-{       }& NELs& 52 &     637$\pm      10$&     477$\pm 17$&$<      4$&$<       8$&       --            &     278$\pm      17$& 153$\pm      10$&     317$\pm      15$&     969$\pm      40$&     325$\pm 37$&
-     147$\pm       22$\\
-\enddata
-\tablecomments{This is an example of how to split a deluxetable. You can
-split any table with this command into two or three parts.  The location of
-the split is given by the author based on the placement of the ``B``
-indicators in the column identifier preamble.  For more information please
-look at the new \aastex instructions.}
-\end{splitdeluxetable*}
-
 ## Figures
 
-%% The "ht!" tells LaTeX to put the figure "here" first, at the "top" next
-%% and to override the normal way of calculating a float position
 \begin{figure}[ht!]
-\plotone{cost.pdf}
+\includegraphics{cost}
 \caption{The subscription (squares) and author publication (asterisks)
 costs from 1991 to 2013. Subscription cost are on the left Y axis while
 the author costs are on the right Y axis. All numbers in US dollars and
@@ -1365,7 +1346,7 @@ used to position the two image files side by side.
 Both `\plotone` and `\plottwo` take a
 `\caption` and an optional `\figurenum` command to
 specify the figure number\footnote{It is better to not use
-`\figurenum` and let \latex auto-increment all the figures. If you
+figurenum and let \latex auto-increment all the figures. If you
 do use this command you need to mark all of them accordingly.}.  Each is
 based on the ` graphicx` package command,
 `\includegraphics`.  Authors are welcome to use
@@ -1400,21 +1381,6 @@ is recommended that author use fractional units with the
 Figure \ref{fig:pyramid} shows an inverted pyramid of individual
 figure constructed with six individual EPS files using the
 `\gridline` option.
-
-\begin{figure*}
-\gridline{\fig{V2491_Cyg.pdf}{0.3\textwidth}{(a)}
-          \fig{HV_Cet.pdf}{0.3\textwidth}{(b)}
-          \fig{LMC_2009.pdf}{0.3\textwidth}{(c)}
-          }
-\gridline{\fig{RS_Oph.pdf}{0.3\textwidth}{(d)}
-          \fig{U_Sco.pdf}{0.3\textwidth}{(e)}
-          }
-\gridline{\fig{KT_Eri.pdf}{0.3\textwidth}{(f)}}
-\caption{Inverted pyramid figure of six individual files. The nova are
-(a) V2491 Cyg, (b) HV Cet, (c) LMC 2009, (d) RS Oph, (e) U Sco, and (f)
-KT Eri. These individual figures are taken from \citet{2011ApJS..197...31S}.
-\label{fig:pyramid}}
-\end{figure*}
 
 ## Enhanced graphics
 
@@ -1451,62 +1417,8 @@ but is now included.  Note that when an article with figure set is compiled
 in \latex none of the component figures are shown and a floating Figure
 Set caption will appear in the resulting PDF.
 
-\figsetstart
-\figsetnum{4}
-\figsettitle{Swift X-ray light curves}
-
-\figsetgrpstart
-\figsetgrpnum{1.1}
-\figsetgrptitle{KT Eri}
-\figsetplot{KT_Eri.pdf}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after
-outburst of KT Eri.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.2}
-\figsetgrptitle{RS Oph}
-\figsetplot{RS_Oph.pdf}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after
-outburst of RS Oph.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.3}
-\figsetgrptitle{U Sco}
-\figsetplot{U_Sco.pdf}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after
-outburst of U Sco.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.4}
-\figsetgrptitle{V2491 Cyg}
-\figsetplot{V2491_Cyg.pdf}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after
-outburst of V2491 Cyg.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.5}
-\figsetgrptitle{Nova LMC 2009}
-\figsetplot{LMC_2009.pdf}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after
-outburst of nova LMC 2009.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.6}
-\figsetgrptitle{HV Cet}
-\figsetplot{HV_Cet.pdf}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after
-outburst of HV Cet.}
-\figsetgrpend
-
-\figsetend
-
 \begin{figure}
-\plotone{KT_Eri.pdf}
+\includegraphics{KT_Eri.pdf}
 \caption{The Swift/XRT X-ray light curve for the first year after
 outburst of the suspected recurrent nova KT Eri. At a maximum count rate of
 328 ct/s, KT Eri was the brightest nova in X-rays observed to date. All
@@ -1534,18 +1446,6 @@ important that the author provide descriptive text in the figure caption
 including start and stop times and the video duration. Authors should
 review the AAS animation guidelines in the graphics guide at
 \url{https://journals.aas.org/graphics-guide/#animations}.
-
-\begin{figure}
-\begin{interactive}{animation}{movie.mp4}
-\plotone{f4.pdf}
-\end{interactive}
-\caption{Figure 1 from \citet{2018ApJ...868L..33L}. AIA 171\AA (a,b),
-AIA 131\AA (c), and AIA 304\AA images are shown. The red rectangle
-in (a) shows the field of view of the other panels. An animation of
-panels (b-d) is available. It covers 8 hours of observing beginning
-at 01:00 UT on 2012 January 19. The video duration is 20 seconds.
-\label{fig:video}}
-\end{figure}
 
 Animations and interactive figures (Section \ref{sec:interactive}) should
 use the `\begin{interactive}` environment in the figure call. This
@@ -1587,25 +1487,6 @@ buttons is embedded in the html file but it could just as easily be calls
 to external javascript libraries. Ideally, the javascript should be
 included with the submitted package of interactive files to minimize
 external dependencies within the published article.
-
-\begin{figure}
-\begin{interactive}{js}{interactive.tar.gz}
-\plotone{f5.pdf}
-\end{interactive}
-\caption{Figure 4 from \citet{2018AJ....156...82C}. \emph{Upper panel}: the
-cumulative median observing time to measure the $3\sigma$ RV masses of TESS
-planets as a function of host star spectral type and up to $10^3$ hours.
-The \emph{dashed blue curves} represent the results from the optical
-spectrograph whereas the \emph{solid red curves} represent the near-IR
-spectrograph. \emph{Lower panel}: the time derivative of the cumulative
-observing time curves used to indicate the RV planet detection efficiency.
-The \emph{horizontal dashed line} highlights the value of the detection
-efficiency at 20 hours per detection.  Note that unlike the lower panels,
-the upper panels do not share a common ordinate due to the differing number
-of planet detections around stars in each spectral type bin. The
-interactive version has two buttons that allows one to turn the optical and
-NIR layers. \label{fig:interactive}}
-\end{figure}
 
 Authors should consult the online tutorials at
 \url{https://journals.aas.org/graphics-guide/#interactive_figures}
@@ -1684,22 +1565,6 @@ Authors sometimes use color to highlight changes to their manuscript in
 response to editor and referee comments.  In \aastex new commands
 have been introduced to make this easier and formalize the process.
 
-The first method is through a new set of editing mark up commands that
-specifically identify what has been changed.  These commands are
-`\added{<text>}`, `\deleted{<text>}`, and
-`\replaced{<old text>\`{<replaced text>\}}. To activate these
-commands the ` trackchanges` option must be used in the
-`\documentclass` call.  When compiled this will produce the
-marked text in red.  The `\explain{<text>}` can be used to add
-text to provide information to the reader describing the change.  Its
-output is purple italic font. To see how `\added{<important added info>}`, `\deleted{<this can be deleted text>}`,
-`\replaced{<old data>}{<replaced data>}` and
-`\explain{<text explaining the change>}` commands will produce
-\added{important added information}\deleted{, deleted text, and }
-\replaced{old data}{and replaced data,} toggle between versions compiled with
-and without the ` \trackchanges` option.\explain{text explaining
-the change}
-
 A summary list of all these tracking commands can be produced at the end of
 the article by adding the `\listofchanges` just before the
 `\end{document}` call.  The page number for each change will be
@@ -1714,10 +1579,6 @@ multiple revisions.  The commands are `\edit1{<text>}`,
 `\edit2{<text>}` and `\edit3{<text>}` and they
 produce `<text>` that is highlighted in bold, bold+italic and
 bold+underline, respectively.  Authors should use the first command to
-\edit1{indicated which text has been changed from the first revision.}  The
-second command is to highlight \edit2{new or modified text from a second
-revision}.  If a third revision is needed then the last command should be used
-\edit3{to show this changed text}.  Since over 90\% of all manuscripts are
 accepted after the 3rd revision these commands make it easy to identify
 what text has been added and when.  Once the article is accepted all the
 highlight color can be turned off simply by adding the
@@ -1758,7 +1619,7 @@ In the bibliography the format for data or code follows this format:
 
 \citet{2015ApJ...805...23C} provides a example of how the citation in the
 article references the external code at
-\doi{10.5281/zenodo.15991}.  Unfortunately, bibtex does
+`\doi{10.5281/zenodo.15991}`.  Unfortunately, bibtex does
 not have specific bibtex entries for these types of references so the
 ``@misc`` type should be used.  The Repository tutorial explains how to
 code the ``@misc`` type correctly.  The most recent aasjournal.bst file,
