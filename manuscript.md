@@ -542,6 +542,33 @@ wget "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bismillah_Callig
 
 pubsEngine also implemented this mechanism on GNUplot scripts using `.gnuplot` class.
 
+## GoJS Diagrams
+
+For more flexibility, you may include a diagram script based on [GoJS](https://gojs.net/latest/samples/).
+This feature enable us to create a very complex diagrams.
+The merit of this input is comparable with the inclusion of Haskell's `Diagrams`, with lower learning curve for those who already have some familiarity with imperative language, especially `javaScript` (`node.js`).
+
+Figure \ref{fig:goJS} shows the output of `GoJS` diagrams provided by following code.
+
+```
+~~~{.gojs #fig:goJS src=script/goJSmodel.js file=goJSImage}
+This is GoJS image text that would be shown as a caption.
+~~~
+```
+
+~~~{.gojs .show #fig:goJS src=script/goJSmodel.js file=goJSImage}
+This is GoJS image text that would be shown as a caption.
+~~~
+
+Please be aware of some requirements to create this model.
+Under the hood, pubsEngine loads puppeteer and pdfkit.
+GoJS is provided by the module object `go`.
+The variable `$` represents `go.GraphObject.make`.
+Diagram name should be named as `myDiagram`.
+By the end of the process, pubsEngine will only compile diagram that represented by `myDiagram`.
+If the diagram happens to be very complex and composed of several diagrams,
+please be aware that all diagrams should be under `myDiagram`.
+
 ## Subprocess delegation
 
 ~~~{.delegate .multimarkdown #tbl:delegate}
