@@ -15,7 +15,7 @@ var myDiagram =
     });
 function convertKeyImage(key) {
   if (!key) key = "NE";
-  return "https://www.nwoods.com/go/beatpaths/" + key + "_logo-75x50.png";
+  return "Figure/logo/" + key + "_logo-75x50.png";
 }
 // replace the default Node template in the nodeTemplateMap
 myDiagram.nodeTemplate =
@@ -90,7 +90,8 @@ var linkDataArray = [
 // create the model and assign it to the Diagram
 myDiagram.model =
   new go.GraphLinksModel(
-    { // automatically create node data objects for each "from" or "to" reference
+    { // automatically create node data objects
+      // for each "from" or "to" reference
       // (set this property before setting the linkDataArray)
       archetypeNodeData: {},
       // process all of the link relationship data

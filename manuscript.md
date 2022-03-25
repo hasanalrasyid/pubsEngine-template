@@ -551,12 +551,12 @@ The merit of this input is comparable with the inclusion of Haskell's `Diagrams`
 Figure \ref{fig:goJS} shows the output of `GoJS` diagrams provided by following code.
 
 ```
-~~~{.gojs #fig:goJS src=script/goJSmodel.js file=goJSImage}
+~~~{.gojs .show #fig:goJS size=0.9 src=script/goJSmodel.js file=goJSImage}
 This is GoJS image text that would be shown as a caption.
 ~~~
 ```
 
-~~~{.gojs .show #fig:goJS src=script/goJSmodel.js file=goJSImage}
+~~~{.gojs .show #fig:goJS size=0.9 src=script/goJSmodel.js file=goJSImage}
 This is GoJS image text that would be shown as a caption.
 ~~~
 
