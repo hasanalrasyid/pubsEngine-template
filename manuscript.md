@@ -68,6 +68,7 @@ authorshort: "Author One et.al."
 processDate:
   received: "March 11, 2022"
   accepted: "April 11, 2022"
+bibzotero: pubsEngine
 imageDir:
   - Figure
   - Output
@@ -542,6 +543,55 @@ wget "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bismillah_Callig
 
 pubsEngine also implemented this mechanism on GNUplot scripts using `.gnuplot` class.
 
+## Mermaid diagrams
+
+
+Please make sure that Mermaid executables have already installed in `$PATH`.
+pubsEngine need to call executable named `mermaid`.
+Common ways to install Mermaid is:
+
+~~~
+npm install @mermaid-js/mermaid-cli
+ln -sf  ~/node_modules/.bin/mmdc ~/.local/bin/mermaid
+~~~
+Inclusion of [Mermaid](https://github.com/hasanalrasyid/pandoc-mermaid) diagrams at Figure \ref{fig:mermaid} can be done by the following syntax:
+
+```
+~~~{.mermaid #fig:mermaid caption="new mermaid"
+file=mermaidExample size=0.8}
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->John: Hello John, how are you?
+    loop Healthcheck
+        John->John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>
+      prevail...
+    John-->Alice: Great!
+    John->Bob: How about you?
+    Bob-->John: Jolly good!
+~~~
+```
+
+Please be sure that the size is a relative size compared with `\linewidth`.
+The size will always be in a constant aspect ratio of `800x600`.
+
+~~~{.mermaid #fig:mermaid caption="new mermaid" file="mermaidExample" size=0.8}
+
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->John: Hello John, how are you?
+    loop Healthcheck
+        John->John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>prevail...
+    John-->Alice: Great!
+    John->Bob: How about you?
+    Bob-->John: Jolly good!
+~~~
+
 ## GoJS Diagrams
 
 For more flexibility, you may include a diagram script based on [GoJS](https://gojs.net/latest/samples/).
@@ -634,54 +684,13 @@ Feynman diagram can be generated using the following syntax.
   \end{equation}
 ~~~
 
-## Mermaid diagrams
+## Connected bibliography with Zotero
 
-
-Please make sure that Mermaid executables have already installed in `$PATH`.
-pubsEngine need to call executable named `mermaid`.
-Common ways to install Mermaid is:
-
-~~~
-npm install @mermaid-js/mermaid-cli
-ln -sf  ~/node_modules/.bin/mmdc ~/.local/bin/mermaid
-~~~
-Inclusion of [Mermaid](https://github.com/hasanalrasyid/pandoc-mermaid) diagrams at Figure \ref{fig:mermaid} can be done by the following syntax:
-
-```
-~~~{.mermaid #fig:mermaid caption="new mermaid"
-file=mermaidExample size=0.8}
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->John: Hello John, how are you?
-    loop Healthcheck
-        John->John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>
-      prevail...
-    John-->Alice: Great!
-    John->Bob: How about you?
-    Bob-->John: Jolly good!
-~~~
-```
-
-Please be sure that the size is a relative size compared with `\linewidth`.
-The size will always be in a constant aspect ratio of `800x600`.
-
-~~~{.mermaid #fig:mermaid caption="new mermaid" file="mermaidExample" size=0.8}
-
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->John: Hello John, how are you?
-    loop Healthcheck
-        John->John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail...
-    John-->Alice: Great!
-    John->Bob: How about you?
-    Bob-->John: Jolly good!
-~~~
+The connection with Zotero can be established by [`Better BibTeX`](https://retorque.re/zotero-better-bibtex) addon for Zotero.
+After installation of this addon to Zotero, pubsEngine can dump the bibliography for collection that mentioned at the yaml option `bibzotero`.
+Zotero standalone application needs to be started when pubsEngine called.
+Eventually, pubsEngine will save the necessary `.bib` file under `_build` directory.
+The regular \latex will be proceeds after this step.
 
 ## Presentation and Poster (Beamer)
 
