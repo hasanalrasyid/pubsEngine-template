@@ -688,6 +688,7 @@ Feynman diagram can be generated using the following syntax.
 
 The connection with Zotero can be established by [`Better BibTeX`](https://retorque.re/zotero-better-bibtex) addon for Zotero.
 After installation of this addon to Zotero, pubsEngine can dump the bibliography for collection that mentioned at the yaml option `bibzotero`.
+pubsEngine will pick that collection from the first group (usually refered as `My Library`).
 Zotero standalone application needs to be started when pubsEngine called.
 Eventually, pubsEngine will save the necessary `.bib` file under `_build` directory.
 The regular \latex will be proceeds after this step.
