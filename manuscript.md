@@ -360,7 +360,7 @@ We can create Table \ref{tbl:multi} using the following template:
 ~~~
 ```
 
-~~~{.multiTable #tbl:multi notes=[@var:v2]}
+~~~{.multiTable #tbl:multi}
 |              |          Grouping           ||
 |First Header  | Second Header | Third Header |
 | ------------ | :-----------: | -----------: |
@@ -501,7 +501,7 @@ print("""
 The above snipplet would give us output:
 
 ~~~{.script .py .md #tbl:py caption="this is a table script"}
-print('~~~{.multiTable}')
+print('~~~{.multiTable notes=[@var:v2]}')
 print("""
 | as | dd |
 |----|----|
