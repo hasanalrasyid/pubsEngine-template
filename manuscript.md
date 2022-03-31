@@ -360,7 +360,7 @@ We can create Table \ref{tbl:multi} using the following template:
 ~~~
 ```
 
-~~~{.multiTable #tbl:multi}
+~~~{.multiTable #tbl:multi notes=[@var:v2]}
 |              |          Grouping           ||
 |First Header  | Second Header | Third Header |
 | ------------ | :-----------: | -----------: |
