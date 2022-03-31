@@ -69,6 +69,7 @@ processDate:
   received: "March 11, 2022"
   accepted: "April 11, 2022"
 bibzotero: pubsEngine
+reference-section-title: Bibliography
 imageDir:
   - Figure
   - Output
@@ -141,7 +142,7 @@ header-includes: |
 In the 'nucleated instability' (also called core
 instability) hypothesis of giant planet
 formation, a critical mass for static core  envelope
-protoplanets has been found. \citet{langley00} determined
+protoplanets has been found. [@langley2000] determined
 the critical mass of the core to be about $12 \,M_\oplus$
 ($M_\oplus=5.975 \times 10^{27}\,\mathrm{g}$ is the Earth mass), which
 is independent of the outer boundary
@@ -477,10 +478,12 @@ We are expecting the usage of `.md` to produce some sort of table, or a dynamic 
 ```
 ~~~{.script .py .md #tbl:py caption="this is a table script"}
 print("""
+~~~{.multiTable}
 | as | dd |
 |----|----|
 | dd | dd |
-Table: this is output of a python script
+[Table: this is output of a python script]
+~~~
 """)
 ~~~
 ```
@@ -488,12 +491,14 @@ Table: this is output of a python script
 The above snipplet would give us output:
 
 ~~~{.script .py .md #tbl:py caption="this is a table script"}
+print('~~~{.multiTable}')
 print("""
 | as | dd |
 |----|----|
 | dd | dd |
-Table: this is output of a python script
+[Table: this is output of a python script]
 """)
+print("~~~")
 ~~~
 
 On the otherhand, `.img` will produce an image in the document.
@@ -693,6 +698,26 @@ Zotero standalone application needs to be started when pubsEngine called.
 Eventually, pubsEngine will save the necessary `.bib` file under `_build` directory.
 The regular \latex will be proceeds after this step.
 
+## Variable blocks
+
+pubsEngine can identify a text as variable by abusing div with class `.var .variableName`  and citeproc notation of `[@var:variableName]`.
+
+:::{.var .v2}
+*This text V2 segment can be inserted in any part of the other text.*
+:::
+
+~~~
+:::{.var .v1}
+*This text segment can be inserted in any part of the other text.*
+:::
+~~~
+
+:::{.var .v1}
+*This text segment can be inserted in any part of the other text.*
+:::
+
+We can try to insert the segment. [@var:v1] And this part is outside the inserted text.
+
 ## Presentation and Poster (Beamer)
 
 There are two CodeBlocks that can be used for beamer.
@@ -714,7 +739,7 @@ We can include notes for beamer by `~~~{note}` CodeBlocks.
            \label{fig:FigGam}%
  \end{figure*}
 
-In this section the one-zone model of \citet{DudaHart2nd},
+In this section the one-zone model of [@DudaHart2nd],
 originally used to study the Cephe\text{\"{\i}}d pulsation mechanism, will
 be briefly reviewed. The resulting stability criteria will be
 rewritten in terms of local state variables, local timescales and
@@ -1495,7 +1520,7 @@ first details the type and currently only three are allowed. The types are
 ` js` for generic javascript interactive figures,
 ` animation` for inline videos, and
 ` timeseries` for interactive light curves produced
-by astropy \citet{2013A&A...558A..33A}\footnote{To be release in the
+by astropy [@2013A&A...558A..33A]\footnote{To be release in the
 summer of 2019}. If these types are not provide the compiler will issue an
 error and quit. The second argument is the file that produces the enhanced
 feature in the HTML article.
