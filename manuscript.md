@@ -326,6 +326,16 @@ produces email link:
 
 <myemail@myurl.org>
 
+# Pandoc Enhancement
+
+There are some feature that were not part of Markdown specification included by Pandoc.
+
+## Citation by citeproc
+
+The citation syntax is `[@citeTerm]`.
+Do not forget to include `reference-section-title` at the yaml section to set the header of reference page.
+Common terms are Bibliography or References.
+
 # Enhancement by pubsEngine
 
 The enhancements provided by pubsEngine spans on various aspects.
