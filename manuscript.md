@@ -498,7 +498,10 @@ print("""
 ~~~
 ```
 
-The above snipplet would give us output:
+The above snippet would give us output at [@tbl:py].
+We can also use great package of `tabulate` from python.
+It can tabulate shell output by `tabulate -F ".3f" -f orgtable`.
+Of course, we are required to put our own headers.
 
 ~~~{.script .py .md #tbl:py caption="this is a table script"}
 print('~~~{.multiTable notes=[@var:v2]}')
