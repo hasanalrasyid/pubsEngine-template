@@ -716,16 +716,11 @@ pubsEngine can identify a text as variable by abusing div with class `.var .vari
 
 We can try to insert the segment. [@var:v1] And this part is outside the inserted text.
 
-## Special Div Blocks of Acknowledgements, Software and Facilities
+## Special Div Blocks of Acknowledgements, Software, Facilities and Appendix
 
-These three block classes can be optionally shown or not (with hidden as a default).
+These block classes can be optionally shown or not (with hidden as a default).
 Div block with class `:::{.acknowledgements .show}` will be shown right at place.
-If `.show` is omitted, then the Acknowledgements will follows the template location.
-
-## Appendix identifier
-
-The document segments after `[@appendix]` single line paragraph will be treated as appendices.
-Appendix usually have its own numbering system and chapter headlinings.
+If `.show` is omitted, their placement will follows the template location.
 
 ## Presentation and Poster (Beamer)
 
