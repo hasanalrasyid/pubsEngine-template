@@ -397,13 +397,20 @@ Extension of `.md` should be omitted, for it will be appended by pubsEngine.
 ~~~include
 include/addition1
 ~~~
+
+or for single file:
+
+[@include:include/addition1]
 ```
 
 ~~~include
 include/addition1
 ~~~
 
-Above paragraph was included from `include/addition1.md`.
+
+[@include:include/addition1]
+
+Above two identical paragraphs coming from `include/addition1.md`.
 
 ## Diagrams
 
@@ -412,13 +419,13 @@ The implementation of following CodeBlock can be seen at Figure \ref{fig:dia1}.
 Please be aware that the `size` will be considered as a multiplier from `\linewidth`.
 
 ```
-~~~{#fig:dia1 .diagram size=0.8 caption="dia"}
+~~~{#fig:dia1 .diagram size=0.6 caption="dia"}
 let x = circle 10
  in x
 ~~~
 ```
 
-~~~{#fig:dia1 .diagram size=0.8 caption="from Diagrams"}
+~~~{#fig:dia1 .diagram size=0.6 caption="from Diagrams"}
 let t = circle 100
  in t
 ~~~
@@ -561,7 +568,7 @@ Inclusion of [Mermaid](https://github.com/hasanalrasyid/pandoc-mermaid) diagrams
 
 ```
 ~~~{.mermaid #fig:mermaid caption="new mermaid"
-file=mermaidExample size=0.8}
+file=mermaidExample size=0.6}
 sequenceDiagram
     participant Alice
     participant Bob
@@ -580,7 +587,7 @@ sequenceDiagram
 Please be sure that the size is a relative size compared with `\linewidth`.
 The size will always be in a constant aspect ratio of `800x600`.
 
-~~~{.mermaid #fig:mermaid caption="new mermaid" file="mermaidExample" size=0.8}
+~~~{.mermaid #fig:mermaid caption="new mermaid" file="mermaidExample" size=0.6}
 
 sequenceDiagram
     participant Alice
@@ -1705,11 +1712,8 @@ available with \aastex v6, will output bibtex ``@misc`` type properly.
 
 :::{.appendix}
 
-~~~include
-include/appendix1
-include/appendix2
-include/appendix3
-include/appendix4
-include/appendix5
-~~~
+[@include:include/appendix1]
+
+[@include:include/appendix2]
+
 :::
