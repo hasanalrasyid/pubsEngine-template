@@ -73,12 +73,6 @@ reference-section-title: Bibliography
 imageDir:
   - Figure
   - Output
-appendix:
-  - include/appendix1
-  - include/appendix2
-  - include/appendix3
-  - include/appendix4
-  - include/appendix5
 graphicspath:
   - Figure
 abstract: |
@@ -721,6 +715,17 @@ pubsEngine can identify a text as variable by abusing div with class `.var .vari
 :::
 
 We can try to insert the segment. [@var:v1] And this part is outside the inserted text.
+
+## Special Div Blocks of Acknowledgements, Software and Facilities
+
+These three block classes can be optionally shown or not (with hidden as a default).
+Div block with class `:::{.acknowledgements .show}` will be shown right at place.
+If `.show` is omitted, then the Acknowledgements will follows the template location.
+
+## Appendix identifier
+
+The document segments after `[@appendix]` single line paragraph will be treated as appendices.
+Appendix usually have its own numbering system and chapter headlinings.
 
 ## Presentation and Poster (Beamer)
 
@@ -1681,7 +1686,7 @@ that satisfy this criteria plus each one's pros and cons are given at \break
 
 In the bibliography the format for data or code follows this format:
 
-\noindent author year, title, version, publisher, prefix:identifier
+`author year, title, version, publisher, prefix:identifier`
 
 \citet{2015ApJ...805...23C} provides a example of how the citation in the
 article references the external code at
@@ -1701,41 +1706,15 @@ available with \aastex v6, will output bibtex ``@misc`` type properly.
   Drlica-Wagner, Sean Lake, Michele Bannister, Peter Williams, and Jonathan
   Gagne.
 :::
-<!--
-%% IMPORTANT! The old "\acknowledgment" command has be depreciated. It was
-%% not robust enough to handle our new dual anonymous review requirements and
-%% thus been replaced with the acknowledgment environment. If you try to
-%% compile with \acknowledgment you will get an error print to the screen
-%% and in the compiled pdf.
--->
 
-<!--
-%% To help institutions obtain information on the effectiveness of their
-%% telescopes the AAS Journals has created a group of keywords for telescope
-%% facilities.
-%
-%% Following the acknowledgments section, use the following syntax and the
-%% \facility{} or \facilities{} macros to list the keywords of facilities used
-%% in the research for the paper.  Each keyword is check against the master
-%% list during copy editing.  Individual instruments can be provided in
-%% parentheses, after the keyword, but they are not verified.
--->
 
-<!--
-%% Similar to \facility{}, there is the optional \software command to allow
-%% authors a place to specify which programs were used during the creation of
-%% the manuscript. Authors should list each code and include either a
-%% citation or url to the code inside ()s when available.
-\software{astropy \citep{2013A&A...558A..33A,2018AJ....156..123A}, Cloudy \citep{2013RMxAA..49..137F}, Source Extractor \citep{1996A&AS..117..393B}}
--->
+:::{.appendix}
 
-<!--
-%% Appendix material should be preceded with a single \appendix command.
-%% There should be a \section command for each appendix. Mark appendix
-%% subsections with the same markup you use in the main body of the paper.
-
-%% Each Appendix (indicated with \section) will be lettered A, B, C, etc.
-%% The equation counter will reset when it encounters the \appendix
-%% command and will number appendix equations (A1), (A2), etc. The
-%% Figure and Table counter will not reset.
--->
+~~~include
+include/appendix1
+include/appendix2
+include/appendix3
+include/appendix4
+include/appendix5
+~~~
+:::
