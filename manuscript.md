@@ -115,15 +115,6 @@ keywords:
  - Interdisciplinary astronomy(804)
 software: "astropy \\citep{2013A&A...558A..33A,2018AJ....156..123A}, Cloudy \\citep{2013RMxAA..49..137F}, Source Extractor \\citep{1996A&AS..117..393B}"
 facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
-acknowledgements:
-  We thank all the people that have made this AASTeX what it is today.  This
-  includes but not limited to Bob Hanisch, Chris Biemesderfer, Lee Brotzman,
-  Pierre Landau, Arthur Ogawa, Maxim Markevitch, Alexey Vikhlinin and Amy
-  Hendrickson. Also special thanks to David Hogg and Daniel Foreman-Mackey
-  for the new "modern" style design. Considerable help was provided via bug
-  reports and hacks from numerous people including Patricio Cubillos, Alex
-  Drlica-Wagner, Sean Lake, Michele Bannister, Peter Williams, and Jonathan
-  Gagne.
 header-includes: |
   \usepackage{hologo}
   \usepackage{xspace}
@@ -1700,6 +1691,16 @@ not have specific bibtex entries for these types of references so the
 code the ``@misc`` type correctly.  The most recent aasjournal.bst file,
 available with \aastex v6, will output bibtex ``@misc`` type properly.
 
+:::{.acknowledgements}
+  We thank all the people that have made this AASTeX what it is today.  This
+  includes but not limited to Bob Hanisch, Chris Biemesderfer, Lee Brotzman,
+  Pierre Landau, Arthur Ogawa, Maxim Markevitch, Alexey Vikhlinin and Amy
+  Hendrickson. Also special thanks to David Hogg and Daniel Foreman-Mackey
+  for the new "modern" style design. Considerable help was provided via bug
+  reports and hacks from numerous people including Patricio Cubillos, Alex
+  Drlica-Wagner, Sean Lake, Michele Bannister, Peter Williams, and Jonathan
+  Gagne.
+:::
 <!--
 %% IMPORTANT! The old "\acknowledgment" command has be depreciated. It was
 %% not robust enough to handle our new dual anonymous review requirements and
