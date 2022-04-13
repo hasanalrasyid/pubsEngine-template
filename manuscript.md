@@ -70,7 +70,7 @@ processDate:
   accepted: "April 11, 2022"
 bibzotero: pubsEngine
 reference-section-title: Bibliography
-imageDir:
+link-directory:
   - Figure
   - Output
 graphicspath:
