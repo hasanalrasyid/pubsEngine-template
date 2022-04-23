@@ -1,0 +1,90 @@
+shorttitle: "pubsEngine"
+shortauthor: "Author One, et al."
+title: "pubsEngine: Manuscript Engine"
+author:
+  - number: 1
+    orcid: "0000-0002-0786-7307"
+    name: "Author One"
+    correspond: true
+    affiliation: "My City University"
+    address: "Orenomachi, Orenoshi, Orenoken, Japan"
+    email: "one@myuni.ac.jp"
+    url: "http://thegreatme.org"
+  - number: 2
+    name: "Author Two"
+    affiliation: "My Other City University"
+    address: "Hokanomachi, Orenoshi, Orenoken, Japan"
+    email: "two@myuni.ac.jp"
+thesis:
+  degree: "Doctor of Philosophy"
+  univ:
+    name: "My City University"
+    url: "http://mycity.ac.jp"
+  department:
+    name: "My Great Department"
+    url: "http://mydepartment.ac.jp"
+  group:
+    name: "My Research Group"
+    url: "http://myresearch.group.ac.jp"
+  faculty:
+    name: "My Faculty Name"
+    url: "http://myfaculty.ac.jp"
+  supervisor:
+    name: "My Best Supervisor"
+    url: "http://thegreatsupervisor.ac.jp"
+  quotation: "include/quotation"
+  dedicatory: "include/dedicatory"
+collaborator:
+  theme: "AAS Journal Data Editors"
+  person:
+    - number: 1
+      orcid: "0000-0002-0786-7307"
+      name: "Author One"
+      correspond: true
+      affiliation: "My City University"
+      address: "Orenomachi, Orenoshi, Orenoken, Japan"
+      email: "one@myuni.ac.jp"
+    - number: 2
+      name: "Author Two"
+      affiliation: "My Other City University"
+      address: "Hokanomachi, Orenoshi, Orenoken, Japan"
+      email: "two@myuni.ac.jp"
+  email: "xxx@myuni.ac.jp"
+titleshort: "Paperlighter Example"
+authorshort: "Author One et.al."
+#% Reintroduced the \received and \accepted commands from AASTeX v5.2
+#\received{March 1, 2021}
+#\revised{April 1, 2021}
+#\accepted{\today}
+#\submitjournal{PSJ}
+#% \watermark{text}
+#% \setwatermarkfontsize{dimension}
+#\correspondingauthor{August Muench}
+#\email{greg.schwarz@aas.org, gus.muench@aas.org}
+#end of docs
+#\allauthors
+#\listofchanges
+processDate:
+  received: "March 11, 2022"
+  accepted: "April 11, 2022"
+#bibzotero: pubsEngine
+reference-section-title: Bibliography
+link-directory:
+  - Figure
+  - Output
+graphicspath:
+  - Figure
+software: "astropy \\citep{2013A&A...558A..33A,2018AJ....156..123A}, Cloudy \\citep{2013RMxAA..49..137F}, Source Extractor \\citep{1996A&AS..117..393B}"
+facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
+header-includes: |
+  \usepackage{hologo}
+  \usepackage{xspace}
+  \usepackage{chemfig}
+  \usepackage{amsmath}
+  \usepackage{graphicx}
+  \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
+  \newcommand{\vdag}{(v)^\dagger}
+  \newcommand\aastex{AAS\TeX}
+  \newcommand\latex{\hologo{LaTeX}{}\xspace}
+  \usepackage{tikz}
+  \usepackage{tabulary}

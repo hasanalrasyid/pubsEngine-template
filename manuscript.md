@@ -1,6 +1,4 @@
 ---
-shorttitle: "pubsEngine"
-shortauthor: "Author One, et al."
 title: "pubsEngine: Manuscript Engine"
 author:
   - number: 1
@@ -16,68 +14,21 @@ author:
     affiliation: "My Other City University"
     address: "Hokanomachi, Orenoshi, Orenoken, Japan"
     email: "two@myuni.ac.jp"
-thesis:
-  degree: "Doctor of Philosophy"
-  univ:
-    name: "My City University"
-    url: "http://mycity.ac.jp"
-  department:
-    name: "My Great Department"
-    url: "http://mydepartment.ac.jp"
-  group:
-    name: "My Research Group"
-    url: "http://myresearch.group.ac.jp"
-  faculty:
-    name: "My Faculty Name"
-    url: "http://myfaculty.ac.jp"
-  supervisor:
-    name: "My Best Supervisor"
-    url: "http://thegreatsupervisor.ac.jp"
-  quotation: "include/quotation"
-  dedicatory: "include/dedicatory"
-collaborator:
-  theme: "AAS Journal Data Editors"
-  person:
-    - number: 1
-      orcid: "0000-0002-0786-7307"
-      name: "Author One"
-      correspond: true
-      affiliation: "My City University"
-      address: "Orenomachi, Orenoshi, Orenoken, Japan"
-      email: "one@myuni.ac.jp"
-    - number: 2
-      name: "Author Two"
-      affiliation: "My Other City University"
-      address: "Hokanomachi, Orenoshi, Orenoken, Japan"
-      email: "two@myuni.ac.jp"
-  email: "xxx@myuni.ac.jp"
-titleshort: "Paperlighter Example"
-authorshort: "Author One et.al."
-#% Reintroduced the \received and \accepted commands from AASTeX v5.2
-#\received{March 1, 2021}
-#\revised{April 1, 2021}
-#\accepted{\today}
-#\submitjournal{PSJ}
-#% \watermark{text}
-#% \setwatermarkfontsize{dimension}
-#\correspondingauthor{August Muench}
-#\email{greg.schwarz@aas.org, gus.muench@aas.org}
-#end of docs
-#\allauthors
-#\listofchanges
-processDate:
-  received: "March 11, 2022"
-  accepted: "April 11, 2022"
-bibzotero: pubsEngine
-reference-section-title: Bibliography
-link-directory:
-  - Figure
-  - Output
-graphicspath:
-  - Figure
-abstract: |
+keywords:
+# will use --- as separator
+ - Classical Novae (251)
+ - Ultraviolet astronomy(1736)
+ - History of astronomy(1868)
+ - Interdisciplinary astronomy(804)
+software: "astropy \\citep{2013A&A...558A..33A,2018AJ....156..123A}, Cloudy \\citep{2013RMxAA..49..137F}, Source Extractor \\citep{1996A&AS..117..393B}"
+facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
+
+---
+
+:::{.abstract}
   This example manuscript is intended to serve as a tutorial and template for
-  authors to use when writing their own AAS Journal articles. The manuscript
+  authors to use pubsEngine. This example derived from AASTeX journal article template.
+  when writing their own AAS Journal articles. The manuscript
   includes a history of \aastex and documents the new features in the
   previous versions as well as the bug fixes in version 6.31. This
   manuscript includes many figure and table examples to illustrate these new
@@ -92,35 +43,7 @@ abstract: |
   abstract\footnote{Abstracts for Research Notes of the American Astronomical
   Society (RNAAS) are limited to 150 words}.  If you exceed this length the
   Editorial office will ask you to shorten it. This abstract has 182 words.
-abstractTex:
-  #\abstract{Context}{Aim}{Method}{Result}Conclusion}
-  \abstract{To investigate the physical nature of the 'nuc\-leated instability' of
-  proto giant planets, the stability of layers in static, radiative gas spheres is analysed on the basis of Baker's standard one-zone model.}
-  {To investigate the physical nature of the 'nuc\-leated instability' of
-  proto giant planets, the stability of layers in static, radiative gas spheres is analysed on the basis of Baker's standard one-zone model.}
-  {It is shown that stability depends only upon the equations of state, the opacities and the local thermodynamic state in the layer. Stability and instability can therefore be expressed in the form of stability equations of state which are universal for a given composition.}
-  {The stability equations of state are calculated for solar composition and are displayed in the domain $-14 \leq \lg \rho / \mathrm{[g\, cm^{-3}]} \leq 0 $, $ 8.8 \leq \lg e / \mathrm{[erg\, g^{-1}]} \leq 17.7$. These displays may be used to determine the one-zone stability of layers in stellar or planetary structure models by directly reading off the value of the stability equations for the thermodynamic state of these layers, specified  by state quantities as density $\rho$, temperature $T$ or specific internal energy $e$. Regions of instability in the $(\rho,e)$-plane are described and related to the underlying microphysical processes.}
-  {Vibrational instability is found to be a common phenomenon at temperatures lower than the second He ionisation zone. The $\kappa$-mechanism is widespread under 'cool' conditions.}
-keywords:
-# will use --- as separator
- - Classical Novae (251)
- - Ultraviolet astronomy(1736)
- - History of astronomy(1868)
- - Interdisciplinary astronomy(804)
-software: "astropy \\citep{2013A&A...558A..33A,2018AJ....156..123A}, Cloudy \\citep{2013RMxAA..49..137F}, Source Extractor \\citep{1996A&AS..117..393B}"
-facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
-header-includes: |
-  \usepackage{hologo}
-  \usepackage{xspace}
-  \usepackage{chemfig}
-  \usepackage{amsmath}
-  \usepackage{graphicx}
-  \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
-  \newcommand{\vdag}{(v)^\dagger}
-  \newcommand\aastex{AAS\TeX}
-  \newcommand\latex{\hologo{LaTeX}{}\xspace}
-
----
+:::
 
 # Introduction
 
@@ -194,6 +117,9 @@ main :: IO ()
 main = putStrLn "we are one"
 ~~~
 ```
+\begin{verbatim}
+this is verbatim
+\end{verbatim}
 
 will produce:
 
@@ -317,7 +243,7 @@ There are some feature that were not part of Markdown specification included by 
 
 ## Citation by citeproc
 
-The citation syntax is `[@citeTerm]`.
+The citation syntax is `[@citeTerm]`. Or using latex default, `\cite{citeTerm}`.
 Do not forget to include `reference-section-title` at the yaml section to set the header of reference page.
 Common terms are Bibliography or References.
 
@@ -426,7 +352,7 @@ let x = circle 10
 ```
 
 ~~~{#fig:dia1 .diagram size=0.6 caption="from Diagrams"}
-let t = circle 100
+let t = circle 80
  in t
 ~~~
 
@@ -593,7 +519,7 @@ sequenceDiagram
     participant Alice
     participant Bob
     Alice->John: Hello John, how are you?
-    loop Healthcheck
+    loop Health-check
         John->John: Fight against hypochondria
     end
     Note right of John: Rational thoughts <br/>prevail...
@@ -663,6 +589,8 @@ Please notice the use of `#tbl:delegate` for assignment of label that can be ref
 
 ## Feynman diagram
 
+Feynman diagram is based on \latex package [`FenyMP`](https://ctan.org/pkg/feynmf?lang=en).
+Please refer to the documentation of said package for the details of the syntax.
 Feynman diagram can be generated using the following syntax.
 ```
 ~~~{.feynmp caption="test feynman diagram"}
@@ -1717,3 +1645,25 @@ available with \aastex v6, will output bibtex ``@misc`` type properly.
 [@include:include/appendix2]
 
 :::
+
+<!--
+:::{.abstract .fiveParts}
+<!--\abstract{Context}{Aim}{Method}{Result}{Conclusion} -->
+:::.context
+  To investigate the physical nature of the 'nuc\-leated instability' of
+  proto giant planets, the stability of layers in static, radiative gas spheres is analysed on the basis of Baker's standard one-zone model.
+:::
+:::.aim
+  To investigate the physical nature of the 'nuc\-leated instability' of
+  proto giant planets, the stability of layers in static, radiative gas spheres is analysed on the basis of Baker's standard one-zone model.
+:::
+:::.method
+  It is shown that stability depends only upon the equations of state, the opacities and the local thermodynamic state in the layer. Stability and instability can therefore be expressed in the form of stability equations of state which are universal for a given composition.
+:::
+:::.result
+  The stability equations of state are calculated for solar composition and are displayed in the domain $-14 \leq \lg \rho / \mathrm{[g\, cm^{-3}]} \leq 0$, $8.8 \leq \lg e / \mathrm{[erg\, g^{-1}]} \leq 17.7$. These displays may be used to determine the one-zone stability of layers in stellar or planetary structure models by directly reading off the value of the stability equations for the thermodynamic state of these layers, specified  by state quantities as density $\rho$, temperature $T$ or specific internal energy $e$. Regions of instability in the $(\rho,e)$-plane are described and related to the underlying microphysical processes.
+:::.conclusion
+  Vibrational instability is found to be a common phenomenon at temperatures lower than the second He ionisation zone. The $\kappa$-mechanism is widespread under 'cool' conditions.
+:::
+:::
+-->
