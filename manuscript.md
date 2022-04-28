@@ -336,7 +336,38 @@ include/addition1
 
 [@include:include/addition1]
 
-Above two identical paragraphs coming from `include/addition1.md`.
+Above two identical paragraphs were coming from `include/addition1.md`.
+
+## Arabic transliteration
+
+Arabic transliteration utilizes a \latex package (`Nusantara`)[https://github.com/hasanalrasyid/Nusantara].
+It was a derivation of arabtex package.
+This package provides an arabic transliteration based on traditional convention that proliferates in Indonesia (Nusantara archipelago, hence its name).
+This package also provide a simple and experimental implementation of _imla'_ for character _hamzah_ (`.nu "a`), namely standalone hamza, hamza above alif _qursy_, hamza under alif _qursy_, hamza with another _qursy_ of ya or waw, and hamza _washl_.
+The inclusion of arabic follows one of two schemes. First is as an inline in a text/paragraphs.
+In this scenario, we use `[.nu]` class, for example: ``[.nu rabbi fa-_infa`naa bibarkatihim]`` will produce ``.nu rabbi fa-_infa`naa bibarkatihim``.
+Another scenario requires `~~~nusantara` CodeBlock class. Following this example:
+
+```
+~~~nusantara
+al-_hamdu liLLAHi al-waa_hidi fiY dzaatihi wa shifaatihi al-ladziY ba`atsa sayyidinaa MUHAMMADaN
+lil-khalqi bil-tau_hiidi bibaahiri aaayaatihi,
+wa SWS `alaY `aruusi al-rusli [[3]] wa sayyidi kulli man laka `alayhi sayaada:ti
+wa `alaY aaalihi wa sha_hbihi wa al-taabi`iina lahum fiY al-_husnaY wa ziyaada:ti.
+
+((waba`du))
+~~~
+```
+
+~~~nusantara
+al-_hamdu liLLAHi al-waa_hidi fiY dzaatihi wa shifaatihi al-ladziY ba`atsa sayyidinaa MUHAMMADaN
+lil-khalqi bil-tau_hiidi bibaahiri aaayaatihi,
+wa SWS `alaY `aruusi al-rusli [[3]] wa sayyidi kulli man laka `alayhi sayaada:ti
+wa `alaY aaalihi wa sha_hbihi wa al-taabi`iina lahum fiY al-_husnaY wa ziyaada:ti.
+
+((waba`du))
+~~~
+
 
 ## Diagrams
 

@@ -1,4 +1,4 @@
-default: thesis
+default: article
 clean:
 	rm -rf _build
 thesis:
