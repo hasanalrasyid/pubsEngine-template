@@ -343,8 +343,9 @@ Above two identical paragraphs were coming from `include/addition1.md`.
 Arabic transliteration utilizes a \latex package [`Nusantara`](https://github.com/hasanalrasyid/Nusantara).
 It was a derivation of `arabxetex` package.
 This package provides an arabic transliteration based on traditional convention that proliferates in Indonesia (Nusantara archipelago, hence its name).
-This package also provide a simple and experimental implementation of _imla'_ for character _hamzah_ (`.nu "a`), namely standalone hamza, hamza above alif _kursy_, hamza under alif _kursy_, hamza with another _kursy_ of ya or waw, and hamza _washl_.
-The inclusion of arabic follows one of two schemes. First is as an inline in a text/paragraphs.
+This package also provide a simple and experimental implementation of _imla'_ for character _hamzah_ `.nu "a` , namely standalone hamza  `.nu "a` , hamza above alif _kursiy_  `.nu "A` , hamza under alif _kursiy_  `.nu "i` , hamza with another _kursiy_ of ya or waw  `.nu "w / "y` , and hamza _washl_  `.nu _a / ~a` .
+The inclusion of arabic text should follow one of two schemes.
+First is as an inline in a text/paragraphs.
 In this scenario, we use `[.nu]` class, for example: ``[.nu rabbi fa-_infa`naa bibarkatihim]`` will produce ``.nu rabbi fa-_infa`naa bibarkatihim``.
 Another scenario requires `~~~nusantara` CodeBlock class. Following this example:
 
@@ -374,14 +375,14 @@ The implementation of following CodeBlock can be seen at Figure \ref{fig:dia1}.
 Please be aware that the `size` will be considered as a multiplier from `\linewidth`.
 
 ```
-~~~{#fig:dia1 .diagram size=0.6 caption="dia"}
+~~~{#fig:dia1 .diagram size=0.4 caption="dia"}
 let x = circle 10
  in x
 ~~~
 ```
 
-~~~{#fig:dia1 .diagram size=0.6 caption="from Diagrams"}
-let t = circle 80
+~~~{#fig:dia1 .diagram size=0.4 caption="from Diagrams"}
+let t = circle 10
  in t
 ~~~
 
