@@ -20,7 +20,7 @@ keywords:
  - Ultraviolet astronomy(1736)
  - History of astronomy(1868)
  - Interdisciplinary astronomy(804)
-software: "astropy \\citep{2013A&A...558A..33A,2018AJ....156..123A}, Cloudy \\citep{2013RMxAA..49..137F}, Source Extractor \\citep{1996A&AS..117..393B}"
+software: "astropy \[@2013A&A...558A..33A,2018AJ....156..123A], Cloudy \[@2013RMxAA..49..137F], Source Extractor \[@1996A&AS..117..393B]"
 facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
 
 ---
@@ -65,12 +65,12 @@ this article
 is to investigate the stability of the static envelope at the
 critical mass. With this aim the local, linear stability of static
 radiative gas  spheres is investigated on the basis of Baker's
-(\citeyear{mitchell80}) standard one-zone model.
+([@mitchell80]) standard one-zone model.
 
 Phenomena similar to the ones described above for giant planet
 formation have been found in hydrodynamical models concerning
 star formation where protostellar cores explode
-(Tscharnuter \citeyear{kearns89}, Balluch \citeyear{MachineLearningI}),
+(Tscharnuter [@kearns89], Balluch [@MachineLearningI]),
 whereas earlier studies found quasi-steady collapse flows. The
 similarities in the (micro)physics, i.e., constitutive relations of
 protostellar cores and protogiant planets serve as a further
@@ -243,7 +243,7 @@ There are some feature that were not part of Markdown specification included by 
 
 ## Citation by citeproc
 
-The citation syntax is `[@citeTerm]`. Or using latex default, `\cite{citeTerm}`.
+The citation syntax is `[@citeTerm]`. Or using latex default, `[@citeTerm]`.
 Do not forget to include `reference-section-title` at the yaml section to set the header of reference page.
 Common terms are Bibliography or References.
 
@@ -714,7 +714,7 @@ be briefly reviewed. The resulting stability criteria will be
 rewritten in terms of local state variables, local timescales and
 constitutive relations.
 
-\citet{DudaHart2nd} investigates the stability of thin layers in
+[@DudaHart2nd] investigates the stability of thin layers in
 self-gravitating,
 spherical gas clouds with the following properties:
 
@@ -732,7 +732,7 @@ non-numbered list can be written as above, and shown as:
 
 For the one-zone-model Baker obtains necessary conditions
 for dynamical, secular and vibrational (or pulsational)
-stability (Eqs. (34a,b,c) in Baker \citeyear{DudaHart2nd}). Using Baker's
+stability (Eqs. (34a,b,c) in Baker [@DudaHart2nd]). Using Baker's
 notation:
 
 \noindent
@@ -815,7 +815,7 @@ notation:
         & > & 0   \label{ZSVibSta}
    \end{eqnarray}
 
-   For a physical discussion of the stability criteria see \citet{DudaHart2nd} or \citet{anonymous}.
+   For a physical discussion of the stability criteria see [@DudaHart2nd] or [@anonymous].
 
    We observe that these criteria for dynamical, secular and
    vibrational stability, respectively, can be factorized into
@@ -929,7 +929,7 @@ create label for \ref{FigVibStab} using #FigVibStab
 # Conclusions
 
 1. The conditions for the stability of static, radiative
-   layers in gas spheres, as described by Baker's (\citeyear{DudaHart2nd})
+   layers in gas spheres, as described by Baker's ([@DudaHart2nd])
    standard one-zone model, can be expressed as stability
    equations of state. These stability equations of state depend
    only on the local thermodynamic state of the layer.
@@ -952,11 +952,11 @@ create label for \ref{FigVibStab} using #FigVibStab
 
 \latex \footnote{\url{http://www.latex-project.org/}} is a document markup
 language that is particularly well suited for the publication of
-mathematical and scientific articles \citep{lamport94}. \latex was written
+mathematical and scientific articles [@lamport94]. \latex was written
 in 1985 by Leslie Lamport who based it on the \TeX typesetting language
 which itself was created by Donald E. Knuth in 1978.  In 1988 a suite of
 \latex macros were developed to investigate electronic submission and
-publication of AAS Journal articles \citep{1989BAAS...21..780H}.  Shortly
+publication of AAS Journal articles [@1989BAAS...21..780H].  Shortly
 afterwards, Chris Biemesdefer merged these macros and more into a \latex\
 2.08 style file called \aastex.  These early \aastex versions introduced
 many common commands and practices that authors take for granted today.
@@ -1506,7 +1506,7 @@ An example of an interactive figure is a 3D model.
 The underlying figure is a X3D file while x3dom.js is the javascript driver
 that displays it. An author created interface is added via a html wrapper.
 The first 3D model published by the AAS Journals using this technique was
-\citet{2014ApJ...793..127V}.
+[@2014ApJ...793..127V].
 
 Figure \ref{fig:interactive} provides an interactive example which can be
 run locally to demonstrate how a simple javascript plus html interface
@@ -1648,7 +1648,7 @@ In the bibliography the format for data or code follows this format:
 
 `author year, title, version, publisher, prefix:identifier`
 
-\citet{2015ApJ...805...23C} provides a example of how the citation in the
+[@2015ApJ...805...23C] provides a example of how the citation in the
 article references the external code at
 `\doi{10.5281/zenodo.15991}`.  Unfortunately, bibtex does
 not have specific bibtex entries for these types of references so the
@@ -1676,24 +1676,3 @@ available with \aastex v6, will output bibtex ``@misc`` type properly.
 
 :::
 
-<!--
-:::{.abstract .fiveParts}
-<!--\abstract{Context}{Aim}{Method}{Result}{Conclusion} -->
-:::.context
-  To investigate the physical nature of the 'nuc\-leated instability' of
-  proto giant planets, the stability of layers in static, radiative gas spheres is analysed on the basis of Baker's standard one-zone model.
-:::
-:::.aim
-  To investigate the physical nature of the 'nuc\-leated instability' of
-  proto giant planets, the stability of layers in static, radiative gas spheres is analysed on the basis of Baker's standard one-zone model.
-:::
-:::.method
-  It is shown that stability depends only upon the equations of state, the opacities and the local thermodynamic state in the layer. Stability and instability can therefore be expressed in the form of stability equations of state which are universal for a given composition.
-:::
-:::.result
-  The stability equations of state are calculated for solar composition and are displayed in the domain $-14 \leq \lg \rho / \mathrm{[g\, cm^{-3}]} \leq 0$, $8.8 \leq \lg e / \mathrm{[erg\, g^{-1}]} \leq 17.7$. These displays may be used to determine the one-zone stability of layers in stellar or planetary structure models by directly reading off the value of the stability equations for the thermodynamic state of these layers, specified  by state quantities as density $\rho$, temperature $T$ or specific internal energy $e$. Regions of instability in the $(\rho,e)$-plane are described and related to the underlying microphysical processes.
-:::.conclusion
-  Vibrational instability is found to be a common phenomenon at temperatures lower than the second He ionisation zone. The $\kappa$-mechanism is widespread under 'cool' conditions.
-:::
-:::
--->
