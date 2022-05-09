@@ -3,6 +3,7 @@ shortauthor: "Author One, et al."
 title: "pubsEngine: Manuscript Engine"
 author:
   - number: 1
+    id: "1,*"
     orcid: "0000-0002-0786-7307"
     name: "Author One"
     correspond: true
@@ -11,10 +12,25 @@ author:
     email: "one@myuni.ac.jp"
     url: "http://thegreatme.org"
   - number: 2
+    id: 2
     name: "Author Two"
     affiliation: "My Other City University"
     address: "Hokanomachi, Orenoshi, Orenoken, Japan"
     email: "two@myuni.ac.jp"
+affiliation:
+  - id: 1
+    description: "My Other City University"
+    address: "Hokanomachi, Orenoshi, Orenoken, Japan"
+    email: "two@myuni.ac.jp"
+  - id: 2
+    description: "My City University"
+    address: "Orenomachi, Orenoshi, Orenoken, Japan"
+    email: "one@myuni.ac.jp"
+    url: "http://thegreatme.org"
+  - id: "*"
+    description: "corresponding.author@email.example"
+  - id: +
+    description: "these authors contributed equally to this work"
 thesis:
   degree: "Doctor of Philosophy"
   univ:

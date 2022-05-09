@@ -2,6 +2,7 @@
 title: "pubsEngine: Manuscript Engine"
 author:
   - number: 1
+    id: "1,*"
     orcid: "0000-0002-0786-7307"
     name: "Author One"
     correspond: true
@@ -10,19 +11,31 @@ author:
     email: "one@myuni.ac.jp"
     url: "http://thegreatme.org"
   - number: 2
+    id: 2
     name: "Author Two"
     affiliation: "My Other City University"
     address: "Hokanomachi, Orenoshi, Orenoken, Japan"
     email: "two@myuni.ac.jp"
+affiliation:
+  - id: 1
+    description: "My Other City University, Hokanomachi, Orenoshi, Orenoken, Japan"
+    email: "two@myuni.ac.jp"
+  - id: 2
+    description: "My City University, Orenomachi, Orenoshi, Orenoken, Japan"
+    email: "one@myuni.ac.jp"
+    url: "http://thegreatme.org"
+  - id: "*"
+    description: "corresponding.author@email.example"
+  - id: +
+    description: "these authors contributed equally to this work"
 keywords:
 # will use --- as separator
  - Classical Novae (251)
  - Ultraviolet astronomy(1736)
  - History of astronomy(1868)
  - Interdisciplinary astronomy(804)
-software: "astropy \[@2013A&A...558A..33A,2018AJ....156..123A], Cloudy \[@2013RMxAA..49..137F], Source Extractor \[@1996A&AS..117..393B]"
+software: "astropy [@2013A&A...558A..33A,2018AJ....156..123A], Cloudy [@2013RMxAA..49..137F], Source Extractor [@1996A&AS..117..393B]"
 facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
-
 ---
 
 :::{.abstract}
