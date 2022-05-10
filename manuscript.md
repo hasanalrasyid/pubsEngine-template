@@ -40,25 +40,30 @@ facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
 
 :::{.abstract}
   This example manuscript is intended to serve as a tutorial and template for
-  authors to use pubsEngine. This example derived from AASTeX journal article template.
-  when writing their own AAS Journal articles. The manuscript
-  includes a history of \aastex and documents the new features in the
-  previous versions as well as the bug fixes in version 6.31. This
-  manuscript includes many figure and table examples to illustrate these new
-  features.  Information on features not explicitly mentioned in the article
-  can be viewed in the manuscript comments or more extensive online
-  documentation. Authors are welcome replace the text, tables, figures, and
-  bibliography with their own and submit the resulting manuscript to the AAS
-  Journals peer review system.  The first lesson in the tutorial is to remind
-  authors that the AAS Journals, the Astrophysical Journal (ApJ), the
-  Astrophysical Journal Letters (ApJL), the Astronomical Journal (AJ), and
-  the Planetary Science Journal (PSJ) all have a 250 word limit for the
-  abstract\footnote{Abstracts for Research Notes of the American Astronomical
-  Society (RNAAS) are limited to 150 words}.  If you exceed this length the
-  Editorial office will ask you to shorten it. This abstract has 182 words.
+  authors to use pubsEngine.
+  This example derived from AASTeX journal article template.
+  Some common markdown syntax are lightly touched for the sake of memory refreshment.
+  Some features of Pandoc and some external filters also highlighted.
+  These preambles stand as cues to some distinct features of pubsEngine.
+  The full-text system of pubsEngine would perfectly compliment Version Control System (GiT, mercury, darcs, etc.).
+  Some features requires a rather deep knowledge on the particular theme, i.e. Python, nodeJS, GoJS, etc.
+  We strongly encourage readers to explore these features, following the links that we provided in this manuscript.
+  \footnote{This Abstracts is an example}. If you exceed this length the
+  Editorial office will ask you to shorten it.
 :::
 
 # Introduction
+
+Nowadays, a printed document can be prepared by broadly two distinctly different software approach.
+At one side, there is formatted text approach that can be realized by the dawn of highly stylized Desktop Interface system, i.e. Gnome, KDE, etc.
+This approach provide us a word processor that follows "What You See is What You Get" paradigm.
+Open-source contender of this approach can be represented by LibreOffice suite.
+On the other hand, we have a plain text approach.
+By following some kind of markup conventions, the writer should create a text file that can be compiled to produce a print-ready files (PDF).
+Currently, this approach is mainly represented by \latex.
+
+Both approach requires a minimum of two workflows.
+
 
 In the 'nucleated instability' (also called core
 instability) hypothesis of giant planet
@@ -78,12 +83,12 @@ this article
 is to investigate the stability of the static envelope at the
 critical mass. With this aim the local, linear stability of static
 radiative gas  spheres is investigated on the basis of Baker's
-([@mitchell80]) standard one-zone model.
+([@mitchell1980]) standard one-zone model.
 
 Phenomena similar to the ones described above for giant planet
 formation have been found in hydrodynamical models concerning
 star formation where protostellar cores explode
-(Tscharnuter [@kearns89], Balluch [@MachineLearningI]),
+(Tscharnuter [@kearns1989], Balluch [@michalski1983]),
 whereas earlier studies found quasi-steady collapse flows. The
 similarities in the (micro)physics, i.e., constitutive relations of
 protostellar cores and protogiant planets serve as a further
@@ -447,9 +452,9 @@ In this scenario, the script should output a valid markdown document to the stdo
 We are expecting the usage of `.md` to produce some sort of table, or a dynamic paragraph.
 
 ```
-~~~{.script .py .md #tbl:py caption="this is a table script"}
+~~~{.script .py .md caption="this is a table script"}
 print("""
-~~~{.multiTable}
+~~~{.multiTable #tbl:py}
 | as | dd |
 |----|----|
 | dd | dd |
@@ -464,8 +469,8 @@ We can also use great package of `tabulate` from python.
 It can tabulate shell output by `tabulate -F ".3f" -f orgtable`.
 Of course, we are required to put our own headers.
 
-~~~{.script .py .md #tbl:py caption="this is a table script"}
-print('~~~{.multiTable notes=[@var:v2]}')
+~~~{.script .py .md caption="this is a table script"}
+print('~~~{.multiTable #tbl:py notes=[@var:v2]}')
 print("""
 | as | dd |
 |----|----|
