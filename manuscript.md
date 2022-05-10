@@ -188,7 +188,7 @@ Table creation will be described in another section (Enhancement by pubsEngine).
 ![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab size=0.5}
 ~~~
 
-will produce Figure \ref{fig:FigVibStab}.
+will produce Figure [@fig:FigVibStab].
 Make sure that you calculated by yourself the appropriate width and height for the image to fit in a column.
 Full width image and automatic sized image for single-column will be described at another section (Enhancement by pubsEngine). Please be aware that `size` is considered as a multiplier of the `\linewidth`.
 
@@ -632,12 +632,12 @@ Please notice the use of `#tbl:delegate` for assignment of label that can be ref
 
 ## Feynman diagram
 
-Feynman diagram is based on \latex package [`FenyMP`](https://ctan.org/pkg/feynmf?lang=en).
+Feynman diagram is based on \latex package [`FeynMP`](https://ctan.org/pkg/feynmf?lang=en).
 Please refer to the documentation of said package for the details of the syntax.
-Feynman diagram can be generated using the following syntax.
+Under the hood, the `FeynMP` syntax will be transcribed under the `\begin{math}...\end{math}` environment in resulted \latex document.
+Feynman diagram at Figure [@fig:feynMP] can be generated using the following syntax.
 ```
 ~~~{.feynmp caption="test feynman diagram"}
-  \begin{equation}
     \begin{gathered}
       \begin{fmfgraph*}(65,50) %size 65,50
         \fmfleft{i1,i2}
@@ -647,12 +647,10 @@ Feynman diagram can be generated using the following syntax.
         \fmf{photon}{v1,v2}
       \end{fmfgraph*}
     \end{gathered}=-i\lambda
-  \end{equation}
 ~~~
 ```
 
-~~~{.feynmp caption="test feynman diagram"}
-  \begin{equation}
+~~~{.feynmp caption="test feynman diagram" #fig:feynMP}
     \begin{gathered}
       \begin{fmfgraph*}(65,50) %size 65,50
         \fmfleft{i1,i2}
@@ -662,7 +660,6 @@ Feynman diagram can be generated using the following syntax.
         \fmf{photon}{v1,v2}
       \end{fmfgraph*}
     \end{gathered}=-i\lambda
-  \end{equation}
 ~~~
 
 ## Connected bibliography with Zotero
