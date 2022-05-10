@@ -188,7 +188,7 @@ Table creation will be described in another section (Enhancement by pubsEngine).
 ![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab size=0.5}
 ~~~
 
-will produce Figure [@fig:FigVibStab].
+will produce [Figure @fig:FigVibStab].
 Make sure that you calculated by yourself the appropriate width and height for the image to fit in a column.
 Full width image and automatic sized image for single-column will be described at another section (Enhancement by pubsEngine). Please be aware that `size` is considered as a multiplier of the `\linewidth`.
 
@@ -470,7 +470,7 @@ print("""
 | as | dd |
 |----|----|
 | dd | dd |
-[Table: this is output of a python script]
+[This is output of a python script]
 """)
 print("~~~")
 ~~~
@@ -923,7 +923,7 @@ Table: Simple table using default markdown table. Currently not working in two-c
 <!-- calculate height and width of picture manually in inch, using evince -> Properties
 create label for \ref{FigVibStab} using #FigVibStab
 -->
-![Vibrational stability equation of state $S_{\mathrm{vib}}(\lg e, \lg \rho)$. $>0$ means vibrational stability.](Figure/icml_numpapers.eps){#fig:FigVibStab width=3.43in height=2.71in}
+![Vibrational stability equation of state $S_{\mathrm{vib}}(\lg e, \lg \rho)$. $>0$ means vibrational stability.](Figure/icml_numpapers.eps){#fig:FigVibStab2 width=3.43in height=2.71in}
 
 <!--
    \begin{figure}
