@@ -1,5 +1,5 @@
 ---
-title: "pubsEngine: Manuscript Engine"
+title: "pubsEngine: Program Persiapan Manuskrip"
 author:
   - number: 1
     id: "1,*"
@@ -39,114 +39,169 @@ facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
 ---
 
 :::{.abstract}
-  This example manuscript is intended to serve as a tutorial and template for
-  authors to use pubsEngine.
-  This example derived from AASTeX journal article template.
-  Some common markdown syntax are lightly touched for the sake of memory refreshment.
-  Some features of Pandoc and some external filters also highlighted.
-  These preambles stand as cues to some distinct features of pubsEngine.
-  The full-text system of pubsEngine would perfectly compliment Version Control System (GiT, mercury, darcs, etc.).
-  Some features requires a rather deep knowledge on the particular theme, i.e. Python, nodeJS, GoJS, etc.
-  We strongly encourage readers to explore these features, following the links that we provided in this manuscript.
-  \footnote{This Abstracts is an example}. If you exceed this length the
-  Editorial office will ask you to shorten it.
+  Dokumen ini merupakan sebuah panduan, merangkap contoh nyata untuk digunakan penulis dalam membuat dokumen memakai pubsEngine.
+  Dokumen ini diturunkan dari contoh yang disediakan jurnal \aastex.
+  Dalam dokumen ini, kami menyajikan beberapa perintah markdown umum sekedar sebagai pengingat.
+  Kami juga memasukkan beberapa fitur Pandoc yang digunakan dalam pubsEngine.
+  Hal ini diperlukan sebagai pengantar penjelasan tentang beberapa fitur utama pubsEngine yang merupakan suatu bentuk pengembangan dari markdown dan Pandoc.
+  pubsEngine menganut sistem teks-penuh.
+  Ini berarti, proses penyusunan Manuskrip dengan pubsEngine dapat dikendalikan melalui Version Control System semacam GiT, mercurial, darcs, dsb).
+  Beberapa fitur pubsEngine memerlukan pengetahuan yang cukup atas tema-tema khusus, misalnya Python, nodeJS, GoJS, \latex, dsb.
+  Di dalam dokumen ini, kami hanya menyediakan contoh penerapan fitur seminimal mungkin untuk menunjukkan bahwa fitur tersebut bekerja dengan baik.
+  Kami mendorong penulis untuk mendalami fitur-fitur tersebut langsung pada sumber yang telah kami sertakan tautannya dalam dokumen ini.
+  \footnote{Abstrak ini juga bisa memiliki footnote}. Jangan lupa, ada batas ukuran teks untuk abstrak, umumnya 250 kata.
 :::
 
-# Introduction
 
-Nowadays, a printed document can be prepared by broadly two distinctly different software approach.
-At one side, there is formatted text approach that can be realized by the dawn of highly stylized Desktop Interface system, i.e. Gnome, KDE, etc.
-This approach provide us a word processor that follows "What You See is What You Get" paradigm.
-Open-source contender of this approach can be represented by LibreOffice suite.
-On the other hand, we have a plain text approach.
-By following some kind of markup conventions, the writer should create a text file that can be compiled to produce a print-ready files (PDF).
-Currently, this approach is mainly represented by \latex.
+# Pendahuluan
 
-Both approach requires a minimum of two workflows.
+Saat ini, proses penyusunan dokumen secara digital dapat dilakukan dengan setidaknya dua kelompok pendekatan perangkat lunak.
+Pendekatan pertama memiliki paradigma *What You See is What You Get*.
+Penulis dihadapkan pada antar-muka yang benar-benar mirip kertas.
+Harapannya, pada proses ini, penulis dapat memastikan bahwa hasil cetak dokumennya akan sama persis dengan yang muncul di tampilan perangkat lunak.
+Pengembangan *open-source* untuk perangkat lunak paradigma pertama ini cukup terwakili oleh perangkat LibreOffice.
+Di lain pihak, kita punya pilihan pendekatan plain-text.
+Dalam pendekatan ini, seorang penulis menyusun suatu file teks yang bukan hanya berisikan substansi tulisan, namun juga teks tambahan yang mengindikasikan sifat editorial dokumen cetak yang diharapkan.
+Selanjutnya, teks ini dijadikan sebagai input suatu program pemrosesan untuk menghasilkan dokumen siap cetak (PDF atau DVI).
+Pengembangan *open-source* paradigman ini diwakili oleh \latex.
+`pubsEngine` mengambil peran dalam pendekatan yang kedua, *plain-text*.
 
+Secara umum, seorang penulis melakukan dua sifat kerja yang berbeda dalam menyusun suatu makalah. Sifat kerja yang pertama adalah kerja substantif. Dalam kerja substantif, seorang penulis melakukan proses penggubahan suatu karya tulis, dari tiada menjadi ada.
+Dalam kerja substansial, umumnya penulis menguasai penuh materi yang akan dituangkan dalam tulisan.
+Sifat kerja kedua adalah kerja editorial.
+Kerja editorial hampir sama sekali tidak berhubungan dengan kerja substantif.
+Termasuk dalam kerja editorial adalah penentuan jenis huruf, proses penentuan lebar batas halaman, penentuan ukuran spasi, penentuan jenis penekanan dalam teks ( *miring*, **tebal**, ***tebal dan miring***, [garis bawah]{.underline}, `verbatim`, ~~garis tengah~~, superscript x^2^, underscript H~2~O,  dsb.), penyusunan layout halaman, penyusunan seluruh struktur manuskrip dari sampul depan hingga belakang, dst.
 
-In the 'nucleated instability' (also called core
-instability) hypothesis of giant planet
-formation, a critical mass for static core  envelope
-protoplanets has been found. [@langley2000] determined
-the critical mass of the core to be about $12 \,M_\oplus$
-($M_\oplus=5.975 \times 10^{27}\,\mathrm{g}$ is the Earth mass), which
-is independent of the outer boundary
-conditions and therefore independent of the location in the
-solar nebula. This critical value for the core mass corresponds
-closely to the cores of today's giant planets.
+Dua paradigma perangkat lunak, WYSWYG dan plain-text, mendekati kerja editorial dengan cara yang berbeda.
+Dalam WYSWYG, kerja editorial tercermin dalam langkah-langkah `klik kanan/kiri`, `drag-drop`, membuka menu/jendela pilihan dan pengaturan, dsb.
+Dalam paradigma plain-text, kerja editorial ini tercantum secara nyata sebagai teks yang dituliskan sebagaimana kerja substansial (seringkali dalam file yang sama).
+Tentu terdapat kesepakatan tertentu yang mengatur bagaimana suatu tulisan akan dibaca sebagai perintah editorial ataukah sebagai bagian dari substansi tulisan.
+Pada umumnya, file teks yang dihasilkan dari paradigma plain-text pada akhirnya berisi gabungan antara kalimat-kalimat substansi dan perintah-perintah editorial.
 
-Although no hydrodynamical study has been available many workers
-conjectured that a collapse or rapid contraction will ensue
-after accumulating the critical mass. The main motivation for
-this article
+Sebagai sebuah perangkat lunak penyusunan makalah yang telah matang, \latex telah berkembang menjadi suatu alat yang cukup kompleks.
+Perkembangan ini merupakan akibat positif dari sifat pengembangan \latex yang *open-source*.
+Selain itu, modularitas dalam \latex memungkinkan para penggunanya untuk mengembangkan \latex secara terfokus pada satu fitur, tanpa perlu memahami seluruh aspek yang tersedia dalam \latex sejak awal.
+Di lain pihak, kompleksitas ini berakibat pada kemunculan rasa berat para penulis pemula dalam menggunakan \latex.
+`pubsEngine` berusaha menurunkan tembok penghalang ini.
+Harapan pengembangan `pubsEngine`, para penulis dapat segera menceburkan diri ke dalam proses produksi substantif, dan meminimalkan waktu yang diperlukan dalam proses editorial.
+Selain itu, `pubsEngine` berusaha semaksimal mungkin memisahkan bagian editorial dan bagian substantif dari makalah yang dihasilkan.
+
+The main motivation for this article
 is to investigate the stability of the static envelope at the
 critical mass. With this aim the local, linear stability of static
 radiative gas  spheres is investigated on the basis of Baker's
 ([@mitchell1980]) standard one-zone model.
 
-Phenomena similar to the ones described above for giant planet
-formation have been found in hydrodynamical models concerning
-star formation where protostellar cores explode
-(Tscharnuter [@kearns1989], Balluch [@michalski1983]),
-whereas earlier studies found quasi-steady collapse flows. The
-similarities in the (micro)physics, i.e., constitutive relations of
-protostellar cores and protogiant planets serve as a further
-motivation for this study.
-
 # Markdown
 
-pubsEngine use Markdown text-file as an input to be processed into \latex document.
-Markdown is a very simplified text markup language.
-This section would shows several common syntax of Markdown.
-More detailed syntax can be accessed in the Markdown cheatsheet.
+`pubsEngine` menggunakan berkas teks berformat `Markdown` sebagai masukan yang kemudian selanjutnya akan diproses menjadi keluaran dokumen \latex (`.tex`) atau presentasi web (`RevealJS`).
+Di belakang layar, `pubsEngine` menggunakan `Pandoc` dalam proses pengubahan dari `Markdown` menjadi \latex.
+Lebih jauh lagi, dokumen `.tex` ini diproses oleh `lualatex` untuk menghasilkan berkas PDF yang siap cetak.
 
-## Headings
-We use `#` on various levels. Headings should be shown as a line that prefixed by `#`. (Ex. `# The First Level Heading`). Please include space after `#`.
+`Markdown` adalah suatu format teks yang mungkin paling sederhana jika dibandingkan dengan format yang populer saat ini, misalnya \latex, HTML, dsb.
+Umumnya file `Markdown` berakhiran `.md`, misalnya file ini bernama `manuscript.md`.
+Secara umum, suatu teks `Markdown` dapat kita bagi menjadi:
 
-## Paragraph
-blank line stands as a paragraph separator. No indentation for the first line (it only required in multilined lists to show that the next line is part of the item if it is non-blank and indented).
+1. `Meta`: Bagian ini berisi hal-hal yang umumnya merupakan bagian editorial. `Meta` berada di bagian teks paling awal, dan diapit diantara baris yang berisi `---`. Umumnya berbentuk deklarasi variabel, misalnya `bibzotero: pubsEngine`. Format meta yang dipakai adalah `Yaml`. `Meta` dapat tersimpan dalam file yang berbeda, untuk dokumen ini misalnya tersimpan dalam file `manuscript.yaml`. Jika terdapat dua variabel terdefinisikan dalam `manuscript.yaml` dan dalam dokumen utama ini (`manuscript.md`), maka definisi pada dokumen utama menjadi prioritas.
+2. `Inti`: Bagian ini sebagian besar berisi substansi. Perintah-perintah editorial di bagian ini sering kali muncul hanya karena benar-benar diperlukan dan tiada cara lain, misalnya *emphasis*, dan **cetak tebal**. Kita dapat membagi bagian ini menjadi beberapa `Block` yang dipisahkan oleh satu baris kosong. Beberapa Block yang dapat kita kenali antara lain `Paragraph, CodeBlock, RawBlock, OrderedList, BulletList, Header, Table, Div`. Di dalam setiap Block, sering kita temukan satu atau lebih `Inlines` yang dapat berupa `String (teks), Emphasis, Underline, Strong, Strikeout, Superscript, Subscript, Cite, Code, Math, RawInline, Link, Image, Note`.
 
-## Italic
-`*` Ex. `this text is *italic*` :  this text is *italic*
+Pada bab ini, kami akan sajikan beberapa perintah umum dalam `Markdown` yang menyusun bagian `Inti`.
 
-## Bold
-`**` Ex. `this text is **bold**` : this text is **bold**
+# Paragraph
 
-##  Bold and Italic
-`***` Ex. `this text is ***bold and italic***` this text is ***bold and italic***
+Bagian paling sederhana dalam `Markdown`.
+Tidak ada syarat editorial apapun dalam penyusunan suatu paragraf.
+Satu paragraf akan bermula setelah baris kosong, dan diakhiri oleh baris kosong.
 
-## Verbatim
-Verbatim should use backticks \v{`text`}, Ex. ``this is `the text` `` this is `the text`.
-To include backticks inside the text, use multiple bacticks.
+# CodeBlock
 
-~~~
-``this is `the text` multiple``
-~~~
+Paragraf tanpa format, umumnya menggunakan ditampilkan menggunakan bentuk huruf `verbatim`.
+`CodeBlock` selalu diawali dan diakhiri oleh baris `~~~`.
+Pada pembukaan `CodeBlock`, kita dapat menyematkan atribut:
 
-## CodeBlocks
-Multiple verbatim lines in Markdown can be expressed as a CodeBlock.
-This particular block is considered as special, due to its popular use in verbatim representation of source-code in the manuscript.
-Technically, a CodeBlock is a range of lines that surrounded by triple tilde `~~~`, for example:
+- penanda jenis (class): `.script` untuk jenis `script`
+- penanda label: `#fig:new` untuk penanda `fig:new`
+- variabel: `width=0.5` untuk variabel `width` dengan nilai `5`
 
+Contoh di atas akan mengubah awal `CodeBlock` dari `~~~` menjadi `~~~{.script #fig:new width=5}`.
+Aturan penambahan atribut ini akan menjadi landasan utama dalam berbagai fitur `pubsEngine` yang akan dijelaskan pada bab berikutnya.
+Berikut adalah contoh dari `CodeBlock`.
 ```
 ~~~
 main :: IO ()
 main = putStrLn "we are one"
 ~~~
 ```
-\begin{verbatim}
-this is verbatim
-\end{verbatim}
 
-will produce:
+Kode di atas akan menghasilkan:
 
 ~~~
 main :: IO ()
 main = putStrLn "we are one"
 ~~~
 
-The abuse of CodeBlocks for another purpose will be discussed in another section (Enhancement by pubsEngine).
+# RawBlock
+
+Suatu paragraf yang terbaca oleh `Pandoc` sebagai blok \latex.
+Ini berarti, blok ini akan dituliskan apa adanya dalam berkas `.tex` final.
+Blok ini cukup dinyatakan dengan *environment* \latex dalam bentuk `\begin{xxx}...\end{xxx}`.
+
+# OrderedList
+
+Blok ini berisi daftar yang ditera dengan angka berurutan dari 0.
+Penulisannya cukup dengan membubuhkan angka yang sesuai pada awal baris.
+Contohnya:
+
+~~~
+1. first in line
+2. second
+3. and the third
+~~~
+
+Akan menghasilkan:
+
+1. first in line
+2. second
+3. and the third
+
+# BulletList (Unordered List)
+
+Blok ini adalah daftar yang ditera dengan penanda selain angka (titik atau lainnya).
+Penulisannya dengan membubuhkan penanda `-`.
+Misalnya:
+
+~~~
+- first in line
+- second
+  should multiline
+- and the third
+~~~
+
+akan menghasilkan
+
+- first in line
+- second
+  should multiline
+- and the third
+
+## Table
+
+Pembuatan tabel akan dibahas pada bab selanjutnya mengenai Fitur pubsEngine.
+
+## Header
+
+Blok ini adalah blok judul.
+`Markdown` mengenal hirarki judul, mulai dari tingkat pertama, kedua, dst.
+Hirarki judul ini ditandai dengan jumlah `#`.
+Misalnya: `# Judul Untuk Bab (1)` , `## Untuk subbab (1.1)`, dan `### Untuk sub-subbab (1.1.a)`.
+Penomoran Judul akan berlangsung secara otomatis.
+Pastikan ada spasi setelah `#`.
+
+## Division
+
+Kita dapat mengumpulkan beberapa blok ke dalam satu wadah `Div`.
+Penanda yang dipakai adalah `:::`.
+Seperti `CodeBlock`, kita dapat menambahkan berbagai atribut ke dalam blok ini.
 
 ## Mathematical Equations
 By default, we may use `$$` environment for mathematical formula.
@@ -185,87 +240,109 @@ $$
 And this is another example for inline equation, such as: $$y = 5\cdot x^2$$
 You can see that inline equation have automatically numbered.
 
-## Tables
-Table creation will be described in another section (Enhancement by pubsEngine).
+## Inline
 
-## Images
-~~~
-![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab size=0.5}
-~~~
+Dalam suatu blok, kita dapat menambahkan tata penampilan teks/kata yang sesuai.
+Perlu diketahui bahwa hal ini akan berakibat pada munculnya perintah-perintah editorial di dalam substansi tulisan.
+Contohnya:
 
-will produce [Figure @fig:FigVibStab].
-Make sure that you calculated by yourself the appropriate width and height for the image to fit in a column.
-Full width image and automatic sized image for single-column will be described at another section (Enhancement by pubsEngine). Please be aware that `size` is considered as a multiplier of the `\linewidth`.
+```
+*Emphasis/Italic*, [Underline]{.underline}, **Strong/Bold**, ***Bold dan Italic***,
+`Code/verbatim`, ~~Strikeout~~, Superscript^2^, Subscript~x~, \emph{RawInline/Latex}
+$Math \Gamma : x^2+y^2=r^2$, <myemail@myurl.org>.
+```
 
-![the caption](Figure/icml_numpapers.eps){#fig:FigVibStab size=0.5}
-
-## Lists
-We can have either ordered or unordered list
-
-### Ordered List
-For ordered list, we just use numbers.
-The block should be as an independent paragraph (blank line above and under the block).
+akan menghasilkan:
+*Emphasis/Italic*, [Underline]{.underline}, **Strong/Bold**, ***Bold dan Italic***,
+`Code/verbatim`, ~~Strikeout~~, Superscript^2^, Subscript~x~, \emph{RawInline/Latex}, $Math \Gamma : x^2+y^2=r^2$, <myemail@myurl.org>.
 
 
-~~~
-1. first in line
-2. second
-3. and the third
-~~~
-will produce
+Selain itu, ada beberapa Inline yang lebih kompleks, memunculkan suatu blok khusus pada bagian manuskrip tertentu. Inline tersebut antara lain:
 
-1. first in line
-2. second
-3. and the third
-
-## Unordered List
-For unordered list, use dash sign (`-`).
-We also can use asterisk and plus signs ( `* +`)
-
-~~~
-- first in line
-- second
-  should multiline
-- and the third
-~~~
-
-will produce
-
-- first in line
-- second
-  should multiline
-- and the third
-
-
-## Links
-
+### Link
 ~~~
 We use [Duck Duck Go](https://duckduckgo.com).
 ~~~
 
-produces: We use [Duck Duck Go](https://duckduckgo.com).
+akan menghasilkan: We use [Duck Duck Go](https://duckduckgo.com).
+Tulisan `Duck Duck Go` tersebut dalam berkas PDF menyimpan alamat website `https://duckduckgo.com` dan berperan sebagai tautan yang dapat diakses.
 
-## Email link
+### Image
+
+`Markdown` memungkinkan pemuatan gambar pada [@fig:FigVibStabX] dengan perintah:
 
 ~~~
-<myemail@myurl.org>
+![the caption](Figure/icml_numpapers.eps){#fig:FigVibStabX size=0.5}
 ~~~
 
-produces email link:
+![the caption](Figure/icml_numpapers.eps){#fig:FigVibStabX size=0.5}
 
-<myemail@myurl.org>
+Kita dapat menambahkan atribut sesuai dengan aturan yang telah dijelaskan dalam pembahasan `CodeBlock`.
 
-# Pandoc Enhancement
+Make sure that you calculated by yourself the appropriate width and height for the image to fit in a column.
+Full width image and automatic sized image for single-column will be described at another section (Enhancement by pubsEngine). Please be aware that `size` is considered as a multiplier of the `\linewidth`.
 
-There are some feature that were not part of Markdown specification included by Pandoc.
+Rujukan pada gambar akan dibahas pada bagian berikutnya mengenai Rujukan.
 
-## Citation by citeproc
+### Note (Catatan kaki)
 
-The citation syntax is `[@citeTerm]`. Or using latex default, `[@citeTerm]`.
-Do not forget to include `reference-section-title` at the yaml section to set the header of reference page.
-Common terms are Bibliography or References.
+Kita dapat tambahkan suatu catatan kaki dengan perintah `[^1]` atau `[^bignote]`.
+Kemudian pada paragraf berikutnya, kita tambahkan isi catatan kaki.
+Berikut adalah contohnya:
 
-# Enhancement by pubsEngine
+~~~
+Paragraf ini berisi catatan kaki [^1]. Selain itu, kita gunakan juga catatan kaki yang cukup besar [^bignote].
+
+[^1]: Catatan kaki sederhana
+[^bignote]: Catatan ini cukup panjang. Mengandung beberapa paragraf.
+
+  Paragraf yang diawali indentasi mengindikasikan bahwa
+  paragraf tersebut ada di dalam catatan kaki.
+
+  Ini paragraf catatan kaki yang ketiga.
+
+Paragraf ini ada diluar catatan kaki.
+~~~
+
+Contoh di atas akan menghasilkan:
+
+
+Paragraf ini berisi catatan kaki [^1]. Selain itu, kita gunakan juga catatan kaki yang cukup besar [^bignote].
+
+[^1]: Catatan kaki sederhana
+[^bignote]: Catatan ini cukup panjang. Mengandung beberapa paragraf.
+
+  Paragraf yang diawali indentasi mengindikasikan bahwa
+  paragraf tersebut ada di dalam catatan kaki.
+
+  Ini paragraf catatan kaki yang ketiga. BUG: catatan kaki multi-paragraf tidak berjalan.
+
+Paragraf ini ada diluar catatan kaki.
+
+
+
+# Fitur Pandoc
+
+Ada beberapa fitur tambahan yang dikembangkan sebagai modul/filter `Pandoc`.
+Fitur tersebut memperkaya fitur dasar yang telah ada dalam `Markdown`.
+Berbagai fitur ini telah terintegrasi di dalam `pubsEngine`.
+
+## Cite menggunakan `citeproc`
+
+Perintah untuk menampilkan rujukan adalah `[@citeTerm]`.
+Jangan lupa untuk menambahkan `reference-section-title` ke dalam `Meta` pada `manuscript.yaml` untuk menentukan judul halaman rujukan/bibliografi.
+Beberapa judul yang populer adalah Bibliografi, Daftar Pustaka, dsb.
+
+## Berbagai rujukan menggunakan `crossref`
+
+Rujukan internal (dalam dokumen) terhadap gambar, tabel dan segala sesuatu yang telah diberi label dapat dilakukan dengan pola yang mirip.
+Sebagai contoh, rujukan pada Gambar [@fig:FigVibStabX] dinyatakan dengan `[@fig:FigVibStabX]`.
+Untuk konsistensi, kita gunakan awalan  `tbl:` untuk tabel, dan `sec:` untuk bab atau sub-bab.
+
+
+# Fitur yang disediakan pubsEngine
+
+
 
 The enhancements provided by pubsEngine spans on various aspects.
 Most parts of this are expressed in terms of CodeBlocks.
