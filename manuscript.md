@@ -88,12 +88,6 @@ Di lain pihak, kompleksitas ini berakibat pada kemunculan rasa berat para penuli
 Harapan pengembangan `pubsEngine`, para penulis dapat segera menceburkan diri ke dalam proses produksi substantif, dan meminimalkan waktu yang diperlukan dalam proses editorial.
 Selain itu, `pubsEngine` berusaha semaksimal mungkin memisahkan bagian editorial dan bagian substantif dari makalah yang dihasilkan.
 
-The main motivation for this article
-is to investigate the stability of the static envelope at the
-critical mass. With this aim the local, linear stability of static
-radiative gas  spheres is investigated on the basis of Baker's
-([@mitchell1980]) standard one-zone model.
-
 # Markdown
 
 `pubsEngine` menggunakan berkas teks berformat `Markdown` sebagai masukan yang kemudian selanjutnya akan diproses menjadi keluaran dokumen \latex (`.tex`) atau presentasi web (`RevealJS`).
@@ -101,11 +95,11 @@ Di belakang layar, `pubsEngine` menggunakan `Pandoc` dalam proses pengubahan dar
 Lebih jauh lagi, dokumen `.tex` ini diproses oleh `lualatex` untuk menghasilkan berkas PDF yang siap cetak.
 
 `Markdown` adalah suatu format teks yang mungkin paling sederhana jika dibandingkan dengan format yang populer saat ini, misalnya \latex, HTML, dsb.
-Umumnya file `Markdown` berakhiran `.md`, misalnya file ini bernama `manuscript.md`.
+Umumnya file `Markdown` berakhiran `.md`, misal `manuscript.md`.
 Secara umum, suatu teks `Markdown` dapat kita bagi menjadi:
 
 1. `Meta`: Bagian ini berisi hal-hal yang umumnya merupakan bagian editorial. `Meta` berada di bagian teks paling awal, dan diapit diantara baris yang berisi `---`. Umumnya berbentuk deklarasi variabel, misalnya `bibzotero: pubsEngine`. Format meta yang dipakai adalah `Yaml`. `Meta` dapat tersimpan dalam file yang berbeda, untuk dokumen ini misalnya tersimpan dalam file `manuscript.yaml`. Jika terdapat dua variabel terdefinisikan dalam `manuscript.yaml` dan dalam dokumen utama ini (`manuscript.md`), maka definisi pada dokumen utama menjadi prioritas.
-2. `Inti`: Bagian ini sebagian besar berisi substansi. Perintah-perintah editorial di bagian ini sering kali muncul hanya karena benar-benar diperlukan dan tiada cara lain, misalnya *emphasis*, dan **cetak tebal**. Kita dapat membagi bagian ini menjadi beberapa `Block` yang dipisahkan oleh satu baris kosong. Beberapa Block yang dapat kita kenali antara lain `Paragraph, CodeBlock, RawBlock, OrderedList, BulletList, Header, Table, Div`. Di dalam setiap Block, sering kita temukan satu atau lebih `Inlines` yang dapat berupa `String (teks), Emphasis, Underline, Strong, Strikeout, Superscript, Subscript, Cite, Code, Math, RawInline, Link, Image, Note`.
+2. `Inti`: Bagian ini sebagian besar berisi substansi. Perintah-perintah editorial di bagian ini sering kali muncul hanya karena benar-benar diperlukan dan tiada cara lain, misalnya *emphasis*, dan **cetak tebal**. Kita dapat membagi bagian ini menjadi beberapa `Block` yang dipisahkan oleh satu baris kosong. Beberapa Block yang dapat kita kenali antara lain `Paragraph, CodeBlock, RawBlock, OrderedList, Header, BulletList, Table, Div`. Di dalam setiap Block, sering kita temukan satu atau lebih `Inlines` yang dapat berupa `String (teks), Emphasis, Underline, Strong, Strikeout, Superscript, Subscript, Cite, RawInline, Code, Math, Link, Image, Note`.
 
 Pada bab ini, kami akan sajikan beberapa perintah umum dalam `Markdown` yang menyusun bagian `Inti`.
 
@@ -125,7 +119,7 @@ Pada pembukaan `CodeBlock`, kita dapat menyematkan atribut:
 - penanda label: `#fig:new` untuk penanda `fig:new`
 - variabel: `width=0.5` untuk variabel `width` dengan nilai `5`
 
-Contoh di atas akan mengubah awal `CodeBlock` dari `~~~` menjadi `~~~{.script #fig:new width=5}`.
+Contoh di atas akan mensyaratkan awal `CodeBlock` berupa `~~~{.script #fig:new width=5}`.
 Aturan penambahan atribut ini akan menjadi landasan utama dalam berbagai fitur `pubsEngine` yang akan dijelaskan pada bab berikutnya.
 Berikut adalah contoh dari `CodeBlock`.
 ```
@@ -186,7 +180,7 @@ akan menghasilkan
   should multiline
 - and the third
 
-## Table
+## Tabel
 
 Pembuatan tabel akan dibahas pada bab selanjutnya mengenai Fitur pubsEngine.
 
@@ -210,7 +204,8 @@ Tiada pembahasan tentang \latex dan turunannya tanpa adanya keterangan mengenai 
 Kita juga dapat menggunakan skenario \latex yang lain, misalnya:
 
 ~~~
-$$ ... $$ memiliki arti sama dengan \begin{equation}
+$$ ... $$ memiliki arti sama dengan
+\begin{equation}
 \begin{eqnarray}
 \begin{array}
 \begin{displaymath}
@@ -253,14 +248,17 @@ Perlu diketahui bahwa hal ini akan berakibat pada munculnya perintah-perintah ed
 Contohnya:
 
 ```
-*Emphasis/Italic*, [Underline]{.underline}, **Strong/Bold**, ***Bold dan Italic***,
-`Code/verbatim`, ~~Strikeout~~, Superscript^2^, Subscript~x~, \emph{RawInline/Latex}
-$Math \Gamma : x^2+y^2=r^2$, <myemail@myurl.org>.
+*Emphasis/Italic*, `Code/verbatim`,
+[Underline]{.underline}, **Strong/
+Bold**, ***Bold dan Italic***,
+~~Strikeout~~, Superscript^2^,
+Subscript~x~, \emph{RawInline/Latex}
+<myemail@myurl.org>.
 ```
 
 akan menghasilkan:
 *Emphasis/Italic*, [Underline]{.underline}, **Strong/Bold**, ***Bold dan Italic***,
-`Code/verbatim`, ~~Strikeout~~, Superscript^2^, Subscript~x~, \emph{RawInline/Latex}, $Math \Gamma : x^2+y^2=r^2$, <myemail@myurl.org>.
+`Code/verbatim`, ~~Strikeout~~, Superscript^2^, Subscript~x~, \emph{RawInline/Latex}, <myemail@myurl.org>.
 
 
 Selain itu, ada beberapa Inline yang lebih kompleks, memunculkan suatu blok khusus pada bagian manuskrip tertentu. Inline tersebut antara lain:
@@ -296,7 +294,8 @@ Kemudian pada paragraf berikutnya, kita tambahkan isi catatan kaki.
 Berikut adalah contohnya:
 
 ~~~
-Paragraf ini berisi catatan kaki [^1]. Selain itu, kita gunakan juga catatan kaki yang cukup besar [^bignote].
+Paragraf ini berisi catatan kaki [^1]. Selain itu, kita gunakan
+juga catatan kaki yang cukup besar [^bignote].
 
 [^1]: Catatan kaki sederhana
 [^bignote]: Catatan ini cukup panjang. Mengandung beberapa paragraf.
@@ -332,26 +331,30 @@ Ada beberapa fitur tambahan yang dikembangkan sebagai modul/filter `Pandoc`.
 Fitur tersebut memperkaya fitur dasar yang telah ada dalam `Markdown`.
 Berbagai fitur ini telah terintegrasi di dalam `pubsEngine`.
 
-## Cite menggunakan `citeproc`
+## Rujukan Artikel (`Cite`) menggunakan `citeproc`
 
 Perintah untuk menampilkan rujukan adalah `[@citeTerm]`.
 Jangan lupa untuk menambahkan `reference-section-title` ke dalam `Meta` pada `manuscript.yaml` untuk menentukan judul halaman rujukan/bibliografi.
 Beberapa judul yang populer adalah Bibliografi, Daftar Pustaka, dsb.
+Contoh sitasi [@mitchell1980] dapat diperoleh dengan perintah `[@mitchell1980]`.
+Sitasi yang lebih kompleks semacam [@mitchell1980; @astropycollaboration2013; @arnold1998] dapat juga dimunculkan dengan `[@mitchell1980; @astropycollaboration2013; aarnold1998]`.
+Penulis juga dapat mencermati bahwa rujukan artikel tersebut secara otomatis juga dimunculkan di Daftar Pustaka.
+Penjelasan lebih lengkap tentang metode membuat rujukan ini dapat dilihat dalam panduan utama [Pandoc Manual](https://pandoc.org/MANUAL.html#citations-in-note-styles).
 
 ## Berbagai rujukan menggunakan `crossref`
 
 Rujukan internal (dalam dokumen) terhadap gambar, tabel dan segala sesuatu yang telah diberi label dapat dilakukan dengan pola yang mirip.
-Sebagai contoh, rujukan pada Gambar [@fig:FigVibStabX] dinyatakan dengan `[@fig:FigVibStabX]`.
+Sebagai contoh, rujukan pada [@fig:FigVibStabX] dinyatakan dengan `[@fig:FigVibStabX]`.
 Untuk konsistensi, kita gunakan awalan  `tbl:` untuk tabel, dan `sec:` untuk bab atau sub-bab.
 Pengungkapan rujukan (misalnya fig. 1) dapat diubah dalam `pandoc-crossref.yaml` pada variabel `figPrefix`.
 Berbagai pengaturan dalam `crossref` dapat diperiksa pada halaman [panduan utama](https://lierdakil.github.io/pandoc-crossref/).
 
-# Fitur yang disediakan pubsEngine
+# Fitur pubsEngine
 
 Berbagai fitur tambahan yang disediakan oleh `pubsEngine` merentang pada beberapa aspek yang terkait dengan pemrosesan di luar sistem.
 Sebagian besar fitur tersebut ditampilkan sebagai `CodeBlock` dengan jenis kelas tertentu.
 
-## Table
+## Tabel
 
 Fitur ini merupakan peningkatan dari fitur dasar yang telah ada dalam spesifikasi dasar `Markdown` dari `Pandoc`.
 `pubsEngine` memasukkan kapabilitas `MultiMarkdown` untuk memproses tabel ini.
@@ -443,11 +446,11 @@ Transliterasi bahasa Arab menggunakan modul [`Nusantara`](https://github.com/has
 Modul ini perupakan penurunan dari modul `arabxetex` dan `arabluatex`.
 Module `Nusantara` menyediakan transliterasi bahasa Arab yang dilandaskan pada tradisi yang berkembang di Indonesia (kepulauan Nusantara, sesuai nama modul).
 Modul ini juga menyediakan implementasi eksperimental sederhana untuk _imla'_ bagi huruf _hamzah_ `.nu "a`.
-Implementasi tersebut meliputi _hamzah_ yang berdiri sendiri `.nu "a`, _hamzah_ di atas kursi alif `.nu "A`, _hamzah_ di bawah kursi alif `.nu "i`, _hamzah_ pada kursi ya dan wau `.nu "w / "y`, dan _hamzah_ _washol_ `.nu _a / ~a`.
+Implementasi tersebut meliputi _hamzah_ yang berdiri sendiri `.nu "a`, _hamzah_ di atas kursi alif `.nu "A`, di bawah kursi alif `.nu "i`, pada kursi ya dan wau `.nu "w / "y`, dan _hamzah_ _washol_ `.nu _a / ~a`.
 
 Untuk menuliskan text arab, kita dapat memilih salah satu dari dua cara.
 Cara pertama adalah sebagai *inline* dalam teks/paragraf.
-Dalam skenario ini, kita menggunakan jenis kelas `[.nu]` sebagaimana dalam `[.nu rabbi fa-_infanaa bibarkatihim]` yang akan menghasilkan `.nu rabbi fa-_infanaa bibarkatihim`.
+Dalam skenario ini, kita menggunakan jenis kelas `[.nu]` sebagaimana dalam ``[.nu rabbi fa-_infa`naa bibarkatihim]`` yang akan menghasilkan ``.nu rabbi fa-_infa`naa bibarkatihim``.
 Cara berikutnya adalah dengan jenis kelas `~~~nusantara` dalam contoh sebagai berikut:
 
 ```
@@ -471,7 +474,7 @@ wa `alaY aaalihi wa sha_hbihi wa al-taabi`iina lahum fiY al-_husnaY wa ziyaada:t
 
 ## Diagrams
 
-Skrip program `Diagram` yang sesuai dengan `Embedded Domain-spesific Language (EDSL)` dari modul Haskell [`diagrams`](https://hackage.haskell.org/package/diagrams) dapat dimasukkan dengan jenis kelas `[.diagram]`.
+Modul `Diagram` yang sesuai dengan `Embedded Domain-spesific Language` (EDSL) dari modul Haskell [`diagrams`](https://hackage.haskell.org/package/diagrams) dapat dimasukkan dengan jenis kelas `[.diagram]`.
 Implementasi fitur ini dapat dilihat pada [@fig:dia1].
 Perlu diperhatikan pula bahwa dalam hal ini, aturan ukuran `size` tetap sesuai dengan aturan dalam gambar biasa.
 
@@ -489,12 +492,11 @@ let t = circle 10
 
 ## Menjalankan perintah eksternal
 
-~~Saat ini, perintah eksternal yang dikenali hanya Python~~.
 Secara umum, jenis kelas yang digunakan adalah `[.script]`, kemudian secara berurutan diikuti dengan jenis kelas program delegasi (`.py` untuk `Python`).
 Keluaran perintah yang kita harapkan akan diindikasikan selanjutnya.
 Terdapat tiga pilihan untuk keluaran yang diharapkan, `.img` untuk gambar, `.md` untuk teks `Markdown`, dan `.lib` untuk library/modul.
 Terkhusus untuk library/modul, keluaran ini tidak akan menampilkan material apapun dalam dokumen.
-Untuk mengurangi pengulangan penulisan kode, kita dapat menyimpan fungsi tertentu sebagai library untuk kemudian disimpan dalam `_build/temp/lib` dan dapat diakses oleh seluruh blok program terkait dalam bahasa tersebut di seluruh dokumen.
+Untuk mengurangi pengulangan penulisan kode, kita dapat menyimpan fungsi tertentu sebagai library untuk kemudian disimpan dalam direktori `_build/temp/lib` dan dapat diakses oleh seluruh blok program terkait dalam bahasa tersebut di seluruh dokumen.
 
 Berikut adalah contoh dari blok library:
 
@@ -512,7 +514,7 @@ Jika variabel ini tiada, maka blok ini akan dianggap sebagai *hidden-library*.
 Blok ini akan tetap dapat diakses dari seluruh script, tapi tidak ada indikasi yang menunjukkan adanya library ini dalam dokumen PDF yang dihasilkan.
 Perlakuan yang lebih lengkap dapat dilakukan dengan menambahkan jenis kelas `.show`.
 Penambahan ini mengindikasikan bahwa script tersebut akan ditampilkan sebagai sebuah `CodeBlock` yang dilanjutkan dengan deskripsi.
-Contoh di bawah ini muncul dengan memakai awala `~~~{.script .py .lib .show file="libPy1"}`.
+Contoh di bawah ini muncul dengan memakai awalan `~~~{.script .py .lib .show file="libPy1"}`.
 
 
 ~~~{.script .py .lib .show file="libPy1"}
@@ -526,7 +528,7 @@ def sysrun(t,debug:bool=False):
         print(res)
     return res
 
-description="This is the description of the additional `libPy1` library that will be inserted into the pdf output. Any **valid markdown syntax** can be used. The `import` statement to `libPy1` will be prepended by pubsEngine, thus removed the necessity of explicit import in any scripts below."
+description="This paragraph represents the description of the additional `libPy1` library that will be inserted into the pdf output. This description is held in a string variable named `description`. Any **valid markdown syntax** can be used. The `import` statement to `libPy1` will be prepended by pubsEngine, thus removed the necessity of explicit import in any scripts below."
 ~~~
 
 Jenis kelas `.md` akan menampilkan teks yang selanjutnya diolah sebagai `Markdown` oleh `pubsEngine`.
@@ -568,16 +570,17 @@ Tentu penulis bertanggung-jawab untuk menjaga konsistensi keberadaan nama berkas
 Implementasi gambar ini dapat dilihat pada [@fig:py].
 
 ```
-~~~{.script .py .img #fig:py caption="this is a new image from script" width=400 height=300
-file=pyImage}
+~~~{.script .py .img #fig:py caption="image from a python script"
+size=0.6 file=pyImage}
 
 # fungsi sysrun telah didefinisikan dalam .lib libPy1 di atas.
-sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c
-/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png"])
+sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons
+/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png'
+-O _build/auto/pyImage.png"])
 ~~~
 ```
 
-~~~{.script .py .img #fig:py caption="this is a new image from python script" width=400 height=300 file=pyImage}
+~~~{.script .py .img #fig:py caption="this is a new image from python script" size=0.6 file=pyImage}
 sysrun(["wget 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bismillah.svg/640px-Bismillah.svg.png' -O _build/auto/pyImage.png"])
 ~~~
 
@@ -586,8 +589,10 @@ Oleh sebab itu, kita dapat menyimpan script ini pada berkas lain, dan memasukkan
 implementasi mekanisme ini dapat dilihat dalam [@fig:pySrc].
 
 ```
-~~~{.script .py .img #fig:pySrc size=0.6 src=script/pyScript1.py file=pyImageS}
-Gambar ini muncul sebagai hasil program yang tersimpan di pyScript1.py dan dijalankan dengan penambahan `src`.
+~~~{.script .py .img #fig:pySrc size=0.6
+src=script/pyScript1.py file=pyImageS}
+Gambar ini muncul sebagai hasil program yang tersimpan di
+pyScript1.py dan dijalankan dengan penambahan `src`.
 ~~~
 ```
 
@@ -600,7 +605,7 @@ Jenis *shell* yang dijalankan oleh `pubsEngine` adalah `zsh`.
 Library untuk shell akan tersimpan dalam `_build/temp/lib/sh`.
 Kita dapat melihat implementasi script `.sh` dalam [@fig:shImage].
 
-~~~{.script .sh .img #fig:shImage caption="image from SHELL script (zsh)" width=400 height=300 file=shImage}
+~~~{.script .sh .img #fig:shImage caption="image from HELL script (zsh)" size=0.5 file=shImage}
 wget "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bismillah_Calligraphy_37.svg/1200px-Bismillah_Calligraphy_37.svg.png" -O _build/auto/shImage.png
 ~~~
 
@@ -636,7 +641,7 @@ sequenceDiagram
 ~~~
 ```
 
-~~~{.mermaid #fig:mermaid caption="new mermaid" file="mermaidExample" size=0.6}
+~~~{.mermaid #fig:mermaid caption="new mermaid" file="mermaidExample" size=0.8}
 
 sequenceDiagram
     participant Alice
@@ -659,12 +664,13 @@ Jika dibandingkan dengan `Diagrams` dari lingkungan Haskell, maka fitur `GoJS` d
 Implementasi pada [@fig:goJS] adalah hasil dari kode berikut.
 
 ```
-~~~{.gojs .show #fig:goJS size=0.9 src=script/goJSmodel.js file=goJSImage}
+~~~{.gojs .show #fig:goJS size=0.9 src=script/goJSmodel.js
+file=goJSImage}
 This is GoJS image text that would be shown as a caption.
 ~~~
 ```
 
-~~~{.gojs .show #fig:goJS size=0.9 src=script/goJSmodel.js file=goJSImage}
+~~~{.gojs .show #fig:goJS size=0.6 src=script/goJSmodel.js file=goJSImage}
 This is GoJS image text that would be shown as a caption.
 ~~~
 
@@ -737,7 +743,7 @@ Suatu teks dapat dianggap sebagai variabel dengan mendefinisikan Div dengan jeni
 *This text segment can be inserted in any part of the other text.*
 :::
 
-Potongan teks variabel di atas dapat kita munculkan di sini. [@var:v1] Kemudian teks ini adalah lanjutan dari teks sebelumnya.
+Potongan teks variabel di atas dapat kita munculkan di sini dengan perintah `[@var:v1]`. [@var:v1] Kemudian teks ini adalah lanjutan dari teks sebelumnya.
 
 ## Blok khusus untuk Acknowledgements, Software, Facilities, dan Appendix
 
@@ -787,7 +793,7 @@ Lingkungan gambar semacam ini belum bisa disajikan secara sederhana dalam `pubsE
 
 \begin{figure*}
 \centering
-\includegraphics{Figure/icml_numpapers.eps}
+\includegraphics[keepaspectratio=true,width=0.5\linewidth]{Figure/icml_numpapers.eps}
 \caption{Adiabatic exponent $\Gamma_1$.
             $\Gamma_1$ is plotted as a function of
             $\lg$ internal energy $\mathrm{[erg\,g^{-1}]}$ and $\lg$

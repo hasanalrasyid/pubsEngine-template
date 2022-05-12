@@ -84,7 +84,10 @@ processDate:
   received: "March 11, 2022"
   accepted: "April 11, 2022"
 bibzotero: pubsEngine
-reference-section-title: Bibliography
+tocTitle: "Daftar Isi"
+appendixTitle: "Lampiran"
+chapterTitle: "Bab"
+reference-section-title: "Daftar Pustaka"
 link-directory:
   - Figure
   - Output

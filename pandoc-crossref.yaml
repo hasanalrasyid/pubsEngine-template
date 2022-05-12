@@ -1,5 +1,9 @@
 cref: true
 figureTemplate: "$$t$$"
 tableTemplate: "$$t$$"
-figPrefix: "Gambar."
-tblPrefix: "Tabel."
+figPrefix: "Gambar"
+tblPrefix: "Tabel"
+lofTitle: "Daftar Gambar"
+lotTitle: "Daftar Tabel"
+figureTitle: "Gambar"
+tableTitle: "Tabel"
