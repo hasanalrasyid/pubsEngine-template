@@ -48,8 +48,10 @@ facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
   Ini berarti, proses penyusunan Manuskrip dengan pubsEngine dapat dikendalikan melalui Version Control System semacam GiT, mercurial, darcs, dsb).
   Beberapa fitur pubsEngine memerlukan pengetahuan yang cukup atas tema-tema khusus, misalnya Python, nodeJS, GoJS, \latex, dsb.
   Di dalam dokumen ini, kami hanya menyediakan contoh penerapan fitur seminimal mungkin untuk menunjukkan bahwa fitur tersebut bekerja dengan baik.
-  Kami mendorong penulis untuk mendalami fitur-fitur tersebut langsung pada sumber yang telah kami sertakan tautannya dalam dokumen ini.
-  \footnote{Abstrak ini juga bisa memiliki footnote}. Jangan lupa, ada batas ukuran teks untuk abstrak, umumnya 250 kata.
+  Kami mendorong penulis untuk mendalami fitur-fitur tersebut langsung pada sumber yang telah kami sertakan tautannya dalam dokumen ini[^1].
+  Jangan lupa, ada batas ukuran teks untuk abstrak, umumnya 250 kata.
+
+[^1]: Abstrak ini juga bisa memiliki footnote.
 :::
 
 
@@ -107,13 +109,13 @@ Secara umum, suatu teks `Markdown` dapat kita bagi menjadi:
 
 Pada bab ini, kami akan sajikan beberapa perintah umum dalam `Markdown` yang menyusun bagian `Inti`.
 
-# Paragraph
+## Paragraph
 
 Bagian paling sederhana dalam `Markdown`.
 Tidak ada syarat editorial apapun dalam penyusunan suatu paragraf.
 Satu paragraf akan bermula setelah baris kosong, dan diakhiri oleh baris kosong.
 
-# CodeBlock
+## CodeBlock
 
 Paragraf tanpa format, umumnya menggunakan ditampilkan menggunakan bentuk huruf `verbatim`.
 `CodeBlock` selalu diawali dan diakhiri oleh baris `~~~`.
@@ -140,13 +142,13 @@ main :: IO ()
 main = putStrLn "we are one"
 ~~~
 
-# RawBlock
+## RawBlock
 
 Suatu paragraf yang terbaca oleh `Pandoc` sebagai blok \latex.
 Ini berarti, blok ini akan dituliskan apa adanya dalam berkas `.tex` final.
 Blok ini cukup dinyatakan dengan *environment* \latex dalam bentuk `\begin{xxx}...\end{xxx}`.
 
-# OrderedList
+## OrderedList
 
 Blok ini berisi daftar yang ditera dengan angka berurutan dari 0.
 Penulisannya cukup dengan membubuhkan angka yang sesuai pada awal baris.
@@ -164,7 +166,7 @@ Akan menghasilkan:
 2. second
 3. and the third
 
-# BulletList (Unordered List)
+## BulletList (Unordered List)
 
 Blok ini adalah daftar yang ditera dengan penanda selain angka (titik atau lainnya).
 Penulisannya dengan membubuhkan penanda `-`.
@@ -272,16 +274,15 @@ Tulisan `Duck Duck Go` tersebut dalam berkas PDF menyimpan alamat website `https
 `Markdown` memungkinkan pemuatan gambar pada [@fig:FigVibStabX] dengan perintah:
 
 ~~~
-![the caption](Figure/icml_numpapers.eps){#fig:FigVibStabX size=0.5}
+![Contoh gambar](Figure/icml_numpapers.eps){#fig:FigVibStabX size=0.5}
 ~~~
 
-![the caption](Figure/icml_numpapers.eps){#fig:FigVibStabX size=0.5}
+![Contoh gambar](Figure/icml_numpapers.eps){#fig:FigVibStabX size=0.5}
 
 Kita dapat menambahkan atribut sesuai dengan aturan yang telah dijelaskan dalam pembahasan `CodeBlock`.
-
-Make sure that you calculated by yourself the appropriate width and height for the image to fit in a column.
-Full width image and automatic sized image for single-column will be described at another section (Enhancement by pubsEngine). Please be aware that `size` is considered as a multiplier of the `\linewidth`.
-
+Nilai `size` dalam hal ini adalah lebar gambar sebagai pengali dari `\linewidth` (lebar baris dalam \latex).
+Pastikan ukuran gambar yang akan dimasukkan sudah sesuai dengan ukuran halaman cetak.
+Gambar yang merentang seluruh lebar halaman dalam tatanan dikolom, dan pembahasan mengenai ukuran gambar secara lebih detil akan dibahas pada bab Fitur pubsEngine.
 Rujukan pada gambar akan dibahas pada bagian berikutnya mengenai Rujukan.
 
 ### Note (Catatan kaki)
@@ -338,20 +339,19 @@ Beberapa judul yang populer adalah Bibliografi, Daftar Pustaka, dsb.
 Rujukan internal (dalam dokumen) terhadap gambar, tabel dan segala sesuatu yang telah diberi label dapat dilakukan dengan pola yang mirip.
 Sebagai contoh, rujukan pada Gambar [@fig:FigVibStabX] dinyatakan dengan `[@fig:FigVibStabX]`.
 Untuk konsistensi, kita gunakan awalan  `tbl:` untuk tabel, dan `sec:` untuk bab atau sub-bab.
-
+Pengungkapan rujukan (misalnya fig. 1) dapat diubah dalam `pandoc-crossref.yaml` pada variabel `figPrefix`.
+Berbagai pengaturan dalam `crossref` dapat diperiksa pada halaman [panduan utama](https://lierdakil.github.io/pandoc-crossref/).
 
 # Fitur yang disediakan pubsEngine
 
-
-
-The enhancements provided by pubsEngine spans on various aspects.
-Most parts of this are expressed in terms of CodeBlocks.
+Berbagai fitur tambahan yang disediakan oleh `pubsEngine` merentang pada beberapa aspek yang terkait dengan pemrosesan di luar sistem.
+Sebagian besar fitur tersebut ditampilkan sebagai `CodeBlock` dengan jenis kelas tertentu.
 
 ## Table
 
-pubsEngine provides its table capability outside the defaults available in Pandoc.
-Under the table, pubsEngine will use MultiMarkdown to process its table.
-We can create Table \ref{tbl:multi} using the following template:
+Fitur ini merupakan peningkatan dari fitur dasar yang telah ada dalam spesifikasi dasar `Markdown` dari `Pandoc`.
+`pubsEngine` memasukkan kapabilitas `MultiMarkdown` untuk memproses tabel ini.
+Kita dapat membuat [@tbl:multi] dengan menggunakan:
 
 ```
 ~~~{.multiTable #tbl:multi}
@@ -377,9 +377,8 @@ We can create Table \ref{tbl:multi} using the following template:
 [More complicated table can be done using MultiMarkdown in `.multiTable` CodeBlock. You have to use this format for all table as default.]
 ~~~
 
-Currently, we cannot create full width two-columns table automatically using above default syntax.
-For the moment, we should use a complete \latex syntax to fulfill this.
-The detailed syntax for this purpose will be shown in the Appendix.
+Untuk saat ini, tabel yang merentang seluruh lebar halaman dalam tatanan dikolom harus dibuat dengan menggunakan perintah \latex.
+Detil perintah ini akan disampaikan dalam Lampiran.
 
 <!--
 We use `\begin{table*}` for full screen table as follows Table \ref{KapSou}.
@@ -409,17 +408,17 @@ Lp. & Miejscowość
 -->
 
 
-## Include .md Files
+## Memasukkan berkas .md tambahan
 
-We can create a rather decent categorical separation of our documents by dividing the .md files and gather them using includes.
-Extension of `.md` should be omitted, for it will be appended by pubsEngine.
+Untuk memudahkan penataan dokumen, kita dapat membagi dokumen `.md` utama menjadi beberapa berkas, dan menggabungkannya dengan menggunakan `include`.
+Akhiran berkas `.md` harus dihilangkan sebab akan secara otomatis ditambahkan oleh `pubsEngine`.
 
 ```
 ~~~include
 include/addition1
 ~~~
 
-or for single file:
+atau untuk satu berkas:
 
 [@include:include/addition1]
 ```
@@ -431,18 +430,21 @@ include/addition1
 
 [@include:include/addition1]
 
-Above two identical paragraphs were coming from `include/addition1.md`.
 
-## Arabic transliteration
+Kedua paragraf identik di atas dimasukkan secara otomatis dari berkas `include/addition1.md`.
 
-Arabic transliteration utilizes a \latex package [`Nusantara`](https://github.com/hasanalrasyid/Nusantara).
-It was a derivation of `arabxetex` package.
-This package provides an arabic transliteration based on traditional convention that proliferates in Indonesia (Nusantara archipelago, hence its name).
-This package also provide a simple and experimental implementation of _imla'_ for character _hamzah_ `.nu "a` , namely standalone hamza  `.nu "a` , hamza above alif _kursiy_  `.nu "A` , hamza under alif _kursiy_  `.nu "i` , hamza with another _kursiy_ of ya or waw  `.nu "w / "y` , and hamza _washl_  `.nu _a / ~a` .
-The inclusion of arabic text should follow one of two schemes.
-First is as an inline in a text/paragraphs.
-In this scenario, we use `[.nu]` class, for example: ``[.nu rabbi fa-_infa`naa bibarkatihim]`` will produce ``.nu rabbi fa-_infa`naa bibarkatihim``.
-Another scenario requires `~~~nusantara` CodeBlock class. Following this example:
+## Transliterasi bahasa Arab
+
+Transliterasi bahasa Arab menggunakan modul [`Nusantara`](https://github.com/hasanalrasyid/Nusantara) dari \latex.
+Modul ini perupakan penurunan dari modul `arabxetex` dan `arabluatex`.
+Module `Nusantara` menyediakan transliterasi bahasa Arab yang dilandaskan pada tradisi yang berkembang di Indonesia (kepulauan Nusantara, sesuai nama modul).
+Modul ini juga menyediakan implementasi eksperimental sederhana untuk _imla'_ bagi huruf _hamzah_ `.nu "a`.
+Implementasi tersebut meliputi _hamzah_ yang berdiri sendiri `.nu "a`, _hamzah_ di atas kursi alif `.nu "A`, _hamzah_ di bawah kursi alif `.nu "i`, _hamzah_ pada kursi ya dan wau `.nu "w / "y`, dan _hamzah_ _washol_ `.nu _a / ~a`.
+
+Untuk menuliskan text arab, kita dapat memilih salah satu dari dua cara.
+Cara pertama adalah sebagai *inline* dalam teks/paragraf.
+Dalam skenario ini, kita menggunakan jenis kelas `[.nu]` sebagaimana dalam `[.nu rabbi fa-_infanaa bibarkatihim]` yang akan menghasilkan `.nu rabbi fa-_infanaa bibarkatihim`.
+Cara berikutnya adalah dengan jenis kelas `~~~nusantara` dalam contoh sebagai berikut:
 
 ```
 ~~~nusantara
@@ -465,31 +467,32 @@ wa `alaY aaalihi wa sha_hbihi wa al-taabi`iina lahum fiY al-_husnaY wa ziyaada:t
 
 ## Diagrams
 
-We can include a diagram script, following an Embedded domain-specific Language from Haskell package [`diagrams`](https://hackage.haskell.org/package/diagrams).
-The implementation of following CodeBlock can be seen at Figure \ref{fig:dia1}.
-Please be aware that the `size` will be considered as a multiplier from `\linewidth`.
+Skrip program `Diagram` yang sesuai dengan `Embedded Domain-spesific Language (EDSL)` dari modul Haskell [`diagrams`](https://hackage.haskell.org/package/diagrams) dapat dimasukkan dengan jenis kelas `[.diagram]`.
+Implementasi fitur ini dapat dilihat pada [@fig:dia1].
+Perlu diperhatikan pula bahwa dalam hal ini, aturan ukuran `size` tetap sesuai dengan aturan dalam gambar biasa.
 
 ```
-~~~{#fig:dia1 .diagram size=0.4 caption="dia"}
+~~~{#fig:dia1 .diagram size=0.4 caption="dari Diagrams"}
 let x = circle 10
  in x
 ~~~
 ```
 
-~~~{#fig:dia1 .diagram size=0.4 caption="from Diagrams"}
+~~~{#fig:dia1 .diagram size=0.4 caption="dari Diagrams"}
 let t = circle 10
  in t
 ~~~
 
-## Running a subcommand
+## Menjalankan perintah eksternal
 
-Currently, subcommand only valid for Python script.
-There are two possible class available for this subcommand.
+~~Saat ini, perintah eksternal yang dikenali hanya Python~~.
+Secara umum, jenis kelas yang digunakan adalah `[.script]`, kemudian secara berurutan diikuti dengan jenis kelas program delegasi (`.py` untuk `Python`).
+Keluaran perintah yang kita harapkan akan diindikasikan selanjutnya.
+Terdapat tiga pilihan untuk keluaran yang diharapkan, `.img` untuk gambar, `.md` untuk teks `Markdown`, dan `.lib` untuk library/modul.
+Terkhusus untuk library/modul, keluaran ini tidak akan menampilkan material apapun dalam dokumen.
+Untuk mengurangi pengulangan penulisan kode, kita dapat menyimpan fungsi tertentu sebagai library untuk kemudian disimpan dalam `_build/temp/lib` dan dapat diakses oleh seluruh blok program terkait dalam bahasa tersebut di seluruh dokumen.
 
-To make this document can stands on its own and to remove repetitive codes, we can also include a python library inside `_build/temp/lib` directory.
-All script above, will include all files mentioned inside `_build/temp/lib`.
-Furthermore, the `_build/temp/lib` will be populated by CodeBlock with `.lib` class.
-This is an example of the block:
+Berikut adalah contoh dari blok library:
 
 ```
 ~~~{.script .py .lib #fig:py}
@@ -499,12 +502,14 @@ print("this is new block")
 ~~~
 ```
 
-We can choose the representation of this block inside the pdf output by providing `description` variable.
-When there is no `description`, then this `lib` CodeBlock will be considered as a *hidden library*.
-It will be included inside every script, but there will never be any indication shown inside the pdf result.
-Please be aware that any code below `description` line will be neglected by the parser.
-We expect the description should be enough for single paragraph.
-This would remove the requirement for multiline description of a markdown code.
+Dalam keadaan biasa, `CodeBlock` ini tidak akan muncul dalam dokumen PDF atau \latex yang dihasilkan.
+Kita dapat memilih untuk menampilkan satu baris deskripsi singkat bagi library ini dengan menambahkan variabel `description`.
+Jika variabel ini tiada, maka blok ini akan dianggap sebagai *hidden-library*.
+Blok ini akan tetap dapat diakses dari seluruh script, tapi tidak ada indikasi yang menunjukkan adanya library ini dalam dokumen PDF yang dihasilkan.
+Perlakuan yang lebih lengkap dapat dilakukan dengan menambahkan jenis kelas `.show`.
+
+
+
 More verbose treatment can be done by adding `.show` class indicator.
 With this indication, the script will be shown as a CodeBlock, and followed by the description.
 The following CodeBlock was produced using the headings of `~~~{.script .py .lib .show file="libPy1"}`.

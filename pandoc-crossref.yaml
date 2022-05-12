@@ -1,3 +1,5 @@
 cref: true
 figureTemplate: "$$t$$"
 tableTemplate: "$$t$$"
+figPrefix: "Gambar."
+tblPrefix: "Tabel."
