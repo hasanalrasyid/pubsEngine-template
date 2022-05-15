@@ -31,6 +31,9 @@ affiliation:
     description: "corresponding.author@email.example"
   - id: +
     description: "these authors contributed equally to this work"
+book:
+  publisher: "Great Publisher"
+  firstprinted: "May 2022"
 thesis:
   degree: "Doctor of Philosophy"
   univ:
@@ -49,7 +52,7 @@ thesis:
     name: "My Best Supervisor"
     url: "http://thegreatsupervisor.ac.jp"
   quotation: "include/quotation"
-  dedicatory: "include/dedicatory"
+dedicatory: "include/dedicatory"
 collaborator:
   theme: "AAS Journal Data Editors"
   person:
@@ -93,6 +96,8 @@ link-directory:
   - Output
 graphicspath:
   - Figure
+  - examples/documentation/images
+  - images
 software: "astropy \\citep{2013A&A...558A..33A,2018AJ....156..123A}, Cloudy \\citep{2013RMxAA..49..137F}, Source Extractor \\citep{1996A&AS..117..393B}"
 facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
 header-includes: |
@@ -100,7 +105,6 @@ header-includes: |
   \usepackage{xspace}
   \usepackage{chemfig}
   \usepackage{amsmath}
-  \usepackage{graphicx}
   \newcommand\mC[1]{\multicolumn{1}{c}{#1}}
   \newcommand{\vdag}{(v)^\dagger}
   \newcommand\aastex{AAS\TeX}

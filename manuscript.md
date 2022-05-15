@@ -38,6 +38,29 @@ software: "astropy [@2013A&A...558A..33A,2018AJ....156..123A], Cloudy [@2013RMxA
 facilities: "HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m, CTIO:1.5m, CXO"
 ---
 
+:::{.var .disclaimer}
+You can edit this page to suit your needs. For instance, here we have a no copyright statement, a colophon and some other information. This page is based on the corresponding page of Ken Arroyo Ohori's thesis, with minimal changes.
+:::
+
+:::{.var .copyright}
+**No copyright**
+
+\cczero\ This book is released into the public domain using the CC0 code. To the extent possible under law, I waive all copyright and related or neighbouring rights to this work.
+%
+To view a copy of the CC0 code, visit: (http://creativecommons.org/publicdomain/zero/1.0/)
+:::
+
+:::{.var .colophon}
+This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
+
+The source code of this book is available at:\\\url{https://github.com/hasanalrasyid/pubsEngine-template}
+
+(You are welcome to contribute!)
+:::
+
+:::{.var .preface}
+:::
+
 :::{.abstract}
   Dokumen ini merupakan sebuah panduan, merangkap contoh nyata untuk digunakan penulis dalam membuat dokumen memakai pubsEngine.
   Dokumen ini diturunkan dari contoh yang disediakan jurnal \aastex.
@@ -66,7 +89,7 @@ Di lain pihak, kita punya pilihan pendekatan plain-text.
 Dalam pendekatan ini, seorang penulis menyusun suatu file teks yang bukan hanya berisikan substansi tulisan, namun juga teks tambahan yang mengindikasikan sifat editorial dokumen cetak yang diharapkan.
 Selanjutnya, teks ini dijadikan sebagai input suatu program pemrosesan untuk menghasilkan dokumen siap cetak (PDF atau DVI).
 Pengembangan *open-source* dalam paradigma ini diwakili oleh \latex.
-`pubsEngine` mengambil peran dalam pendekatan yang kedua, *plain-text*.
+`pubsEngine` mengambil peran dalam pendekatan yang kedua, *plain-text*.[@sidenote  `pubsEngine` juga dikembangkan secara *open-source*, sehingga kontribusi sekecil apapun akan sangat diapresiasi.]
 
 Secara umum, seorang penulis melakukan dua sifat kerja yang berbeda dalam menyusun suatu makalah. Sifat kerja yang pertama adalah kerja substantif. Dalam kerja substantif, seorang penulis melakukan proses penggubahan suatu karya tulis, dari tiada menjadi ada.
 Dalam kerja substansial, umumnya penulis menguasai penuh materi yang akan dituangkan dalam tulisan.
@@ -88,6 +111,8 @@ Di lain pihak, kompleksitas ini berakibat pada kemunculan rasa berat para penuli
 Harapan pengembangan `pubsEngine`, para penulis dapat segera menceburkan diri ke dalam proses produksi substantif, dan meminimalkan waktu yang diperlukan dalam proses editorial.
 Selain itu, `pubsEngine` berusaha semaksimal mungkin memisahkan bagian editorial dan bagian substantif dari makalah yang dihasilkan.
 
+# The Giants {.partition}
+
 # Markdown
 
 `pubsEngine` menggunakan berkas teks berformat `Markdown` sebagai masukan yang kemudian selanjutnya akan diproses menjadi keluaran dokumen \latex (`.tex`) atau presentasi web (`RevealJS`).
@@ -99,7 +124,7 @@ Umumnya file `Markdown` berakhiran `.md`, misal `manuscript.md`.
 Secara umum, suatu teks `Markdown` dapat kita bagi menjadi:
 
 1. `Meta`: Bagian ini berisi hal-hal yang umumnya merupakan bagian editorial. `Meta` berada di bagian teks paling awal, dan diapit diantara baris yang berisi `---`. Umumnya berbentuk deklarasi variabel, misalnya `bibzotero: pubsEngine`. Format meta yang dipakai adalah `Yaml`. `Meta` dapat tersimpan dalam file yang berbeda, untuk dokumen ini misalnya tersimpan dalam file `manuscript.yaml`. Jika terdapat dua variabel terdefinisikan dalam `manuscript.yaml` dan dalam dokumen utama ini (`manuscript.md`), maka definisi pada dokumen utama menjadi prioritas.
-2. `Inti`: Bagian ini sebagian besar berisi substansi. Perintah-perintah editorial di bagian ini sering kali muncul hanya karena benar-benar diperlukan dan tiada cara lain, misalnya *emphasis*, dan **cetak tebal**. Kita dapat membagi bagian ini menjadi beberapa `Block` yang dipisahkan oleh satu baris kosong. Beberapa Block yang dapat kita kenali antara lain `Paragraph, CodeBlock, RawBlock, OrderedList, Header, BulletList, Table, Div`. Di dalam setiap Block, sering kita temukan satu atau lebih `Inlines` yang dapat berupa `String (teks), Emphasis, Underline, Strong, Strikeout, Superscript, Subscript, Cite, RawInline, Code, Math, Link, Image, Note`.
+2. `Inti`: Bagian ini sebagian besar berisi substansi. Perintah-perintah editorial di bagian ini sering kali muncul hanya karena benar-benar diperlukan dan tiada cara lain, misalnya *emphasis*, dan **cetak tebal**. Kita dapat membagi bagian ini menjadi beberapa `Block` yang dipisahkan oleh satu baris kosong. Beberapa Block yang dapat kita kenali antara lain `Paragraph`, `CodeBlock`, `RawBlock`, `OrderedList`, `Header`, `BulletList`, `Table`, `Div`. Di dalam setiap Block, sering kita temukan satu atau lebih `Inlines` yang dapat berupa `String (teks)`, `Emphasis`, `Underline`, `Strong`, `Strikeout`, `Superscript`, `Subscript`, `Cite`, `RawInline`, `Code`, `Math`, `Link`, `Image`, `Note`.
 
 Pada bab ini, kami akan sajikan beberapa perintah umum dalam `Markdown` yang menyusun bagian `Inti`.
 
@@ -140,7 +165,9 @@ main = putStrLn "we are one"
 
 Suatu paragraf yang terbaca oleh `Pandoc` sebagai blok \latex.
 Ini berarti, blok ini akan dituliskan apa adanya dalam berkas `.tex` final.
-Blok ini cukup dinyatakan dengan *environment* \latex dalam bentuk `\begin{xxx}...\end{xxx}`.
+Blok ini cukup dinyatakan dengan *environment* \latex dalam bentuk:
+
+`\begin{xxx}...\end{xxx}`
 
 ## OrderedList
 
@@ -801,6 +828,128 @@ Lingkungan gambar semacam ini belum bisa disajikan secara sederhana dalam `pubsE
            \label{fig:FigGam}%
  \end{figure*}
 
+# Fitur Khusus bagi Setiap Tipe Keluaran {.partition}
+
+# Keluaran tipe Buku (`Book`) {image=seaside height=7.5cm}
+
+Keluaran tipe ini didasarkan pada template \latex yang dikenal sebagai [`kaobook`](https://github.com/fmarotta/kaobook).
+Beberapa fitur yang telah diaktifkan antara lain:
+
+Penambahan partisi halaman dengan menggunakan Judul tingkat 1 dengan jenis kelas `.partition`, sebagai contoh: `# Fitur Khusus bagi Setiap Tipe Keluaran {.partition style=kao}`.
+
+Pemilihan tipe *layout* kepala Judul Bab tingkat 1 melalui variabel `style`.
+Tipe yang tersedia antara lain `plain`, `kao`, `bar`, `lines`. Secara *default*, tipe yang terpilih adalah `kao`.
+
+Penambahan gambar pada kepala Judul Bab tingkat 1 bisa dilakukan dengan menambahkan variabel `image`, misalnya `# Keluaran tipe Buku {image=seaside}`.
+Gambar ini selalu merentang lebar halaman dan memiliki ketinggian sesuai variabel `height`, atau mengikuti standar `7.5cm`.
+Penambahan gambar akan memaksa layout judul Bab menjadi `bar`.
+
+Penggunaan sidenote[-0.5em @sidenote Sidenote ini akan berubah menjadi catatan kaki biasa pada tipe keluaran selain `book`]. Catatan samping ini dapat digeser ke atas atau ke bawah dengan menambahkan ukuran standard \latex di awal kode (`em`,`pt`, dsb.). Berikut adalah contoh dengan pergeseran ke atas sebesar `0.5em`: `[-0.5em @sidenote Sidenote ini akan ...]`
+
+Penggunaan marginnote untuk sidenote yang tidak perlu penomoran[@marginnote Ini adalah marginnote yang tak perlu penomoran, perilakunya mirip dengan sidenote.].
+Mirip sidenote, di sini juga berlaku aturan penggeseran vertikal.
+Untuk marginnote tanpa pergeseran, kita bisa tuliskan `[@marginnote Ini adalah ...]`
+
+| Dalam keluaran Buku ini, diperkenalkan pula bentuk kotak keterangan dengan menggunakan Div berjenis kelas
+| `:::{.kaobox title="Implementasi KaoBox"}`.
+
+:::{.kaobox title="Implementasi KaoBox"}
+Ini adalah contoh implementasi untuk kaobox.
+Kita bisa tampilkan kotak ini sebagai paragraf dengan banyak kalimat.
+
+Kita juga bisa memasukkan beberapa paragraf ke dalam kotak ini.
+
+$$
+x^2 + y^2 = r^2
+$$
+
+Tidak kalah penting, kita juga bisa memasukkan persamaan matematika.
+Meski demikian, akan lebih baik jika kita menggunakan fasilitas lain yang lebih tepat untuk persamaan matematika pada pembahasan tentang Kotak Matematika.
+:::
+
+## Kotak Matematika
+
+Mengingat bahwa terdapat berbagai jenis deklarasi dalam suatu dokumen matematika, maka layak kiranya deklarasi ini dikhususkan dalam satu jenis kelas tertentu (`.math`).
+Di dalam jenis kelas `.math`, kita dapat bagi lagi menjadi beberapa jenis deklarasi, antara lain:
+`definition`, `theorem`, `proposition`, `lemma`, `corollary`, `proof`, `example`, `remark`, dan `exercise`.
+Salah satu contoh penggunaannya adalah dengan memakai Div seperti `:::{.math .theorem}`.
+Berikut adalah berbagai contoh kotak matematika.
+
+:::{.math .definition #ref-math:def1}
+\labdef{def1}
+Let $(X, d)$ be a metric space. A subset $U \subset X$ is an open set
+if, for any $x \in U$ there exists $r > 0$ such that $B(x, r) \subset
+U$. We call the topology associated to d the set $\tau\textsubscript{d}$
+of all the open subsets of $(X, d).$
+:::
+
+Kita dapat merujuk [@math:def1] dengan cara `[@math:def1]`.
+Rujukan ini tentu akan kita lakukan di dalam paragraf.
+
+:::{.math .theorem}
+A finite intersection of open sets of (X, d) is an open set of (X, d),
+i.e $\tau\textsubscript{d}$ is closed under finite intersections. Any
+union of open sets of (X, d) is an open set of (X, d).
+:::
+
+:::{.math .proposition}
+A finite intersection of open sets of (X, d) is an open set of (X, d),
+i.e $\tau\textsubscript{d}$ is closed under finite intersections. Any
+union of open sets of (X, d) is an open set of (X, d).
+[@marginnote You can even insert notes inside the theorem
+environments; they will be displayed at the bottom of the box.]
+:::
+
+:::{.math .lemma}
+A finite intersection\footnote{I'm a footnote} of open sets of (X, d) is
+an open set of (X, d), i.e $\tau\textsubscript{d}$ is closed under
+finite intersections. Any union of open sets of (X, d) is an open set of
+(X, d).
+:::
+
+:::{.math .corollary title="Finite Intersection, Countable Union"}
+A finite intersection of open sets of (X, d) is an open set of (X, d),
+i.e $\tau\textsubscript{d}$ is closed under finite intersections. Any
+union of open sets of (X, d) is an open set of (X, d).
+:::
+
+:::{.math .proof}
+The proof is left to the reader as a trivial exercise. Hint: \blindtext
+:::
+
+Jika kita ingin memiliki marginnote dalam bentuk paragraf, maka kita perlu menyimpan marginnote tersebut dalam suatu jenis kelas Div semacam `:::{.marginnote offset=-0.5em}`.
+
+:::{.marginnote}
+Here is a random equation, just because we can:
+
+\begin{equation*}
+  x = a_0 + \cfrac{1}{a_1
+          + \cfrac{1}{a_2
+          + \cfrac{1}{a_3 + \cfrac{1}{a_4} } } }
+\end{equation*}
+:::
+
+:::{.math .example}
+Let $(X, d)$ be a metric space. A subset $U \subset X$ is an open set
+if, for any $x \in U$ there exists $r > 0$ such that $B(x, r) \subset
+U$. We call the topology associated to d the set $\tau\textsubscript{d}$
+of all the open subsets of $(X, d).$
+:::
+
+:::{.math .remark}
+Let $(X, d)$ be a metric space. A subset $U \subset X$ is an open set
+if, for any $x \in U$ there exists $r > 0$ such that $B(x, r) \subset
+U$. We call the topology associated to d the set $\tau\textsubscript{d}$
+of all the open subsets of $(X, d).$
+:::
+
+:::{.math .exercise}
+Prove (or disprove) the Riemann hypothesis.
+:::
+
+# Keluaran tipe Thesis
+
+Beberapa hal khusus dalam keluaran tipe Thesis
 
 :::{.acknowledgements}
 
