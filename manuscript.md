@@ -58,7 +58,29 @@ The source code of this book is available at:\\\url{https://github.com/hasanalra
 (You are welcome to contribute!)
 :::
 
-:::{.var .preface}
+:::{.preface title="Kata Pengantar"}
+Dalam perjalanan hidup seorang penulis, setidaknya sekali pasti pernah terbersit keinginan untuk bisa menulis ide tanpa perlu berbagai pengetahuan tambahan terkait *typesetting*.
+Bukan hanya \latex, hal ini juga berlaku untuk program penulisan dokumen yang menganut paradigma *What You See is What You Get* sekalipun.
+Kondisi yang agak ironis, mengingat *WYSWYG* disusun dalam rangka mengurangi syarat pengetahuan mengenai *typesetting*.
+Berapa banyak dalam hidup kita yang mampu mengingat tombol mana dulu yang perlu di-klik untuk dapat mengubah bentuk awalan bab suatu judul dari *Chapter x* menjadi *Bab x*, apatah urutan yang perlu dilakukan dari klik-pertama hingga klik-terakhir.
+Saya pribadi merasa kerja *typesetting* adalah suatu kerja yang tak terpisahkan dari proses produksi suatu manuskrip.
+Meski demikian, tak dapat dipungkiri bahwa pengetahuan mengenai *typesetting*, baik itu \latex maupun program lain, sebagai pengetahuan yang tidak berkaitan langsung dengan *passion* yang kita dalami.
+Ini yang mendasari keinginan kami untuk menyusun program *pubsEngine*.
+Semoga semangat kami dalam upaya memisahkan setegas mungkin antara kerja *typesetting* dan kerja substantif akan dapat mencapai para penulis dalam menulis suatu substansi dengan lebih lancar dan memuaskan.
+
+Bagian pertama dari buku ini mengetengahkan perkenalan terhadap dua sistem utama yang menjadi pondasi bagi `pubsEngine`, yaitu `Markdown` dan `Pandoc`.
+Bagian kedua mengetengahkan beberapa fitur yang disediakan oleh `pubsEngine`.
+Bagian terakhir menyajikan hal-hal khusus yang hanya terkait dengan tipe keluaran yang dihasilkan `pubsEngine`.
+
+Program ini kami susun sebagai sebuah prototype atas sebuah ide.
+Oleh sebab itu, kami berharap agar para penulis menggunakannya sebagai sebuah prototype pula.
+Dalam wujudnya sebagai prototype, kita akan menemukan berbagai khilaf, *bug*, dan kekurangan yang tak dapat dipandang sebagai penera kualitas.
+Seyogyanya, mengingat sifat pengembangan `pubsEngine` yang *open-source*, kami berharap berbagai kekurangan tersebut dapat menjadi media bagi jalinan interaksi silaturahim antara kami dan penulis dalam kesetaraan kolaborasi pengembangan perangkat lunak.
+Tak lepas pula harapan kami agar `pubsEngine` dapat menjadi ajang bagi kita untuk mengembangkan lingkungan *open-source* yang luhur dan bermartabat di negeri tercinta, Indonesia.
+
+\begin{flushright}
+        \textit{Hasan al-Rasyid}
+\end{flushright}
 :::
 
 :::{.abstract}
@@ -95,7 +117,7 @@ Secara umum, seorang penulis melakukan dua sifat kerja yang berbeda dalam menyus
 Dalam kerja substansial, umumnya penulis menguasai penuh materi yang akan dituangkan dalam tulisan.
 Sifat kerja kedua adalah kerja editorial.
 Kerja editorial hampir sama sekali tidak berhubungan dengan kerja substantif.
-Termasuk dalam kerja editorial adalah penentuan jenis huruf, proses penentuan lebar batas halaman, penentuan ukuran spasi, penentuan jenis penekanan dalam teks ( *miring*, **tebal**, ***tebal dan miring***, [garis bawah]{.underline}, `verbatim`, ~~garis tengah~~, superscript x^2^, underscript H~2~O,  dsb.), penyusunan layout halaman, penyusunan seluruh struktur manuskrip dari sampul depan hingga belakang, dst.
+Termasuk dalam kerja editorial adalah penentuan jenis huruf, proses penentuan lebar batas halaman, penentuan ukuran spasi, penentuan jenis penekanan dalam teks ( *miring*, **tebal**, ***tebal dan miring***, [garis bawah]{.underline}, `verbatim`, ~~garis tengah~~, superscript x^2^, underscript H~2~O, dan lain sebagainya), penyusunan layout halaman, penyusunan seluruh struktur manuskrip dari sampul depan hingga belakang, dst.
 
 Dua paradigma perangkat lunak, WYSWYG dan plain-text, mendekati kerja editorial dengan cara yang berbeda.
 Dalam WYSWYG, kerja editorial tercermin dalam langkah-langkah `klik kanan/kiri`, `drag-drop`, membuka menu/jendela pilihan dan pengaturan, dsb.
@@ -352,7 +374,7 @@ Paragraf ini ada diluar catatan kaki.
 
 
 
-# Fitur Pandoc
+# Pandoc
 
 Ada beberapa fitur tambahan yang dikembangkan sebagai modul/filter `Pandoc`.
 Fitur tersebut memperkaya fitur dasar yang telah ada dalam `Markdown`.
@@ -375,6 +397,9 @@ Sebagai contoh, rujukan pada [@fig:FigVibStabX] dinyatakan dengan `[@fig:FigVibS
 Untuk konsistensi, kita gunakan awalan  `tbl:` untuk tabel, dan `sec:` untuk bab atau sub-bab.
 Pengungkapan rujukan (misalnya fig. 1) dapat diubah dalam `pandoc-crossref.yaml` pada variabel `figPrefix`.
 Berbagai pengaturan dalam `crossref` dapat diperiksa pada halaman [panduan utama](https://lierdakil.github.io/pandoc-crossref/).
+
+
+# pubsEngine {.partition}
 
 # Fitur pubsEngine
 
@@ -828,7 +853,7 @@ Lingkungan gambar semacam ini belum bisa disajikan secara sederhana dalam `pubsE
            \label{fig:FigGam}%
  \end{figure*}
 
-# Fitur Khusus bagi Setiap Tipe Keluaran {.partition}
+# Fitur Khusus bagi Setiap Jenis Keluaran {.partition}
 
 # Keluaran tipe Buku (`Book`) {image=seaside height=7.5cm}
 
@@ -866,6 +891,9 @@ $$
 Tidak kalah penting, kita juga bisa memasukkan persamaan matematika.
 Meski demikian, akan lebih baik jika kita menggunakan fasilitas lain yang lebih tepat untuk persamaan matematika pada pembahasan tentang Kotak Matematika.
 :::
+
+Bab `Preface` adalah bab khusus dalam suatu buku yang biasanya muncul sebelum Daftar Isi.
+Kita bisa memasukkan bab pengantar ini dengan menambahkan Div `:::{.preface title="Pengantar"}`.
 
 ## Kotak Matematika
 
