@@ -58,6 +58,13 @@ The source code of this book is available at:\\\url{https://github.com/hasanalra
 (You are welcome to contribute!)
 :::
 
+:::{.dedicatory}
+
+[@nu law kaana baynanaa al-_habiibi * ladanaa al-qaashiY wal-qariibi]
+[@nu min thayyiba:ti qabla al-maghiibi * thaalibaN qurba al-_habiibi]
+
+:::
+
 :::{.preface title="Kata Pengantar"}
 Dalam perjalanan hidup seorang penulis, setidaknya sekali pasti pernah terbersit keinginan untuk bisa menulis ide tanpa perlu berbagai pengetahuan tambahan terkait *typesetting*.
 Bukan hanya \latex, hal ini juga berlaku untuk program penulisan dokumen yang menganut paradigma *What You See is What You Get* sekalipun.
@@ -330,12 +337,6 @@ Tulisan `Duck Duck Go` tersebut dalam berkas PDF menyimpan alamat website `https
 
 ![Contoh gambar](Figure/icml_numpapers.eps){#fig:FigVibStabX size=0.5}
 
-Kita dapat menambahkan atribut sesuai dengan aturan yang telah dijelaskan dalam pembahasan `CodeBlock`.
-Nilai `size` dalam hal ini adalah lebar gambar sebagai pengali dari `\linewidth` (lebar baris dalam \latex).
-Pastikan ukuran gambar yang akan dimasukkan sudah sesuai dengan ukuran halaman cetak.
-Gambar yang merentang seluruh lebar halaman dalam tatanan dikolom, dan pembahasan mengenai ukuran gambar secara lebih detil akan dibahas pada bab Fitur pubsEngine.
-Rujukan pada gambar akan dibahas pada bagian berikutnya mengenai Rujukan.
-
 ### Note (Catatan kaki)
 
 Kita dapat tambahkan suatu catatan kaki dengan perintah `[^1]` atau `[^bignote]`.
@@ -405,6 +406,17 @@ Berbagai pengaturan dalam `crossref` dapat diperiksa pada halaman [panduan utama
 
 Berbagai fitur tambahan yang disediakan oleh `pubsEngine` merentang pada beberapa aspek yang terkait dengan pemrosesan di luar sistem.
 Sebagian besar fitur tersebut ditampilkan sebagai `CodeBlock` dengan jenis kelas tertentu.
+
+## Gambar
+
+Kita dapat menambahkan atribut sesuai dengan aturan yang telah dijelaskan dalam pembahasan `CodeBlock`.
+Nilai `size` dalam hal ini adalah lebar gambar sebagai pengali dari `\linewidth` (lebar baris dalam \latex).
+Pastikan ukuran gambar yang akan dimasukkan sudah sesuai dengan ukuran halaman cetak.
+Kita bisa menambahkan jenis kelas `.fullwidth` jika kita ingin agar gambar kita mengisi ruang penuh pada seluruh lebar halaman.
+Jenis kelas ini mengindikasikan bahwa gambar kita akan berada dalam lingkungan `\begin{figure*}`.
+Rujukan pada gambar akan dibahas pada bagian berikutnya mengenai Rujukan.
+
+![Gambar ini akan merentang halaman penuh mendatar.](icml_numpapers){.fullwidth #fig:fullWidth size=0.6}
 
 ## Tabel
 
@@ -837,21 +849,6 @@ Direktori ini dapat juga langsung dipakai untuk disajikan dalam *web-server*.
 `Pandoc` dapat memahami seluruh perintah \latex apa adanya tanpa pengubahan apapun.
 Kebebasan ini memungkinkan penulis untuk memasukkan fitur-fitur \latex langsung ke dalam dokumen jika fitur tersebut tidak dapat disajikan melalui `pubsEngine`.
 
-Sebagai contoh, gambar \cref{fig:FigGam} adalah gambar yang disajikan dengan lingkungan `\begin{figure*}`.
-Lingkungan gambar semacam ini belum bisa disajikan secara sederhana dalam `pubsEngine`.
-
-<!-- we need figure* for make it full screen, so it must be in latex code as follows
--->
-
-\begin{figure*}
-\centering
-\includegraphics[keepaspectratio=true,width=0.5\linewidth]{Figure/icml_numpapers.eps}
-\caption{Adiabatic exponent $\Gamma_1$.
-            $\Gamma_1$ is plotted as a function of
-            $\lg$ internal energy $\mathrm{[erg\,g^{-1}]}$ and $\lg$
-            density $\mathrm{[g\,cm^{-3}]}$.}
-           \label{fig:FigGam}%
- \end{figure*}
 
 # Fitur Khusus bagi Setiap Jenis Keluaran {.partition}
 
